@@ -4,10 +4,12 @@
   padding: 0px;
 }
 
-/* .header-text {
+.header-text {
   padding: 0px;
-  font-size: medium;
-} */
+/*   font-size: medium; */
+  color:black;
+  text-align:center;
+}
 
 body {
   font-family: arial;
@@ -24,9 +26,7 @@ body {
 .header-top {
     /*border:2px solid black;*/
     width:15%;
-    text-align:center;
     background-color:rgb(145, 219, 166);
-    color:black;
 }
 .header-table {
     border-collapse:collapse;
