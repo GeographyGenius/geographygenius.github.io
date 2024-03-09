@@ -1,7 +1,37 @@
 <!DOCTYPE html>
 <head>
     <title>Navigation Bar Reference</title>
-    <link rel="stylesheet" href="/css/styles.css"
+<!--     <link rel="stylesheet" href="/css/styles.css" -->
+    <style>
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-family:arial;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: #111;
+        }
+        
+        .active {
+          background-color: #04AA6D;
+        }
+    </style>
 </head>
 
 <body>
@@ -9,7 +39,7 @@
 <script src="/js/main.js"></script>
 
 <!-- header -->
-<div class="header">
+<!-- <div class="header">
 <a href="/"><img src="/images/logo.png" style="padding:5px;float:left;"></a>
 <table class="header-table">
     <tr>
@@ -19,11 +49,19 @@
         <td class="header-bottom" onclick="goToUrl('/geography/asia')">Asia</td>
         <td class="header-bottom" onclick="goToUrl('/geography/oceania')">Oceania</td>
     </tr>
-</table>
+</table> -->
 <br>
 <br>
 <hr>
 </div>
 <!-- end header -->
 
+<ul>
+    <li><a href="/geography/america"</a>America</li>
+    <li><a href="/geography/africa"</a>Africa</li>
+    <li><a href="/geography/europe"</a>Europe</li>
+    <li><a href="/geography/asia"</a>Asia</li>
+    <li><a href="/geography/oceania"</a>Oceania</li>
+</ul>
+    
 </body>
