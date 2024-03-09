@@ -4,6 +4,11 @@
   padding: 0px;
 }
 
+.header-text {
+  padding: 0px;
+  font-size: medium;
+}
+
 body {
   font-family: arial;
 }
