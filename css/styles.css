@@ -19,11 +19,23 @@ body {
 .header-bottom {
     /*border:2px solid black;*/
     width:15%;
-    height:50px;
+    height:40px;
     text-align:center;
     background-color:rgb(100, 130, 96);
     color:white;
+	transition:0.5s;
 }
+
+.header-bottom:hover {
+    /*border:2px solid black;*/
+    width:15%;
+    height:40px;
+    text-align:center;
+    background-color:rgb(121, 173, 114);
+    color:white;
+	transition:0.5s;
+}
+
 .header-top {
     /*border:2px solid black;*/
     width:15%;
