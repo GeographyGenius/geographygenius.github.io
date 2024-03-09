@@ -7,7 +7,7 @@
 .header-text {
   padding: 0px;
 /*   font-size: medium; */
-  color:black;
+  color:white;
   text-align:center;
 }
 
@@ -18,7 +18,7 @@ body {
 .header-bottom {
     /*border:2px solid black;*/
     width:15%;
-    height:40px;
+    height:50px;
     text-align:center;
     background-color:rgb(100, 130, 96);
     color:white;
