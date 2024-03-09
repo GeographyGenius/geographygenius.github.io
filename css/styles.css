@@ -4,11 +4,31 @@
   padding: 0px;
 }
 
-.header-text {
+/* .header-text {
   padding: 0px;
   font-size: medium;
-}
+} */
 
 body {
   font-family: arial;
+}
+
+.header-bottom {
+    /*border:2px solid black;*/
+    width:15%;
+    height:40px;
+    text-align:center;
+    background-color:rgb(100, 130, 96);
+    color:white;
+}
+.header-top {
+    /*border:2px solid black;*/
+    width:15%;
+    text-align:center;
+    background-color:rgb(145, 219, 166);
+    color:black;
+}
+.header-table {
+    border-collapse:collapse;
+    table-layout:fixed;
 }
