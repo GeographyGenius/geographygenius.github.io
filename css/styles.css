@@ -1,0 +1,9 @@
+.centered {
+  margin: auto;
+  width: 20%;
+  padding: 0px;
+}
+
+body {
+  font-family: arial;
+}
