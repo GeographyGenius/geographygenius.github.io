@@ -23,7 +23,8 @@ body {
     text-align:center;
     background-color:rgb(100, 130, 96);
     color:white;
-	transition:0.5s;
+	transition:0.2s;
+    cursor:pointer;
 }
 
 .header-bottom:hover {
@@ -33,7 +34,8 @@ body {
     text-align:center;
     background-color:rgb(121, 173, 114);
     color:white;
-	transition:0.5s;
+	transition:0.2s;
+    cursor:normal;
 }
 
 .header-top {
