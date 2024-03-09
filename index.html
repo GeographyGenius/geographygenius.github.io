@@ -5,6 +5,9 @@
 </head>
 
 <body>
+
+<scipt src="/js/main.js"></scipt>
+
 <!-- header -->
 <div class="header">
 <a href="/"><img src="/images/logo.png" style="padding:5px;float:left;"></a>
@@ -14,8 +17,8 @@
     <!--    <td class="header-top">Geography</td>-->
     <!--</tr>-->
     <tr>
-        <td class="header-bottom"><a class="header-text" href="/geography/america-quizzes">America</a></td>
-        <td class="header-bottom"><a class="header-text" href="/geography/africa-quizzes">Africa</a></td>
+        <td class="header-bottom" onclick="goToUrl('/geography/america-quizzes')">America</td>
+        <td class="header-bottom" onclick="goToUrl('/geography/africa-quizzes')">Africa</td>
         <td class="header-bottom"><a class="header-text" href="/geography/europe-quizzes">Europe</a></td>
         <td class="header-bottom"><a class="header-text" href="/geography/asia-quizzes">Asia</a></td>
         <td class="header-bottom"><a class="header-text" href="/geography/oceania-quizzes">Oceania</a></td>
