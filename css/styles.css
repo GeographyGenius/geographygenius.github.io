@@ -5,10 +5,11 @@
 }
 
 .header-text {
-  padding: 0px;
+    padding: 0px;
 /*   font-size: medium; */
-  color:white;
-  text-align:center;
+    color:white;
+    text-align:center;
+	text-decoration:none;
 }
 
 body {
