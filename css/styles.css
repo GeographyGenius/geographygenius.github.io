@@ -1,5 +1,6 @@
 body {
   font-family: arial;
+  margin: 0;
 }
 
 .header-bottom {
@@ -55,4 +56,9 @@ float: left;
 
 .active {
     background-color: #04AA6D;
+}
+
+
+.everything {
+	margin: 5px;
 }
