@@ -30,16 +30,20 @@ body {
     table-layout:fixed;
 }
 
+.everything {
+	margin: 5px
+}
+
 .h-ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-  }
-  
+}
+
 .h-li {
-float: left;
+    float: left;
 }
 
 .h-li .h-a{
@@ -64,9 +68,4 @@ float: left;
 
 .active {
     background-color: #04AA6D;
-}
-
-
-.everything {
-	margin: 5px;
 }
