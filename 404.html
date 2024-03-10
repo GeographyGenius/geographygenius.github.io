@@ -8,28 +8,21 @@
 
 <script src="/js/main.js"></script>
 
-<!-- header -->
-<div class="header">
-<a href="/"><img src="/images/logo.png" style="padding:5px;float:left;"></a>
-<table class="header-table">
-    <!--<tr>-->
-    <!--    <td class="header-top">Home</td>-->
-    <!--    <td class="header-top">Geography</td>-->
-    <!--</tr>-->
-    <tr>
-        <td class="header-bottom" onclick="goToUrl('/geography/america')">America</td>
-        <td class="header-bottom" onclick="goToUrl('/geography/africa')">Africa</td>
-        <td class="header-bottom" onclick="goToUrl('/geography/europe')">Europe</td>
-        <td class="header-bottom" onclick="goToUrl('/geography/asia')">Asia</td>
-        <td class="header-bottom" onclick="goToUrl('/geography/oceania')">Oceania</td>
-    </tr>
-</table>
-<br>
-<br>
-<hr>
-</div>
+<!-- start header -->
+<ul class="h-ul">
+    <li class="h-li-icon"><a class="h-a" href="/"><img src="/images/logo-horizontal.png" width=200></a></li>
+    <li class="h-li"><a class="h-a active" href="/geography/america/">America</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/africa">Africa</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/europe">Europe</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/asia">Asia</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/oceania">Oceania</a></li>
+</ul>
+<!-- end header -->
+<!-- REMEMBER, YOU NEED A DIV SO THERE IS MARGIN -->
 
+<div class="everything">
 <img src="/images/404-image.jpg" width="40%">
 <p>Maybe you should <a href="/">go home?</a></p>
   
+</div>
 </body>

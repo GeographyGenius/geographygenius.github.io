@@ -52,31 +52,22 @@
 
 <script src="/js/main.js"></script>
 
-<!-- header -->
-<div class="header">
-<a href="/"><img src="/images/logo.png" style="padding:5px;float:left;"></a>
-<table class="header-table">
-    <!--<tr>-->
-    <!--    <td class="header-top">Home</td>-->
-    <!--    <td class="header-top">Geography</td>-->
-    <!--</tr>-->
-    <tr>
-        <td class="header-bottom" onclick="goToUrl('/geography/america')">America</td>
-        <td class="header-bottom" onclick="goToUrl('/geography/africa')">Africa</td>
-        <td class="header-bottom" onclick="goToUrl('/geography/europe')">Europe</td>
-        <td class="header-bottom" onclick="goToUrl('/geography/asia')">Asia</td>
-        <td class="header-bottom" onclick="goToUrl('/geography/oceania')">Oceania</td>
-    </tr>
-</table>
-<br>
-<br>
-<hr>
-</div>
-<!-- end header -->  
+<!-- start header -->
+<ul class="h-ul">
+    <li class="h-li-icon"><a class="h-a" href="/"><img src="/images/logo-horizontal.png" width=200></a></li>
+    <li class="h-li"><a class="h-a active" href="/geography/america/">America</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/africa">Africa</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/europe">Europe</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/asia">Asia</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/oceania">Oceania</a></li>
+</ul>
+<!-- end header -->
+<!-- REMEMBER, YOU NEED A DIV SO THERE IS MARGIN -->
 
 <!-- https://i.ibb.co/NSX6sGx/world-south-america-smaller.png -->
 <!-- https://i.ibb.co/g9zhncb/world-africa.png -->
 <!-- https://i.ibb.co/PTJW34r/world-africa-smaller.png -->
+<div class="everything">
 <div class="container">
 <div class="fade-in-everything">
 <img id="main_map" src="/images/africa-map.png" alt="" usemap="#map-area" class="map"/>
@@ -264,4 +255,5 @@ function setupData() {
 }
 
 </script>
+</div>
 </body>
