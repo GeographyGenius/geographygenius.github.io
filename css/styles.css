@@ -39,7 +39,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #1e361c;
 }
 
 .h-li {
@@ -63,9 +63,9 @@ body {
 }
 
 .h-li .h-a:hover:not(.active) {
-    background-color: #111;
+    background-color: #315c2e;
 }
 
 .active {
-    background-color: #04AA6D;
+    background-color: #4ea348;
 }
