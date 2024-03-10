@@ -50,6 +50,14 @@ float: left;
     text-decoration: none;
 }
 
+.h-li-icon {
+	padding: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 15px;
+    float: left;
+}
+
 .h-li .h-a:hover:not(.active) {
     background-color: #111;
 }
