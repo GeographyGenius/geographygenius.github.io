@@ -1,7 +1,7 @@
 {
   "info": {
-    "imgURL": "/images/maps/africa-countries.png",
-    "capitals": "false"
+    "capitals": "false",
+    "area": "Africa"
   },
   "countryList": [
     "Algeria",

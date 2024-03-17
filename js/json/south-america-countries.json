@@ -1,7 +1,7 @@
 {
   "info": {
-    "imgURL": "/images/maps/south-america-countries.png",
-    "capitals": "false"
+    "capitals": "false",
+    "area": "Americas"
   },
   "countryList": [
     "Ecuador",
