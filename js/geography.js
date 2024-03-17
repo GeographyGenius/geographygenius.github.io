@@ -79,7 +79,12 @@ function loadFromJSON(url) {
         questionList = loadedData.countryList
         console.log("loaded question list")
         let headerLinks = document.getElementsByClassName("h-a")
-        console.log(headerLinks)
+        let areaOfWorld = loadedData.info.area
+        console.log(areaOfWorld)
+        if(areaOfWorld == "Americas") {
+            headerLinks[1].classList = "h-a active"
+        }
+
         // let imageURL = loadedData.info.imgURL
         let imageURL = "/images/maps/" + quizName + ".png"
         document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
