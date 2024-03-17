@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+    <title>Learn Geography - Loading...</title>
+    <style>
+        .fade-in-everything {
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1}
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            column-gap: 10px;
+        }
+
+        body {
+            font-family: Jost;
+            font-weight: 400;
+        }
+
+        area, button:hover {
+            cursor: pointer;
+        }
+
+        /* td {
+            border: 2px solid black;
+        } */
+
+    </style>
+
+    <!--  loading "inter" font -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"> -->
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<!-- https://i.ibb.co/NSX6sGx/world-south-america-smaller.png -->
+<!-- https://i.ibb.co/g9zhncb/world-africa.png -->
+<!-- https://i.ibb.co/PTJW34r/world-africa-smaller.png -->
+<div class="container">
+<div class="fade-in-everything">
+<div id="cool-image"></div>
+<!-- <img id="main_map" hidden="true" src="https://i.ibb.co/PTJW34r/world-africa-smaller.png" alt="" usemap="#map-area" class="map"/> -->
+</div>
+<map name="map-area" id="map-land">Loading quiz...
+</map>
+
+<table style="margin: 0px;padding: 0px;border: 4px solid black;" width="400px" id="quiz-ui" hidden="true">
+    <tr>
+        <td width="100px" id="points" style="font-size: small;"></td>
+        <td id="questions" style="font-size: small;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" id="feedback"></td>
+    </tr>
+    <tr>
+        <td colspan="3" id="text_box">Loading questions...</td>
+    </tr>
+    <tr>
+        <td><button id="skip_question" onclick="skipQuestion()">Skip</button></td>
+    </tr>
+</table>
+
+</div>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery-maphilight.js"></script>
+<script src="/js/geography.js"</script>
+
+<script>
+
+let questionList
+let remainingQuestions
+let whereIs
+let quizOver
+let question_box
+let feedback_box
+let points
+let totalQuestionCount
+let questionNumber
+let loadedData
+let possibleQuizzes
+let searchParams
+let quizName
+const pointsPerQuestion = 4
+
+window.onload = function() {
+    console.log("setup...")
+    setupData()
+}
+
+function setupData() {
+    possibleQuizzes = [
+                    "africa-countries", 
+                    "africa-capitals", 
+                    "south-america-countries", 
+                    "south-america-captials", 
+                    ]
+    searchParams = new URLSearchParams(window.location.search);
+    quizName = searchParams.get("quiz")
+    const urlToLoad = "/js/json/" + quizName + ".json"
+    document.getElementsByTagName("title")[0].text = "Geography Practice";
+    loadFromJSON(urlToLoad)
+    }
+
+function finishSetup() {
+    let mapScale = 1;
+    let map = document.getElementById("main_map");
+    if (map.width == 0) {
+        location.reload()
+    }
+    map.width *= mapScale;
+    scaleCoordinates(mapScale);
+
+    totalQuestionCount = questionList.length
+    remainingQuestions = questionList
+    quizOver = false
+    points = 0
+    questionNumber = 0
+    changeQuestionNumber()
+    changePointsBy(0)
+
+    setNewRandomCountry("none");
+}
+
+function mapLoaded() {
+    console.log("map loaded")
+    let fancyInnerHTML = ""
+    for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
+        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly" coords="' + countryData[i].countryCoords + '" />'
+    }
+    document.getElementById("map-land").innerHTML = fancyInnerHTML
+    document.getElementById("main_map").hidden = false
+    document.getElementById("quiz-ui").hidden = false
+    finishSetup()
+
+    $(function(){
+    $('.map').maphilight({
+       fillColor: 'fff4a1',
+       fillOpacity:0.6,
+       stroke:false,
+    });
+    })
+}
+
+function loadFromJSON(url) {
+    $.getJSON(url)
+    .done(function(data) {
+        loadedData = data
+        questionList = loadedData.countryList
+        console.log("loaded question list")
+        // let imageURL = loadedData.info.imgURL
+        let imageURL = "/images/maps/" + quizName + ".png"
+        document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
+    })
+
+    .fail(function() {
+        console.log("JSON request failed - quiz failed to load.");
+        if (!possibleQuizzes.includes(quizName)) {
+            var failText = "404 - Quiz not found. (Or maybe it just failed to load, in which case just reload the page.)"
+        } else {
+            var failText = "Hm, it looks like the quiz failed to load. Reload the page, or try again later?"
+        }
+        document.getElementById("map-land").innerHTML = failText;
+        document.getElementsByClassName("map")[0].remove()
+    })
+}
+
+function changePointsBy(change) {
+    let points_box = document.getElementById("points")
+    points += change
+    points = Math.max(0, points)
+    points_box.innerHTML = "Points: " + points + "/" + totalQuestionCount * pointsPerQuestion
+}
+
+function changeQuestionNumber() {
+    questionNumber += 1
+    questionNumber = Math.min(questionNumber, totalQuestionCount)
+    let question_count_box = document.getElementById("questions")
+    question_count_box.innerHTML = "Question " + questionNumber + "/" + totalQuestionCount
+}
+
+function getRandomCountry() {
+    return(remainingQuestions[Math.floor(Math.random()*remainingQuestions.length)]);
+}
+
+function setNewRandomCountry(oldCountry) {
+    question_box = document.getElementById("text_box")
+    feedback_box = document.getElementById("feedback")
+
+    whereIs = getRandomCountry()
+    if (!(isQuizOver())) {
+        if (!(oldCountry == "none")) {
+            feedback_box.innerHTML = "Correct, that's " + oldCountry
+            question_box.innerHTML = "Where is " + whereIs + "?"
+        } else {
+            // feedback_box.innerHTML = "Click a country to start."
+            question_box.innerHTML = "Where is " + whereIs + "?"
+        }
+    }
+    
+}
+
+function isQuizOver() {
+    if (remainingQuestions.length == 0) {
+        let percent = Math.round(points / (totalQuestionCount * pointsPerQuestion) * 100)
+        feedback_box.innerHTML = "Quiz over. You scored " + points + "/" + totalQuestionCount * pointsPerQuestion + " (" + percent + "%)"
+        question_box.innerHTML = ""
+        quizOver = true
+        return true
+    } else {
+        return false
+    }
+}
+
+function removeOldCountryFromList(country) {
+    const index = remainingQuestions.indexOf(country);
+        if (index > -1) {
+            remainingQuestions.splice(index, 1);
+            console.log(remainingQuestions)
+        }
+}
+
+function skipQuestion() {
+    removeOldCountryFromList(whereIs)
+    setNewRandomCountry('none')
+    feedback_box.innerHTML = ""
+    isQuizOver()
+    changeQuestionNumber()
+}
+
+function submitCountry(country) {
+    if (quizOver == true) {
+        return
+    }
+
+    console.log(country, whereIs)
+    if (country == whereIs) {
+        console.log("right country")
+
+        changePointsBy(pointsPerQuestion)
+        changeQuestionNumber()
+        removeOldCountryFromList(country)
+        setNewRandomCountry(whereIs)
+    } else {
+        console.log("wrong country")
+        feedback_box.innerHTML = "Incorrect, that's " + country + ". Try again."
+        question_box.innerHTML = "Where is " + whereIs + "?"
+        
+        changePointsBy(-1)
+    }
+}
+
+function scaleCoordinates(scaleAmount) {
+    let map_areas = document.getElementsByTagName("area")
+    for (let i = 0, area = "", coordinates = ""; i < map_areas.length; i++) {
+        area = map_areas[i];
+        coordinates = area.coords.split(", ");
+
+        for (let coord = "", i2 = 0; i2 < coordinates.length; i2++) {
+            coord = coordinates[i2];
+            coord *= scaleAmount;
+            coordinates[i2] = coord;
+        }
+        area.coords = coordinates;
+    }
+}
+
+</script>
+</body>
