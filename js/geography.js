@@ -13,10 +13,10 @@ let searchParams
 let quizName
 const pointsPerQuestion = 4
 
-window.onload = function() {
-    console.log("setup...")
-    setupData()
-}
+// window.onload = function() {
+//     console.log("setup...")
+//     setupData()
+// }
 
 function setupData() {
     possibleQuizzes = [
