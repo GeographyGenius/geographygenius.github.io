@@ -80,9 +80,21 @@ function loadFromJSON(url) {
         console.log("loaded question list")
         let headerLinks = document.getElementsByClassName("h-a")
         let areaOfWorld = loadedData.info.area
-        console.log(areaOfWorld)
+        
         if(areaOfWorld == "Americas") {
             headerLinks[1].classList = "h-a active"
+        }
+        if(areaOfWorld == "Africa") {
+            headerLinks[2].classList = "h-a active"
+        }
+        if(areaOfWorld == "Europe") {
+            headerLinks[3].classList = "h-a active"
+        }
+        if(areaOfWorld == "Asia") {
+            headerLinks[4].classList = "h-a active"
+        }
+        if(areaOfWorld == "Oceania") {
+            headerLinks[5].classList = "h-a active"
         }
 
         // let imageURL = loadedData.info.imgURL
