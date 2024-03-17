@@ -71,3 +71,28 @@ body {
 .active {
     background-color: #4ea348;
 }
+
+.fade-in-everything {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1}
+}
+
+.geo-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    column-gap: 10px;
+}
+
+body {
+    font-family: Jost;
+    font-weight: 400;
+}
+
+area, button:hover {
+    cursor: pointer;
+}
