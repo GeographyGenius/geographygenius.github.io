@@ -1,3 +1,100 @@
+let questionList
+let remainingQuestions
+let whereIs
+let quizOver
+let question_box
+let feedback_box
+let points
+let totalQuestionCount
+let questionNumber
+let loadedData
+let possibleQuizzes
+let searchParams
+let quizName
+const pointsPerQuestion = 4
+
+window.onload = function() {
+    console.log("setup...")
+    setupData()
+}
+
+function setupData() {
+    possibleQuizzes = [
+                    "africa-countries", 
+                    "africa-capitals", 
+                    "south-america-countries", 
+                    "south-america-captials", 
+                    ]
+    searchParams = new URLSearchParams(window.location.search);
+    quizName = searchParams.get("quiz")
+    const urlToLoad = "/js/json/" + quizName + ".json"
+    document.getElementsByTagName("title")[0].text = "Geography Practice";
+    loadFromJSON(urlToLoad)
+    }
+
+function finishSetup() {
+    let mapScale = 1;
+    let map = document.getElementById("main_map");
+    if (map.width == 0) {
+        location.reload()
+    }
+    map.width *= mapScale;
+    scaleCoordinates(mapScale);
+
+    totalQuestionCount = questionList.length
+    remainingQuestions = questionList
+    quizOver = false
+    points = 0
+    questionNumber = 0
+    changeQuestionNumber()
+    changePointsBy(0)
+
+    setNewRandomCountry("none");
+}
+
+function mapLoaded() {
+    console.log("map loaded")
+    let fancyInnerHTML = ""
+    for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
+        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly" coords="' + countryData[i].countryCoords + '" />'
+    }
+    document.getElementById("map-land").innerHTML = fancyInnerHTML
+    document.getElementById("main_map").hidden = false
+    document.getElementById("quiz-ui").hidden = false
+    finishSetup()
+
+    $(function(){
+    $('.map').maphilight({
+       fillColor: 'fff4a1',
+       fillOpacity:0.6,
+       stroke:false,
+    });
+    })
+}
+
+function loadFromJSON(url) {
+    $.getJSON(url)
+    .done(function(data) {
+        loadedData = data
+        questionList = loadedData.countryList
+        console.log("loaded question list")
+        // let imageURL = loadedData.info.imgURL
+        let imageURL = "/images/maps/" + quizName + ".png"
+        document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
+    })
+
+    .fail(function() {
+        console.log("JSON request failed - quiz failed to load.");
+        if (!possibleQuizzes.includes(quizName)) {
+            var failText = "404 - Quiz not found. (Or maybe it just failed to load, in which case just reload the page.)"
+        } else {
+            var failText = "Hm, it looks like the quiz failed to load. Reload the page, or try again later?"
+        }
+        document.getElementById("map-land").innerHTML = failText;
+        document.getElementsByClassName("map")[0].remove()
+    })
+}
+
 function changePointsBy(change) {
     let points_box = document.getElementById("points")
     points += change
@@ -97,13 +194,3 @@ function scaleCoordinates(scaleAmount) {
         area.coords = coordinates;
     }
 }
-
-console.log();
-
-$(function(){
-   $('.map').maphilight({
-       fillColor: 'fff4a1',
-       fillOpacity:0.6,
-       stroke:false,
-   });
-})
