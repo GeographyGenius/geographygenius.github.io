@@ -1,7 +1,8 @@
 {
     "info": {
       "capitals": "false",
-      "area": "Americas"
+      "area": "Americas",
+      "imgUrl": "/central-america-map.png"
     },
     "countryList": [
       "Panama",

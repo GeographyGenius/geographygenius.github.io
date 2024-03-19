@@ -1,4 +1,5 @@
 let questionList
+let capitalList
 let remainingQuestions
 let whereIs
 let quizOver
@@ -11,6 +12,7 @@ let loadedData
 let possibleQuizzes
 let searchParams
 let quizName
+let doCapitals
 const pointsPerQuestion = 4
 
 window.onload = function() {
@@ -81,6 +83,10 @@ function loadFromJSON(url) {
     .done(function(data) {
         loadedData = data
         questionList = loadedData.countryList
+        if (loadedData.info.capitals == true) {
+            doCapitals = true
+            capitalList = loadedData.capitalList
+        }
         console.log("loaded question list")
         let headerLinks = document.getElementsByClassName("h-a")
         let areaOfWorld = loadedData.info.area
@@ -101,8 +107,8 @@ function loadFromJSON(url) {
             headerLinks[5].classList = "h-a active"
         }
 
-        // let imageURL = loadedData.info.imgURL
-        let imageURL = "/images/maps/" + quizName + ".png"
+        let imageURL = loadedData.info.imgURL
+        // let imageURL = "/images/maps/" + quizName + ".png"
         document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
     })
 
@@ -170,6 +176,7 @@ function removeOldCountryFromList(country) {
         if (index > -1) {
             remainingQuestions.splice(index, 1);
             console.log(remainingQuestions)
+            console.log("question list" + questionList)
         }
 }
 
@@ -196,7 +203,7 @@ function submitCountry(country) {
         setNewRandomCountry(whereIs)
     } else {
         console.log("wrong country")
-        feedback_box.innerHTML = "Incorrect, that's " + country + ". Try again."
+        feedback_box.innerHTML = "Incorrect, that's " + country + ", the capital of " + "Try again."
         question_box.innerHTML = "Where is " + whereIs + "?"
         
         changePointsBy(-1)
