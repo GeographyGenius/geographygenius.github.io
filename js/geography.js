@@ -48,7 +48,7 @@ function finishSetup() {
     scaleCoordinates(mapScale);
 
     totalQuestionCount = questionList.length
-    remainingQuestions = questionList
+    remainingQuestions = structuredClone(questionList)
     quizOver = false
     points = 0
     questionNumber = 0
