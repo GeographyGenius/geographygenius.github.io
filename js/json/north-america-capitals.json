@@ -1,6 +1,6 @@
 {
     "info": {
-      "capitals": "false",
+      "capitals": "true",
       "area": "Americas",
       "imgUrl": "/north-america-map"
     },
@@ -9,6 +9,11 @@
       "United States",
       "Mexico"
     ],
+    "capitalList": [
+        "Ottawa",
+        "Washington DC",
+        "Mexico City"
+      ],
     "countryData": [
       {
         "countryName": "Canada",
