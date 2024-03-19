@@ -2,7 +2,7 @@
     "info": {
       "capitals": "false",
       "area": "Americas",
-      "imgUrl": "/north-america-map.png"
+      "imgUrl": "north-america-map.png"
     },
     "countryList": [
       "Canada",

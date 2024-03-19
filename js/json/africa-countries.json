@@ -2,7 +2,7 @@
   "info": {
     "capitals": "false",
     "area": "Africa",
-    "imgUrl": "/africa-map.png"
+    "imgUrl": "africa-map.png"
   },
   "countryList": [
     "Algeria",
