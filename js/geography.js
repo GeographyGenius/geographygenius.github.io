@@ -23,7 +23,9 @@ function setupData() {
                     "africa-countries", 
                     "africa-capitals", 
                     "south-america-countries", 
-                    "south-america-captials", 
+                    "south-america-captials",
+                    "north-america-countries",
+                    "north-america-capitals",
                     ]
     searchParams = new URLSearchParams(window.location.search);
     quizName = searchParams.get("quiz")
