@@ -203,11 +203,19 @@ function submitCountry(country) {
         setNewRandomCountry(whereIs)
     } else {
         console.log("wrong country")
-        feedback_box.innerHTML = "Incorrect, that's " + country + ", the capital of " + "Try again."
+        if (doCapitals == true) {
+            feedback_box.innerHTML = "Incorrect, that's " + calcCapitalFromCountry(country) + ", the capital of " + country + ". Try again."
+        } else {
+            feedback_box.innerHTML = "Incorrect, that's " + country + ". Try again."
+        }
         question_box.innerHTML = "Where is " + whereIs + "?"
         
         changePointsBy(-1)
     }
+}
+
+function calcCapitalFromCountry(country) {
+    return(capitalList[questionList.indexOf(country)])
 }
 
 function scaleCoordinates(scaleAmount) {
