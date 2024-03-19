@@ -151,7 +151,7 @@ function setNewRandomCountry(oldCountry) {
         if (!(oldCountry == "none")) {
             if (doCapitals == true) {
                 feedback_box.innerHTML = "Correct, that's " + calcCapitalFromCountry(oldCountry) + ", the capital of " + oldCountry
-                question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
+                question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
             } else {
                 feedback_box.innerHTML = "Correct, that's " + oldCountry
                 question_box.innerHTML = "Where is " + whereIs + "?"
@@ -162,7 +162,7 @@ function setNewRandomCountry(oldCountry) {
             if (doCapitals == true) {
                 question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
             } else {
-                question_box.innerHTML = "Where is " + whereIs + "?"
+                question_box.innerHTML = "What country is " + whereIs + " the capital of?"
             }
         }
     }
@@ -218,7 +218,11 @@ function submitCountry(country) {
         } else {
             feedback_box.innerHTML = "Incorrect, that's " + country + ". Try again."
         }
-        question_box.innerHTML = "Where is " + whereIs + "?"
+        if (doCapitals == true) {
+            question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
+        } else {
+            question_box.innerHTML = "What country is " + whereIs + " the capital of?"
+        }
         
         changePointsBy(-1)
     }
