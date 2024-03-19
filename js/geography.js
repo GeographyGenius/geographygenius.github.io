@@ -149,11 +149,21 @@ function setNewRandomCountry(oldCountry) {
     whereIs = getRandomCountry()
     if (!(isQuizOver())) {
         if (!(oldCountry == "none")) {
-            feedback_box.innerHTML = "Correct, that's " + oldCountry
-            question_box.innerHTML = "Where is " + whereIs + "?"
+            if (doCapitals == true) {
+                feedback_box.innerHTML = "Correct, that's " + calcCapitalFromCountry(oldCountry) + ", the capital of " + oldCountry
+                question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
+            } else {
+                feedback_box.innerHTML = "Correct, that's " + oldCountry
+                question_box.innerHTML = "Where is " + whereIs + "?"
+            }
+
         } else {
             // feedback_box.innerHTML = "Click a country to start."
-            question_box.innerHTML = "Where is " + whereIs + "?"
+            if (doCapitals == true) {
+                question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
+            } else {
+                question_box.innerHTML = "Where is " + whereIs + "?"
+            }
         }
     }
     
