@@ -83,7 +83,7 @@ function loadFromJSON(url) {
     .done(function(data) {
         loadedData = data
         questionList = loadedData.countryList
-        if (loadedData.info.capitals == true) {
+        if (loadedData.info.capitals == "true") {
             doCapitals = true
             capitalList = loadedData.capitalList
         }
@@ -203,7 +203,6 @@ function submitCountry(country) {
         setNewRandomCountry(whereIs)
     } else {
         console.log("wrong country")
-        console.log(doCapitals)
         if (doCapitals == true) {
             feedback_box.innerHTML = "Incorrect, that's " + calcCapitalFromCountry(country) + ", the capital of " + country + ". Try again."
         } else {
