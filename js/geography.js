@@ -107,7 +107,7 @@ function loadFromJSON(url) {
             headerLinks[5].classList = "h-a active"
         }
 
-        let imageURL = loadedData.info.imgURL
+        let imageURL = "/images/maps" + loadedData.info.imgURL
         // let imageURL = "/images/maps/" + quizName + ".png"
         document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
     })
