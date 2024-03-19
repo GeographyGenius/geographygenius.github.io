@@ -13,6 +13,8 @@ let possibleQuizzes
 let searchParams
 let quizName
 let doCapitals
+let correctGuesses
+let incorrectGuesses
 const pointsPerQuestion = 4
 
 window.onload = function() {
@@ -21,6 +23,8 @@ window.onload = function() {
 }
 
 function setupData() {
+    correctGuesses = 0
+    incorrectGuesses = 0
     possibleQuizzes = [
                     "africa-countries", 
                     "africa-capitals", 
@@ -149,6 +153,7 @@ function setNewRandomCountry(oldCountry) {
     whereIs = getRandomCountry()
     if (!(isQuizOver())) {
         if (!(oldCountry == "none")) {
+            correctGuesses += 1
             if (doCapitals == true) {
                 feedback_box.innerHTML = "Correct, that's " + calcCapitalFromCountry(oldCountry) + ", the capital of " + oldCountry
                 question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
@@ -213,6 +218,7 @@ function submitCountry(country) {
         setNewRandomCountry(whereIs)
     } else {
         console.log("wrong country")
+        incorrectGuesses += 1
         if (doCapitals == true) {
             feedback_box.innerHTML = "Incorrect, that's " + calcCapitalFromCountry(country) + ", the capital of " + country + ". Try again."
         } else {
