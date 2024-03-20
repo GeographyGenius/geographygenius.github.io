@@ -179,7 +179,7 @@ function setNewRandomCountry(oldCountry) {
 function isQuizOver() {
     if (remainingQuestions.length == 0) {
         let percent = Math.round(points / (totalQuestionCount * pointsPerQuestion) * 100)
-        feedback_box.innerHTML = "Quiz over. You scored " + points + "/" + totalQuestionCount * pointsPerQuestion + " (" + percent + "%)"
+        feedback_box.innerHTML = "Quiz over. You scored " + points + "/" + totalQuestionCount * pointsPerQuestion + " (" + percent + "%)" + " You got " + correctGuesses + "guesses correct, and " + incorrectGuesses + "incorrect."
         question_box.innerHTML = ""
         quizOver = true
         return true
