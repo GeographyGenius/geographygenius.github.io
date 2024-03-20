@@ -164,7 +164,7 @@ function setNewRandomCountry(oldCountry) {
 
         } else {
             // feedback_box.innerHTML = "Click a country to start."
-            if (doCapitals == true) {
+            if (doCapitals == false) {
                 question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
             } else {
                 question_box.innerHTML = "What country is " + whereIs + " the capital of?"
