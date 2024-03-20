@@ -132,11 +132,11 @@ function loadFromJSON(url) {
 }
 
 function changePointsBy(change) {
-    let points_box = document.getElementById("points")
-    points += change
-    points = Math.max(0, points)
+    // let points_box = document.getElementById("points")
+    // points += change
+    // points = Math.max(0, points)
     // points_box.innerHTML = "Points: " + points + "/" + totalQuestionCount * pointsPerQuestion
-    points_box.innerHTML = ""
+    // points_box.innerHTML = ""
 }
 
 function changeQuestionNumber() {
