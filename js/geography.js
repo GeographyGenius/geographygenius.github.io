@@ -182,7 +182,8 @@ function setNewRandomCountry(oldCountry) {
 function isQuizOver() {
     if (remainingQuestions.length == 0) {
         let percent = Math.round(points / (totalQuestionCount * pointsPerQuestion) * 100)
-        feedback_box.innerHTML = "Quiz over. You scored " + points + "/" + totalQuestionCount * pointsPerQuestion + " (" + percent + "%)" + " You got " + correctGuesses + " guesses correct, and " + incorrectGuesses + " incorrect."
+        // You scored " + points + "/" + totalQuestionCount * pointsPerQuestion + " (" + percent + "%)
+        feedback_box.innerHTML = "Quiz over." + " You got " + correctGuesses + " guesses correct, and " + incorrectGuesses + " incorrect."
         question_box.innerHTML = ""
         quizOver = true
         return true
@@ -230,9 +231,9 @@ function submitCountry(country) {
             feedback_box.innerHTML = "Incorrect, that's " + country + ". Try again."
         }
         if (doCapitals == true) {
-            question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
-        } else {
             question_box.innerHTML = "What country is " + whereIs + " the capital of?"
+        } else {
+            question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
         }
         
         changePointsBy(-1)
