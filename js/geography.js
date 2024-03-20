@@ -164,10 +164,10 @@ function setNewRandomCountry(oldCountry) {
 
         } else {
             // feedback_box.innerHTML = "Click a country to start."
-            if (doCapitals == false) {
-                question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
+            if (doCapitals == true) {
+                question_box.innerHTML = "What country is " + whcalcCapitalFromCountry(whereIs) + " the capital of?"
             } else {
-                question_box.innerHTML = "What country is " + whereIs + " the capital of?"
+                question_box.innerHTML = "Where is " + whereIs + "?"
             }
         }
     }
