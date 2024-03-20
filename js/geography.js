@@ -135,7 +135,8 @@ function changePointsBy(change) {
     let points_box = document.getElementById("points")
     points += change
     points = Math.max(0, points)
-    points_box.innerHTML = "Points: " + points + "/" + totalQuestionCount * pointsPerQuestion
+    // points_box.innerHTML = "Points: " + points + "/" + totalQuestionCount * pointsPerQuestion
+    points_box.innerHTML = ""
 }
 
 function changeQuestionNumber() {
