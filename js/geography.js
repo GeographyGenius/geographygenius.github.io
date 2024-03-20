@@ -37,6 +37,9 @@ function setupData() {
                     ]
     searchParams = new URLSearchParams(window.location.search);
     quizName = searchParams.get("quiz")
+    if (searchParams.has("quiz")) {
+        location.href = "/"
+    }
     const urlToLoad = "/js/json/" + quizName + ".json"
     document.getElementsByTagName("title")[0].text = "Geography Practice";
     loadFromJSON(urlToLoad)
