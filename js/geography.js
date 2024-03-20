@@ -37,7 +37,7 @@ function setupData() {
                     ]
     searchParams = new URLSearchParams(window.location.search);
     quizName = searchParams.get("quiz")
-    if (searchParams.has("quiz")) {
+    if (!searchParams.has("quiz")) {
         location.href = "/"
     }
     const urlToLoad = "/js/json/" + quizName + ".json"
