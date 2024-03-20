@@ -169,6 +169,7 @@ function setNewRandomCountry(oldCountry) {
             } else {
                 question_box.innerHTML = "Where is " + whereIs + "?"
             }
+            console.log("test")
         }
     }
     
