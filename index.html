@@ -7,11 +7,12 @@
 <body>
 
 <script src="/js/main.js"></script>
+<script src="/js/topbar.min.js"></script>
 
 <!-- start header -->
 <ul class="h-ul">
     <li class="h-li-icon"><a class="h-a" href="/"><img src="/images/logo-horizontal.png" width=200></a></li>
-    <li class="h-li"><a class="h-a" href="/geography/americas">Americas</a></li>
+    <li class="h-li"><a onclick="topbar.show()" class="h-a" href="/geography/americas">Americas</a></li>
     <li class="h-li"><a class="h-a" href="/geography/africa">Africa</a></li>
     <li class="h-li"><a class="h-a" href="/geography/europe">Europe</a></li>
     <li class="h-li"><a class="h-a" href="/geography/asia">Asia</a></li>
@@ -19,7 +20,6 @@
 </ul>
 <!-- end header -->
 <!-- REMEMBER, YOU NEED A DIV SO THERE IS MARGIN -->
-
 <div class="everything">
 
 <p>Have you ever wanted to learn some geography? Well, this is the right place.<br>Click the link below to start practicing!</p>
