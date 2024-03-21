@@ -160,7 +160,7 @@ function setNewRandomCountry(oldCountry) {
             // correctGuesses += 1
             if (doCapitals == true) {
                 // feedback_box.innerHTML = "Correct, that's " + calcCapitalFromCountry(oldCountry) + ", the capital of " + oldCountry
-                feedback_box.innerHTML = "Correct, that's " + oldCountry + ", who's capital is  " + calcCapitalFromCountry(oldCountry)
+                feedback_box.innerHTML = "Correct, that's " + oldCountry + ", whose capital is  " + calcCapitalFromCountry(oldCountry)
                 question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
             } else {
                 feedback_box.innerHTML = "Correct, that's " + oldCountry
