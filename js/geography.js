@@ -157,7 +157,7 @@ function setNewRandomCountry(oldCountry) {
     whereIs = getRandomCountry()
     if (!(isQuizOver())) {
         if (!(oldCountry == "none")) {
-            correctGuesses += 1
+            // correctGuesses += 1
             if (doCapitals == true) {
                 // feedback_box.innerHTML = "Correct, that's " + calcCapitalFromCountry(oldCountry) + ", the capital of " + oldCountry
                 feedback_box.innerHTML = "Correct, that's " + oldCountry + ", who's capital is  " + calcCapitalFromCountry(oldCountry)
@@ -217,6 +217,7 @@ function submitCountry(country) {
     console.log(country, whereIs)
     if (country == whereIs) {
         console.log("right country")
+        correctGuesses += 1
 
         changePointsBy(pointsPerQuestion)
         changeQuestionNumber()
