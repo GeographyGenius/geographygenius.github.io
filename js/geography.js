@@ -231,9 +231,9 @@ function submitCountry(country) {
             feedback_box.innerHTML = "Incorrect, that's " + country + ". Try again."
         }
         if (doCapitals == true) {
-            question_box.innerHTML = "What country is " + whereIs + " the capital of?"
+            question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
         } else {
-            question_box.innerHTML = "Where is " + calcCapitalFromCountry(whereIs) + "?"
+            question_box.innerHTML = "Where is " + whereIs + "?"
         }
         
         changePointsBy(-1)
