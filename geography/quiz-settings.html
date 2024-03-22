@@ -34,10 +34,10 @@
 <script>
 function updateSettings() {
     let values = []
-    values.push(document.querySelector("show-score").checked)
-    values.push(document.querySelector("show-timer").checked)
-    values.push(document.querySelector("show-num-correct-guesses").checked)
-    values.push(document.querySelector("show-num-incorrect-guesses").checked)
+    values.push(getElement("show-score").checked)
+    values.push(getElement("show-timer").checked)
+    values.push(getElement("show-num-correct-guesses").checked)
+    values.push(getElement("show-num-incorrect-guesses").checked)
     console.log(values)
 
 }
