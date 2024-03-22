@@ -18,13 +18,13 @@
 
 <div class="everything">
 
-<input id="show-score" type="checkbox" id="show-score" name="show-score" value="true">
+<input id="show-score" type="checkbox" id="show-score" name="show-score" checked="false">
 <label for="show-score"> Show calculated score</label><br>
-<input id="show-timer"type="checkbox" id="show-timer" name="show-timer" value="false">
+<input id="show-timer"type="checkbox" id="show-timer" name="show-timer" checked="false">
 <label for="show-timer"> Show quiz timer</label><br>
-<input id="show-num-correct-guesses"type="checkbox" id="show-num-correct-guesses" name="show-num-correct-guesses" value="true">
+<input id="show-num-correct-guesses"type="checkbox" id="show-num-correct-guesses" name="show-num-correct-guesses" checked="true">
 <label for="show-timer"> Show number of correct guesses</label><br>
-<input id="show-num-incorrect-guesses"type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-incorrect-guesses" value="true">
+<input id="show-num-incorrect-guesses"type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-incorrect-guesses" checked="true">
 <label for="show-timer"> Show number of incorrect guesses</label><br>
 <input onclick="updateSettings()" type="submit" value="Update Settings">
 
@@ -34,10 +34,10 @@
 <script>
 function updateSettings() {
     let values = []
-    values.push(getElement("show-score").value)
-    values.push(getElement("show-timer").value)
-    values.push(getElement("show-num-correct-guesses").value)
-    values.push(getElement("show-num-incorrect-guesses").value)
+    values.push(document.querySelector("show-score").checked)
+    values.push(document.querySelector("show-timer").checked)
+    values.push(document.querySelector("show-num-correct-guesses").checked)
+    values.push(document.querySelector("show-num-incorrect-guesses").checked)
     console.log(values)
 
 }
