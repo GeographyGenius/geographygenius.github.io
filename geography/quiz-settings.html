@@ -39,6 +39,9 @@ window.onload = loadSettings()
 
 function loadSettings() {
     let values = localStorage.getItem("quiz-settings").split(",")
+    for(let i = 0;i < values.length;i++) {
+        values[i] = Boolean(values[i])
+    }
     console.log(values)
     getElement("show-score").checked = values[0]
     getElement("show-timer").checked = values[1]
