@@ -18,13 +18,14 @@
 <!-- REMEMBER, YOU NEED A DIV SO THERE IS MARGIN -->
 
 <div class="everything">
-<p id="loading">Processing...</p>
+<div id="loading">Processing...</p>
 </div>
 
 <script>
 window.onload = process()
 function process() {
-    const searchParams = new URLSearchParams(window.location.search);
+    let tempSearchParams = new URLSearchParams(window.location.search);
+    let searchParams = structuredClone(tempSearchParams)
     console.log(searchParams)
 }
 </script>
