@@ -34,6 +34,18 @@
 
 <script src="/js/main.js"></script>
 <script>
+
+window.onload = loadSettings()
+
+function loadSettings() {
+    let values = localStorage.getItem("quiz-settings").split(",")
+    console.log(values)
+    getElement("show-score").checked = values[0]
+    getElement("show-timer").checked = values[1]
+    getElement("show-num-correct-guesses").checked = values[2]
+    getElement("show-num-incorrect-guesses").checked = values[3]
+}
+
 function updateSettings() {
     let values = []
     values.push(getElement("show-score").checked)
