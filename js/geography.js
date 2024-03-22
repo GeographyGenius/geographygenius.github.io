@@ -118,10 +118,10 @@ function loadFromJSON(url) {
         document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
 
         let displayQuizName = structuredClone(quizName)
-        displayQuizName = displayQuizName.replace("-", " ")
+        displayQuizName = displayQuizName.replaceAll("-",  " ")
         displayQuizName = toTitleCase(displayQuizName)
         console.log("quiz name fancy: " + displayQuizName)
-        document.getElementsByTagName("title")[0].text = "Geography Practice - " + displayQuizName; // update page title
+        document.getElementsByTagName("title")[0].text = displayQuizName + " - Learn Geography"; // update page title
     })
 
     .fail(function() {
