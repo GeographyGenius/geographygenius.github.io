@@ -41,7 +41,6 @@ function setupData() {
         location.href = "/"
     }
     const urlToLoad = "/js/json/" + quizName + ".json"
-    document.getElementsByTagName("title")[0].text = "Geography Practice";
     loadFromJSON(urlToLoad)
     }
 
@@ -117,6 +116,12 @@ function loadFromJSON(url) {
         let imageURL = "/images/maps/" + loadedData.info.imgUrl
         // let imageURL = "/images/maps/" + quizName + ".png"
         document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
+
+        let displayQuizName = structuredClone(quizName)
+        displayQuizName.replace("-", " ")
+        displayQuizName = toTitleCase(displayQuizName)
+        console.log("quiz name fancy: " + displayQuizName)
+        document.getElementsByTagName("title")[0].text = "Geography Practice - " + displayQuizName; // update page title
     })
 
     .fail(function() {
