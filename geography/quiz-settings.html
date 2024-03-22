@@ -18,8 +18,17 @@
 
 <div class="everything">
 
+<form action="/geography/update-quiz-settings">
+<input type="checkbox" id="show-score" name="show-score" value="score">
+<label for="show-score"> Show calculated score</label><br>
 <input type="checkbox" id="show-timer" name="show-timer" value="timer">
 <label for="show-timer"> Show quiz timer</label><br>
+<input type="checkbox" id="show-num-correct-guesses" name="show-num-correct-guesses" value="correctguesses">
+<label for="show-timer"> Show number of correct guesses</label><br>
+<input type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-inguesses" value="incorrectguesses">
+<label for="show-timer"> Show number of incorrect guesses</label><br>
+<input type="submit" value="Update Settings">
+</form>
 
 </div>
 
