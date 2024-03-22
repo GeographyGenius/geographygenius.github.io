@@ -18,19 +18,29 @@
 
 <div class="everything">
 
-<form action="/geography/update-quiz-settings">
-<input type="checkbox" id="show-score" name="show-score" value="true">
+<input id="show-score" type="checkbox" id="show-score" name="show-score" value="true">
 <label for="show-score"> Show calculated score</label><br>
-<input type="checkbox" id="show-timer" name="show-timer" value="false">
+<input id="show-timer"type="checkbox" id="show-timer" name="show-timer" value="false">
 <label for="show-timer"> Show quiz timer</label><br>
-<input type="checkbox" id="show-num-correct-guesses" name="show-num-correct-guesses" value="true">
+<input id="show-num-correct-guesses"type="checkbox" id="show-num-correct-guesses" name="show-num-correct-guesses" value="true">
 <label for="show-timer"> Show number of correct guesses</label><br>
-<input type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-inguesses" value="true">
+<input id="show-num-incorrect-guesses"type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-incorrect-guesses" value="true">
 <label for="show-timer"> Show number of incorrect guesses</label><br>
-<input type="submit" value="Update Settings">
-</form>
+<input onclick="updateSettings()" type="submit" value="Update Settings">
 
 </div>
+
+
+<script>
+function updateSettings() {
+    let values = []
+    values.push(getElement("show-score").value)
+    values.push(getElement("show-timer").value)
+    values.push(getElement("show-num-correct-guesses").value)
+    values.push(getElement("show-num-incorrect-guesses").value)
+
+}
+</script>
 
 </body>
 </html>
