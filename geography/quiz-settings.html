@@ -28,6 +28,8 @@
 <label for="show-timer"> Show number of incorrect guesses</label><br>
 <input onclick="updateSettings()" type="submit" value="Update Settings">
 
+<p id="message"></p>
+
 </div>
 
 <script src="/js/main.js"></script>
@@ -38,7 +40,10 @@ function updateSettings() {
     values.push(getElement("show-timer").checked)
     values.push(getElement("show-num-correct-guesses").checked)
     values.push(getElement("show-num-incorrect-guesses").checked)
-    console.log(values)
+
+    localStorage.setItem("quiz-settings", values)
+    console.log(localStorage.getItem("quiz-settings"))
+    getElement("message").innerHTML = "Settings updated"
 
 }
 </script>
