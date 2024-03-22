@@ -118,7 +118,7 @@ function loadFromJSON(url) {
         document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
 
         let displayQuizName = structuredClone(quizName)
-        displayQuizName.replace("-", " ")
+        displayQuizName = displayQuizName.replace("-", " ")
         displayQuizName = toTitleCase(displayQuizName)
         console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = "Geography Practice - " + displayQuizName; // update page title
