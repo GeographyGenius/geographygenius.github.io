@@ -84,7 +84,7 @@ body {
 .geo-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     column-gap: 10px;
 }
 
