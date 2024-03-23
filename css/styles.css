@@ -85,7 +85,7 @@ body {
     display: flex;
     align-items: flex-start;
     /* justify-content: flex-start; */
-    column-gap: 10px;
+    column-gap: 5px;
 }
 
 body {
