@@ -77,7 +77,7 @@ function mapLoaded() {
 
     $(function(){
     $('.map').maphilight({
-       fillColor: 'fff4a1',
+       fillColor: '4ead45',//'fff4a1',
        fillOpacity:0.6,
        stroke:false,
     });
