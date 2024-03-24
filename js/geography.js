@@ -121,7 +121,7 @@ function loadFromJSON(url) {
         displayQuizName = displayQuizName.replaceAll("-",  " ")
         displayQuizName = toTitleCase(displayQuizName)
         console.log("quiz name fancy: " + displayQuizName)
-        document.getElementsByTagName("title")[0].text = displayQuizName + " - Learn Geography"; // update page title
+        document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
     })
 
     .fail(function() {
