@@ -1,2 +1,2 @@
 # learngeography.github.io
-A place to learn geography
+Become a geography genius!
