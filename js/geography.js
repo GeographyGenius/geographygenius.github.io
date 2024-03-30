@@ -23,6 +23,8 @@ window.onload = function() {
 }
 
 function setupData() {
+    loadSettings()
+    
     correctGuesses = 0
     incorrectGuesses = 0
     possibleQuizzes = [
@@ -263,4 +265,34 @@ function scaleCoordinates(scaleAmount) {
         }
         area.coords = coordinates;
     }
+}
+
+function loadSettings() {
+    let values = localStorage.getItem("quiz-settings").split(",")
+    for(let i = 0;i < values.length;i++) {
+        if(values[i] == "true") {
+            values[i] = true
+        } else {
+            values[i] = false
+        }
+    }
+    console.log(values)
+    getElement("show-score").checked = values[0]
+    getElement("show-timer").checked = values[1]
+    getElement("show-num-correct-guesses").checked = values[2]
+    getElement("show-num-incorrect-guesses").checked = values[3]
+    console.log(getElement("show-score").checked)
+}
+
+function updateSettings() {
+    let values = []
+    values.push(getElement("show-score").checked)
+    values.push(getElement("show-timer").checked)
+    values.push(getElement("show-num-correct-guesses").checked)
+    values.push(getElement("show-num-incorrect-guesses").checked)
+
+    localStorage.setItem("quiz-settings", values)
+    console.log(localStorage.getItem("quiz-settings"))
+    getElement("message").innerHTML = "Settings updated"
+
 }
