@@ -300,10 +300,7 @@ function updateSettings() {
     localStorage.setItem("quiz-settings", values)
 
     console.log("updated")
-    let scoreThing = values[values.indexOf("show-score")]
-    console.log(scoreThing)
-    console.log(values)
-    if (scoreThing == true) {
+    if (values[0] == true) {
         console.log("shown")
         points_box.hidden = false
     } else {
