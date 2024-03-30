@@ -5,4 +5,15 @@
     color: black;
     border-radius: 5px;
     text-decoration: none;
+    transition: 0.3s;
+}
+
+.geo-button:hover {
+    border: 5px solid rgb(56, 154, 56);
+    padding: 10px;
+    background-color: rgb(94, 139, 94);
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
 }
