@@ -21,10 +21,16 @@
 .lots-of-text {
     width: 50%;
     margin: 25px;
+    padding-right: 15px;
 }
 
 .everything-too {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.region-picker {
+    border-left: 5px solid grey;
+    padding-left: 15px;
 }
