@@ -24,7 +24,9 @@ window.onload = function() {
 }
 
 function setupData() {
-    points_box = document.getElementById("points") // setup points box
+    points_box = document.getElementById("points") // get points box
+    question_box = document.getElementById("text_box")
+    feedback_box = document.getElementById("feedback")
     loadSettings()
 
     correctGuesses = 0
@@ -159,9 +161,6 @@ function getRandomCountry() {
 }
 
 function setNewRandomCountry(oldCountry) {
-    question_box = document.getElementById("text_box")
-    feedback_box = document.getElementById("feedback")
-
     whereIs = getRandomCountry()
     if (!(isQuizOver())) {
         if (!(oldCountry == "none")) {
@@ -283,7 +282,7 @@ function loadSettings() {
         }
     }
     getElement("show-score").checked = values[0]
-    getElement("show-timer").checked = values[1]
+    getElement("show-questions").checked = values[1]
     getElement("show-num-correct-guesses").checked = values[2]
     getElement("show-num-incorrect-guesses").checked = values[3]
 
@@ -293,18 +292,21 @@ function loadSettings() {
 function updateSettings() {
     let values = []
     values.push(getElement("show-score").checked)
-    values.push(getElement("show-timer").checked)
+    values.push(getElement("show-questions").checked)
     values.push(getElement("show-num-correct-guesses").checked)
     values.push(getElement("show-num-incorrect-guesses").checked)
 
     localStorage.setItem("quiz-settings", values)
 
-    console.log("updated")
     if (values[0] == true) {
-        console.log("shown")
         points_box.hidden = false
     } else {
-        console.log("hidden")
         points_box.hidden = true
+    }
+
+    if (values[1] == true) {
+        question_box.hidden = false
+    } else {
+        question_box.hidden = true
     }
 }
