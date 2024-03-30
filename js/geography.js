@@ -120,7 +120,7 @@ function loadFromJSON(url) {
         let displayQuizName = structuredClone(quizName)
         displayQuizName = displayQuizName.replaceAll("-",  " ")
         displayQuizName = toTitleCase(displayQuizName)
-        console.log("quiz name fancy: " + displayQuizName)
+        // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
     })
 
@@ -201,8 +201,8 @@ function removeOldCountryFromList(country) {
     const index = remainingQuestions.indexOf(country);
         if (index > -1) {
             remainingQuestions.splice(index, 1);
-            console.log(remainingQuestions)
-            console.log("question list" + questionList)
+            // console.log(remainingQuestions)                  //for debugging
+            // console.log("question list" + questionList)
         }
 }
 
@@ -219,9 +219,9 @@ function submitCountry(country) {
         return
     }
 
-    console.log(country, whereIs)
+    // console.log(country, whereIs)
     if (country == whereIs) {
-        console.log("right country")
+        // console.log("right country")
         correctGuesses += 1
 
         changePointsBy(pointsPerQuestion)
@@ -229,7 +229,7 @@ function submitCountry(country) {
         removeOldCountryFromList(country)
         setNewRandomCountry(whereIs)
     } else {
-        console.log("wrong country")
+        // console.log("wrong country")
         incorrectGuesses += 1
         if (doCapitals == true) {
             feedback_box.innerHTML = "Incorrect, that's " + calcCapitalFromCountry(country) + ", the capital of " + country + ". Try again."
