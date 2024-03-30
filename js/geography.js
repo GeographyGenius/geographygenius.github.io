@@ -24,11 +24,12 @@ window.onload = function() {
 }
 
 function setupData() {
+    points_box = document.getElementById("points") // setup points box
     loadSettings()
 
     correctGuesses = 0
     incorrectGuesses = 0
-    possibleQuizzes = [
+    possibleQuizzes = [  // possible quizzes
                     "africa-countries", 
                     "africa-capitals", 
                     "south-america-countries", 
@@ -40,7 +41,7 @@ function setupData() {
                     ]
     searchParams = new URLSearchParams(window.location.search);
     quizName = searchParams.get("quiz")
-    if (!searchParams.has("quiz")) {
+    if (!searchParams.has("quiz")) { // if invalid url, redirect to home
         location.href = "/"
     }
     const urlToLoad = "/js/json/" + quizName + ".json"
@@ -76,7 +77,6 @@ function mapLoaded() {
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
-    points_box = document.getElementById("points")
     finishSetup()
 
     $(function(){
