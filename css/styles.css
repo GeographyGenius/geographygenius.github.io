@@ -99,3 +99,7 @@ body {
 area, button:hover {
     cursor: pointer;
 }
+
+.td-quiz {
+    width: 100px;
+}
