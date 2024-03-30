@@ -22,3 +22,9 @@
     width: 45%;
     margin: 25px;
 }
+
+.everything-too {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
