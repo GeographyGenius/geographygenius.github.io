@@ -24,7 +24,8 @@ window.onload = function() {
 }
 
 function setupData() {
-    points_box = document.getElementById("points") // setup points box
+    points_box = document.getElementById("points") // get points box
+    question_count_box = document.getElementById("questions") // get questions box
     loadSettings()
 
     correctGuesses = 0
@@ -303,6 +304,12 @@ function updateSettings() {
         points_box.hidden = false
     } else {
         points_box.hidden = true
+    }
+
+    if (values[1] == true) {
+        question_count_box.hidden = false
+    } else {
+        question_count_box.hidden = true
     }
     
 }
