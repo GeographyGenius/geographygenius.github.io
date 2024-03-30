@@ -302,6 +302,7 @@ function updateSettings() {
     console.log("updated")
     let scoreThing = values[values.indexOf("show-score")]
     console.log(scoreThing)
+    console.log(values)
     if (scoreThing == true) {
         console.log("shown")
         points_box.hidden = false
