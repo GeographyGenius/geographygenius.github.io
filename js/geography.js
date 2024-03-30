@@ -299,9 +299,12 @@ function updateSettings() {
 
     localStorage.setItem("quiz-settings", values)
 
+    console.log("updated")
     if (values.indexOf("show-score") == true) {
+        console.log("shown")
         points_box.hidden = false
     } else {
+        console.log("hidden")
         points_box.hidden = true
     }
 }
