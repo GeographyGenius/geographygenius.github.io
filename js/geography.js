@@ -5,6 +5,7 @@ let whereIs
 let quizOver
 let question_box
 let feedback_box
+let points_box
 let points
 let totalQuestionCount
 let questionNumber
@@ -75,6 +76,7 @@ function mapLoaded() {
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
+    points_box = document.getElementById("points")
     finishSetup()
 
     $(function(){
@@ -139,7 +141,6 @@ function loadFromJSON(url) {
 }
 
 function changePointsBy(change) {
-    let points_box = document.getElementById("points")
     points += change
     points = Math.max(0, points)
     points_box.innerHTML = "Points: " + points + "/" + totalQuestionCount * pointsPerQuestion
