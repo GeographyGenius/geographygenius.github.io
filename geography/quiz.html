@@ -50,28 +50,28 @@
 
     <tr><td><br></td></tr>
 
-    <div>
-        <input id="toggle0" class="toggle" type="checkbox">
-        <label for="toggle0">
-          Quiz settings
-        </label>
+    <tr id="quiz-settings-box">
+        <td colspan="3">
+            <div>
+                <input id="toggle0" class="toggle" type="checkbox">
+                <label for="toggle0">
+                Quiz settings
+                </label>
 
-        <div class="details">
-            <tr id="quiz-settings-box">
-                <td colspan="3">
-                    <span style="font-size: large;">Quiz Settings</span><br>
-                    <input onclick="updateSettings()" id="show-score" type="checkbox" id="show-score" name="show-score">
-                    <label for="show-score"> Show score</label><br>
-                    <input onclick="updateSettings()" id="show-questions"type="checkbox" id="show-questions" name="show-questions">
-                    <label for="show-questions"> Show question counter</label><br>
-                    <input onclick="updateSettings()" id="show-num-correct-guesses"type="checkbox" id="show-num-correct-guesses" name="show-num-correct-guesses">
-                    <label for="show-num-correct-guesses"> Show number of correct guesses</label><br>
-                    <input onclick="updateSettings()" id="show-num-incorrect-guesses"type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-incorrect-guesses">
-                    <label for="show-num-incorrect-guesses"> Show number of incorrect guesses</label><br>
-                </td>
-            </tr>
-        </div>
-    </div>
+                <div class="details">
+                            <span style="font-size: large;">Quiz Settings</span><br>
+                            <input onclick="updateSettings()" id="show-score" type="checkbox" id="show-score" name="show-score">
+                            <label for="show-score"> Show score</label><br>
+                            <input onclick="updateSettings()" id="show-questions"type="checkbox" id="show-questions" name="show-questions">
+                            <label for="show-questions"> Show question counter</label><br>
+                            <input onclick="updateSettings()" id="show-num-correct-guesses"type="checkbox" id="show-num-correct-guesses" name="show-num-correct-guesses">
+                            <label for="show-num-correct-guesses"> Show number of correct guesses</label><br>
+                            <input onclick="updateSettings()" id="show-num-incorrect-guesses"type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-incorrect-guesses">
+                            <label for="show-num-incorrect-guesses"> Show number of incorrect guesses</label><br>
+                </div>
+            </div>
+        </td>
+    </tr>
 
 </table>
 
