@@ -297,6 +297,4 @@ function updateSettings() {
 
     localStorage.setItem("quiz-settings", values)
     console.log(localStorage.getItem("quiz-settings"))
-    getElement("message").innerHTML = "Settings updated"
-
 }
