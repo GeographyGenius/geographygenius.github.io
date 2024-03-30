@@ -281,11 +281,12 @@ function loadSettings() {
             }
         }
     }
-    console.log(values)
     getElement("show-score").checked = values[0]
     getElement("show-timer").checked = values[1]
     getElement("show-num-correct-guesses").checked = values[2]
     getElement("show-num-incorrect-guesses").checked = values[3]
+
+    updateSettings()
 }
 
 function updateSettings() {
@@ -296,5 +297,10 @@ function updateSettings() {
     values.push(getElement("show-num-incorrect-guesses").checked)
 
     localStorage.setItem("quiz-settings", values)
-    console.log(localStorage.getItem("quiz-settings"))
+
+    if (values.indexOf("show-score") == true) {
+        points_box.hidden = false
+    } else {
+        points_box.hidden = true
+    }
 }
