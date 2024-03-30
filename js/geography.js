@@ -24,7 +24,7 @@ window.onload = function() {
 
 function setupData() {
     loadSettings()
-    
+
     correctGuesses = 0
     incorrectGuesses = 0
     possibleQuizzes = [
@@ -268,12 +268,17 @@ function scaleCoordinates(scaleAmount) {
 }
 
 function loadSettings() {
-    let values = localStorage.getItem("quiz-settings").split(",")
-    for(let i = 0;i < values.length;i++) {
-        if(values[i] == "true") {
-            values[i] = true
-        } else {
-            values[i] = false
+    let values = localStorage.getItem("quiz-settings")
+    if (values == null) {
+        values = [true, false, false, false]
+    } else {
+        values = values.split(",")
+        for(let i = 0;i < values.length;i++) {
+            if(values[i] == "true") {
+                values[i] = true
+            } else {
+                values[i] = false
+            }
         }
     }
     console.log(values)
@@ -281,7 +286,6 @@ function loadSettings() {
     getElement("show-timer").checked = values[1]
     getElement("show-num-correct-guesses").checked = values[2]
     getElement("show-num-incorrect-guesses").checked = values[3]
-    console.log(getElement("show-score").checked)
 }
 
 function updateSettings() {
