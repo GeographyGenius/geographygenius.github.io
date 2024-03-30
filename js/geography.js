@@ -281,7 +281,7 @@ function loadSettings() {
             }
         }
     }
-    getElement("show-score").checked = values[0]
+    getElement("show-questions").checked = values[0]
     getElement("show-questions").checked = values[1]
     getElement("show-num-correct-guesses").checked = values[2]
     getElement("show-num-incorrect-guesses").checked = values[3]
@@ -291,7 +291,7 @@ function loadSettings() {
 
 function updateSettings() {
     let values = []
-    values.push(getElement("show-score").checked)
+    values.push(getElement("show-questions").checked)
     values.push(getElement("show-questions").checked)
     values.push(getElement("show-num-correct-guesses").checked)
     values.push(getElement("show-num-incorrect-guesses").checked)
