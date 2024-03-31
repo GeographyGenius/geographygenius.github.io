@@ -28,7 +28,7 @@ function setupData() {
     points_box = getElement("points") // get points box
     question_count_box = getElement("questions") // get questions box
     guesses_box = getElement("guesses") // get guesses box
-    guesses_box.innerHTML = "0/0 Guesses Correct"
+    guesses_box.innerHTML = "0/0 Guesses correct"
     loadSettings()
 
     correctGuesses = 0
@@ -195,7 +195,16 @@ function isQuizOver() {
     if (remainingQuestions.length == 0) {
         let percent = Math.round(points / (totalQuestionCount * pointsPerQuestion) * 100)
         // You scored " + points + "/" + totalQuestionCount * pointsPerQuestion + " (" + percent + "%)
-        feedback_box.innerHTML = "Quiz over." + " You got " + correctGuesses + " guesses correct, and " + incorrectGuesses + " incorrect."
+
+        let extraText = ""
+        if (guesses_box.hidden == false) {
+            extraText += " You got " + correctGuesses + " guesses correct, and " + incorrectGuesses + " incorrect."
+        }
+        if (points_box.hidden == false) {
+            extraText += " You got " + percent + "% correct."
+        }
+
+        feedback_box.innerHTML = "Quiz over." + extraText
         question_box.innerHTML = ""
         quizOver = true
         return true
@@ -258,7 +267,7 @@ function submitCountry(country) {
 }
 
 function updateGuessBox() {
-    guesses_box.innerHTML = correctGuesses + "/" + (correctGuesses + incorrectGuesses) + " Guesses Correct"
+    guesses_box.innerHTML = correctGuesses + "/" + (correctGuesses + incorrectGuesses) + " Guesses correct"
 }
 
 function calcCapitalFromCountry(country) {
