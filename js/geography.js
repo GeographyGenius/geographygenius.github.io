@@ -292,7 +292,7 @@ function scaleCoordinates(scaleAmount) {
 function loadSettings() {
     let values = localStorage.getItem("quiz-settings")
     if (values == null) {
-        values = [true, false, false, false]
+        values = [true, true, true]
     } else {
         values = values.split(",")
         for(let i = 0;i < values.length;i++) {
