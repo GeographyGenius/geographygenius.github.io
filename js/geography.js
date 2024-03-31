@@ -201,7 +201,7 @@ function isQuizOver() {
             extraText += " You got " + correctGuesses + " guesses correct, and " + incorrectGuesses + " incorrect."
         }
         if (points_box.hidden == false) {
-            extraText += " You got " + percent + "% correct."
+            extraText += " You got " + percent + "% score."
         }
 
         feedback_box.innerHTML = "Quiz over." + extraText
