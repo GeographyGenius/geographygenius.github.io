@@ -6,9 +6,9 @@ function goToQuiz(quiz) {
 	location.href = "/geography/quiz.html?quiz=" + quiz
 }
 
-function getElement(element) {
-	return document.getElementById(element)
-}
+// function getElement(element) {               // USELESS!!11!
+// 	return document.getElementById(element)
+// }
 
 function toTitleCase(str) {
 	return str.replace(
