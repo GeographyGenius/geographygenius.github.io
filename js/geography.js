@@ -6,6 +6,7 @@ let quizOver
 let question_box
 let feedback_box
 let points_box
+let guesses_box
 let points
 let totalQuestionCount
 let questionNumber
@@ -24,8 +25,9 @@ window.onload = function() {
 }
 
 function setupData() {
-    points_box = document.getElementById("points") // get points box
-    question_count_box = document.getElementById("questions") // get questions box
+    points_box = getElement("points") // get points box
+    question_count_box = getElement("questions") // get questions box
+    guesses_box = getElement("guesses") // get guesses box
     loadSettings()
 
     correctGuesses = 0
@@ -285,8 +287,7 @@ function loadSettings() {
     }
     getElement("show-score").checked = values[0]
     getElement("show-questions").checked = values[1]
-    getElement("show-num-correct-guesses").checked = values[2]
-    getElement("show-num-incorrect-guesses").checked = values[3]
+    getElement("show-guesses").checked = values[2]
 
     updateSettings()
 }
@@ -295,9 +296,7 @@ function updateSettings() {
     let values = []
     values.push(getElement("show-score").checked)
     values.push(getElement("show-questions").checked)
-    values.push(getElement("show-num-correct-guesses").checked)
-    values.push(getElement("show-num-incorrect-guesses").checked)
-
+    values.push(getElement("show-guesses").checked)
     localStorage.setItem("quiz-settings", values)
 
     if (values[0] == true) {
@@ -310,6 +309,12 @@ function updateSettings() {
         question_count_box.hidden = false
     } else {
         question_count_box.hidden = true
+    }
+
+    if (values[2] == true) {
+        guesses_box.hidden = false
+    } else {
+        guesses_box.hidden = true
     }
     
 }

@@ -35,8 +35,9 @@
 
 <table style="margin: 0px;padding: 0px;border: 4px solid black;" width="400px" id="quiz-ui" hidden="true">
     <tr>
-        <td width="100px" id="points" style="font-size: small;"></td>
-        <td id="questions" style="font-size: small;"></td>
+        <td width="33.3%" id="points" style="font-size: small;"></td>
+        <td width="33.3%" id="questions" style="font-size: small;"></td>
+        <td width="33.3%" id="guesses" style="font-size: small;"></td>
     </tr>
     <tr>
         <td colspan="3" id="feedback"></td>
@@ -64,10 +65,10 @@
                             <label for="show-score"> Show score</label><br>
                             <input onclick="updateSettings()" id="show-questions"type="checkbox" id="show-questions" name="show-questions">
                             <label for="show-questions"> Show question counter</label><br>
-                            <input onclick="updateSettings()" id="show-num-correct-guesses"type="checkbox" id="show-num-correct-guesses" name="show-num-correct-guesses">
-                            <label for="show-num-correct-guesses"> Show number of correct guesses</label><br>
-                            <input onclick="updateSettings()" id="show-num-incorrect-guesses"type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-incorrect-guesses">
-                            <label for="show-num-incorrect-guesses"> Show number of incorrect guesses</label><br>
+                            <input onclick="updateSettings()" id="show-guesses"type="checkbox" id="show-guesses" name="show-guesses">
+                            <label for="show-guesses"> Show number of correct guesses.</label><br>
+                            <!-- <input onclick="updateSettings()" id="show-num-incorrect-guesses"type="checkbox" id="show-num-incorrect-guesses" name="show-num-correct-incorrect-guesses">
+                            <label for="show-num-incorrect-guesses"> Show number of incorrect guesses</label><br> -->
                 </div>
             </div>
         </td>
