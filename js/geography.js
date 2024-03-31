@@ -28,7 +28,7 @@ function setupData() {
     points_box = getElement("points") // get points box
     question_count_box = getElement("questions") // get questions box
     guesses_box = getElement("guesses") // get guesses box
-    guesses_box.innerHTML = "0/0 Guesses correct"
+    guesses_box.innerHTML = "0/0 guesses correct"
     loadSettings()
 
     correctGuesses = 0
@@ -267,7 +267,7 @@ function submitCountry(country) {
 }
 
 function updateGuessBox() {
-    guesses_box.innerHTML = correctGuesses + "/" + (correctGuesses + incorrectGuesses) + " Guesses correct"
+    guesses_box.innerHTML = correctGuesses + "/" + (correctGuesses + incorrectGuesses) + " guesses correct"
 }
 
 function calcCapitalFromCountry(country) {
