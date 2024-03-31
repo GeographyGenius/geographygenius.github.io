@@ -28,6 +28,7 @@ function setupData() {
     points_box = getElement("points") // get points box
     question_count_box = getElement("questions") // get questions box
     guesses_box = getElement("guesses") // get guesses box
+    guesses_box.innerHTML = "0/0 Guesses Correct"
     loadSettings()
 
     correctGuesses = 0
@@ -222,6 +223,7 @@ function skipQuestion() {
 
 function submitCountry(country) {
     if (quizOver == true) {
+        alert("The quiz is over.")
         return
     }
 
@@ -229,6 +231,7 @@ function submitCountry(country) {
     if (country == whereIs) {
         // console.log("right country")
         correctGuesses += 1
+        updateGuessBox()
 
         changePointsBy(pointsPerQuestion)
         changeQuestionNumber()
@@ -237,6 +240,8 @@ function submitCountry(country) {
     } else {
         // console.log("wrong country")
         incorrectGuesses += 1
+        updateGuessBox()
+
         if (doCapitals == true) {
             feedback_box.innerHTML = "Incorrect, that's " + calcCapitalFromCountry(country) + ", the capital of " + country + ". Try again."
         } else {
@@ -250,6 +255,10 @@ function submitCountry(country) {
         
         changePointsBy(-1)
     }
+}
+
+function updateGuessBox() {
+    guesses_box.innerHTML = correctGuesses + "/" + (correctGuesses + incorrectGuesses) + " Guesses Correct"
 }
 
 function calcCapitalFromCountry(country) {
