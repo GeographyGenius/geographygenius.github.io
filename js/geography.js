@@ -25,9 +25,9 @@ window.onload = function() {
 }
 
 function setupData() {
-    points_box = getElement("points") // get points box
-    question_count_box = getElement("questions") // get questions box
-    guesses_box = getElement("guesses") // get guesses box
+    points_box = document.getElementById("points") // get points box
+    question_count_box = document.getElementById("questions") // get questions box
+    guesses_box = document.getElementById("guesses") // get guesses box
     guesses_box.innerHTML = "0/0 guesses correct"
     loadSettings()
 
@@ -303,18 +303,18 @@ function loadSettings() {
             }
         }
     }
-    getElement("show-score").checked = values[0]
-    getElement("show-questions").checked = values[1]
-    getElement("show-guesses").checked = values[2]
+    document.getElementById("show-score").checked = values[0]
+    document.getElementById("show-questions").checked = values[1]
+    document.getElementById("show-guesses").checked = values[2]
 
     updateSettings()
 }
 
 function updateSettings() {
     let values = []
-    values.push(getElement("show-score").checked)
-    values.push(getElement("show-questions").checked)
-    values.push(getElement("show-guesses").checked)
+    values.push(document.getElementById("show-score").checked)
+    values.push(document.getElementById("show-questions").checked)
+    values.push(document.getElementById("show-guesses").checked)
     localStorage.setItem("quiz-settings", values)
 
     if (values[0] == true) {
