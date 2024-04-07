@@ -38,6 +38,6 @@
 .map-img {
     max-width: 50%;
     min-width: 300px;
-    float: right;
+    /* float: right; */
     width: auto;
 }
