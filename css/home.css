@@ -19,10 +19,14 @@
 }
 
 .lots-of-text {
-    width: 50%;
+    width: 60%;
     margin: 25px;
     padding-right: 15px;
     border-right: 2px solid lightgray;
+}
+
+.entire-ma-container {
+    width: 40%
 }
 
 .everything-too {
@@ -31,14 +35,14 @@
     justify-content: left;
 }
 
-.region-picker {
+/* .region-picker {
     padding-left: 15px;
-}
+} */
 
 .map-img {
     max-width: 100%;
-    min-width: 300px;
+    min-width: 200px;
     /* float: right; */
     width: auto;
-    margin: 25px;
+    /* margin: 25px; */
 }
