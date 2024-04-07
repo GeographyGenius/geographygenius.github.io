@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="/css/styles.css">
 
     <style>
-        img[usemap] {
+        .map-container {
             border: none;
             height: auto;
             max-width: 100%;
             width: auto;
-	}
+        }
     </style>
     
 </head>
@@ -42,7 +42,7 @@
 <!-- <script src="https://unpkg.com/image-map@2.0.1/dist/image-map.js"></script> -->
 <script src="/js/imageMapResizer.min.js"></script>
 <div class="everything" width="100%">
-
+<div class="map-container">
 <img src="/images/world-map-of-continents.png" alt="" usemap="#map" class="map" />
 <map name="map">
     <area shape="poly" coords="689, 351, 728, 340, 753, 362, 812, 393, 894, 330, 917, 258, 827, 251, 741, 236, 716, 241, 705, 266, 712, 304, 691, 313" href="/geography/oceania/" />
@@ -52,6 +52,7 @@
     <area shape="poly" coords="231, 410, 215, 399, 217, 372, 267, 311, 283, 260, 243, 242, 229, 225, 179, 207, 162, 212, 150, 250, 158, 279, 182, 301, 187, 369, 207, 404" href="/geography/americas/" />
     <area shape="poly" coords="159, 218, 148, 207, 147, 187, 138, 174, 119, 184, 112, 176, 117, 163, 143, 157, 150, 165, 144, 175, 204, 211, 212, 206, 212, 188, 182, 178, 164, 157, 202, 112, 252, 99, 237, 63, 217, 56, 188, 85, 170, 68, 194, 53, 222, 40, 230, 41, 222, 48, 238, 59, 249, 46, 234, 27, 252, 19, 278, 26, 280, 36, 274, 58, 284, 62, 364, 12, 343, 4, 222, 9, 208, 26, 145, 25, 135, 35, 50, 34, 16, 59, 14, 68, 5, 75, 53, 65, 71, 70, 70, 97, 54, 128, 73, 175, 71, 149, 83, 173, 87, 188, 132, 204, 143, 220" href="/geography/americas/" />
 </map>
+</div>
 
 <script>
 
