@@ -19,20 +19,21 @@
 }
 
 .lots-of-text {
-    width: 70%;
+    width: 60%;
     margin: 25px;
     padding-right: 15px;
     border-right: 2px solid lightgray;
 }
 
 .entire-map-container {
-    width: 30%
+    width: 40%
 }
 
 .everything-too {
     display: flex;
     align-items: center;
     justify-content: left;
+    margin: 20px;
 }
 
 /* .region-picker {
