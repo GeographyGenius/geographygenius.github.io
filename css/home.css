@@ -34,3 +34,10 @@
 .region-picker {
     padding-left: 15px;
 }
+
+.map-img {
+    max-width: 55%;
+    min-width: 300px;
+    float: right;
+    width: auto;
+}
