@@ -27,7 +27,7 @@
 <script src="/js/main.js"></script>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.maphilight.min.js"></script>
-<script src="https://unpkg.com/image-map/dist/image-map.js"></script>
+<script src="https://mattstow.com/experiment/responsive-image-maps/jquery.rwdImageMaps.min.js"></script>
 <div class="everything">
 
 <img src="/images/world-map-of-continents.png" alt="" usemap="#map" class="map" />
@@ -41,15 +41,23 @@
 </map>
 
 <script>
-// $(function(){
-// $('.map').maphilight({
-//     fillColor: 'cff0cc',//'4ead45',//'fff4a1',
-//     fillOpacity:0.6,
-//     stroke:false,
-// });
-// })
+$(function(){
+$('.map').maphilight({
+    fillColor: 'cff0cc',//'4ead45',//'fff4a1',
+    fillOpacity:0.6,
+    stroke:false,
+});
+})
 
-$('.map').imageMap();
+// $('.map').imageMap();
+
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+		alert($(this).attr('alt') + ' clicked');
+	});
+});
 
 </script>
 
