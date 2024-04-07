@@ -27,6 +27,7 @@
 <script src="/js/main.js"></script>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.maphilight.min.js"></script>
+<script src="https://unpkg.com/image-map/dist/image-map.js"></script>
 <div class="everything">
 
 <img src="/images/world-map-of-continents.png" alt="" usemap="#map" class="map" />
@@ -47,6 +48,9 @@ $('.map').maphilight({
     stroke:false,
 });
 })
+
+$('img[usemap]').imageMap();
+
 </script>
 
 </div>
