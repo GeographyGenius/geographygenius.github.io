@@ -20,7 +20,7 @@
 
 .lots-of-text {
     width: 60%;
-    margin: 25px;
+    /* margin: 25px; */
     padding-right: 15px;
     border-right: 2px solid lightgray;
 }
@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: left;
-    margin: 20px;
+    margin: 25px;
 }
 
 /* .region-picker {
