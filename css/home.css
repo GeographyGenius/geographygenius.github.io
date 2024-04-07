@@ -30,9 +30,9 @@
 }
 
 .everything-too {
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: left; */
+    display: flex;
+    align-items: center;
+    justify-content: left;
     /* margin: 15px; */
 }
 
@@ -43,7 +43,7 @@
 .map-img {
     max-width: 100%;
     min-width: 300px;
-    float: right;
+    /* float: right; */
     width: auto;
     /* margin: 25px; */
 }
