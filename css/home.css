@@ -20,6 +20,7 @@
 
 .lots-of-text {
     width: 45%;
+    min-width: 300px;
     margin: 20px;
     padding-right: 15px;
     border-right: 2px solid lightgray;
