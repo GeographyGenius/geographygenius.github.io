@@ -76,6 +76,11 @@
     </div>
     
 <script>
+
+if (mobileCheck() == true) {
+    location.href = "/m"
+}
+
 $(document).ready(function() {
     $('map').imageMapResize();
 });
