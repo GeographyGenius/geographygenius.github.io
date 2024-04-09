@@ -26,15 +26,15 @@
 }
 
 .entire-map-container {
-    width: 55%;
-    float: right;
+    width: 55%
 }
 
-/* .everything-too {
+.everything-too {
     display: flex;
     align-items: center;
     justify-content: left;
-} */
+    /* margin: 15px; */
+}
 
 /* .region-picker {
     padding-left: 15px;
