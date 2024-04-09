@@ -1,0 +1,50 @@
+.geo-button {
+    border: 5px solid rgb(66, 222, 66);
+    padding: 10px;
+    background-color: lightgreen;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.geo-button:hover {
+    border: 5px solid rgb(56, 154, 56);
+    padding: 10px;
+    background-color: rgb(120, 197, 120);
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.lots-of-text {
+    width: 100%;
+    /* min-width: 300px; */
+    margin: 10px;
+    /* padding-right: 15px; */
+    /* border-right: 2px solid lightgray; */
+}
+
+.entire-map-container {
+    width: 100%
+}
+
+/* .everything-too { */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: left; */
+    /* margin: 15px; */
+/* } */
+
+/* .region-picker {
+    padding-left: 15px;
+} */
+
+.map-img {
+    max-width: 100%;
+    min-width: 450px;
+    /* float: right; */
+    width: auto;
+    /* margin: 25px; */
+}
