@@ -42,7 +42,7 @@
 
 .map-img {
     max-width: 100%;
-    min-width: 450;
+    min-width: 450px;
     /* float: right; */
     width: auto;
     /* margin: 25px; */
