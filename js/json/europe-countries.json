@@ -1,7 +1,8 @@
 {
     "info": {
       "capitals": "false",
-      "area": "Europe"
+      "area": "Europe",
+      "imgUrl": "europe-countries.png"
     },
     "countryList": [
       "Cyprus",
