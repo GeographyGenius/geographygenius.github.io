@@ -85,13 +85,13 @@ function mapLoaded() {
     document.getElementById("quiz-ui").hidden = false
     finishSetup()
 
-    // $(function(){
-    // $('.map').maphilight({
-    //    fillColor: 'cff0cc',//'4ead45',//'fff4a1',
-    //    fillOpacity:0.6,
-    //    stroke:false,
-    // });
-    // })
+    $(function(){
+    $('.map').maphilight({
+       fillColor: 'cff0cc',//'4ead45',//'fff4a1',
+       fillOpacity:0.6,
+       stroke:false,
+    });
+    })
 }
 
 function loadFromJSON(url) {
