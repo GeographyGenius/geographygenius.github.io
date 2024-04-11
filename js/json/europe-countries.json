@@ -6,8 +6,6 @@
     },
     "countryList": [
       "Cyprus",
-      "Cyprus",
-      "San Marino",
       "Vatican City",
       "United Kingdom",
       "Ukraine",
@@ -20,7 +18,6 @@
       "Kosovo",
       "Slovakia",
       "San Marino",
-      "Russia",
       "Russia",
       "Romania",
       "Portugal",
@@ -46,7 +43,6 @@
       "Finland",
       "Estonia",
       "Czech Republic (Czechia)",
-      "Cyprus",
       "Croatia",
       "Bulgaria",
       "Bosnia and Herzegovina",
@@ -60,10 +56,6 @@
       {
         "countryName": "Cyprus",
         "countryCoords": "477, 404, 484, 399, 500, 395, 493, 405, 483, 409"
-      },
-      {
-        "countryName": "Cyprus",
-        "countryCoords": "467, 394, 474, 389, 490, 385, 483, 395, 473, 399"
       },
       {
         "countryName": "San Marino",
@@ -112,10 +104,6 @@
       {
         "countryName": "Slovakia",
         "countryCoords": "363, 235, 369, 230, 351, 226, 342, 230, 332, 225, 321, 234, 318, 234, 318, 240, 318, 246, 330, 245, 347, 238, 354, 238, 362, 240"
-      },
-      {
-        "countryName": "San Marino",
-        "countryCoords": "292, 296, 295, 303, 289, 308, 280, 306, 279, 300, 284, 295"
       },
       {
         "countryName": "Russia",
@@ -220,10 +208,6 @@
       {
         "countryName": "Czech Republic (Czechia)",
         "countryCoords": "273, 218, 279, 228, 289, 235, 294, 236, 298, 234, 316, 234, 322, 235, 332, 227, 318, 217, 314, 220, 311, 218, 311, 216, 298, 211, 288, 214"
-      },
-      {
-        "countryName": "Cyprus",
-        "countryCoords": "487, 414, 494, 409, 510, 405, 503, 415, 493, 419"
       },
       {
         "countryName": "Croatia",
