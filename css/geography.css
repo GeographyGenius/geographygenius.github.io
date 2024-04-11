@@ -4,7 +4,8 @@
 }
 
 .toggle+label:before {
-  content: "⯈";
+  /* content: "⯈"; */
+  content: "▶";
   display: inline-block;
   line-height: 0;
   transition: transform 0.5s;
