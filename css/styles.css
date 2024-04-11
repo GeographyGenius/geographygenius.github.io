@@ -101,3 +101,7 @@ body {
 area, button:hover {
     cursor: pointer;
 }
+
+footer {
+    text-align: center;
+}
