@@ -83,6 +83,7 @@ function mapLoaded() {
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
+    document.getElementById("quiz-footer").hidden = false // so fotter isn't visible during loading
     finishSetup()
 
     $(function(){
