@@ -274,12 +274,12 @@ function submitCountry(country) {
     }
 
     if (isCustomQuiz) {
-        if (excludeList.includes(country)) {
-            // if (doCapitals) {
-            //     alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
-            // } else {
-            //     alert(country + " is not part of this quiz.")
-            // }
+        if (excludeData.charAt(questionList.indexOf(country)) == "1") {
+            if (doCapitals) {
+                alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
+            } else {
+                alert(country + " is not part of this quiz.")
+            }
             return
         }
     }
