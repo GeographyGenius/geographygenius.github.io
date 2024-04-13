@@ -1,6 +1,7 @@
 {
     "info": {
       "capitals": "false",
+      "custom": "false",
       "area": "Americas",
       "imgUrl": "north-america-map.png"
     },

@@ -1,6 +1,7 @@
 {
   "info": {
     "capitals": "true",
+    "custom": "false",
     "area": "Africa",
     "imgUrl": "africa-map.png"
   },

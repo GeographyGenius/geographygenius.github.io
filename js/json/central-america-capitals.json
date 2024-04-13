@@ -1,6 +1,7 @@
 {
   "info": {
     "capitals": "true",
+    "custom": "false",
     "area": "Americas",
     "imgUrl": "central-america-map.png"
   },

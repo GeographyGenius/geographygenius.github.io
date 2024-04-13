@@ -1,6 +1,7 @@
 {
   "info": {
     "capitals": "true",
+    "custom": "false",
     "area": "Americas",
     "imgUrl": "south-america-map.png"
   },
