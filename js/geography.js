@@ -89,7 +89,7 @@ function mapLoaded() {
     }
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         if (isCustomQuiz) {
-            if (excludeData.charAt(i) = "1") {
+            if (excludeData.charAt(i) == "1") {
                 dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.1,\"alwaysOn\":true}'";
                 extraStyles = 'style="cursor:default" '
                 
