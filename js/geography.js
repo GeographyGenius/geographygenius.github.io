@@ -123,7 +123,6 @@ function mapLoaded() {
        fillOpacity:0.6,
        stroke:false,
     });
-    console.log("test test test")
     })
 }
 
