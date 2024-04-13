@@ -78,9 +78,9 @@ function finishSetup() {
 function mapLoaded() {
     console.log("map loaded")
     let fancyInnerHTML = ""
+    let dataMaphilight
+    let extraStyles
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
-        let dataMaphilight
-        let extraStyles
         if (isCustomQuiz == true) {
             if (excludeList.includes(countryData[i].countryName)) {
                 dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'";
