@@ -81,7 +81,7 @@ function mapLoaded() {
     let dataMaphilight
     let extraStyles
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
-        if (isCustomQuiz == true) {
+        if (isCustomQuiz) {
             if (excludeList.includes(countryData[i].countryName)) {
                 dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'";
                 extraStyles = 'style="cursor:default" '
@@ -89,7 +89,9 @@ function mapLoaded() {
                 const index = questionList.indexOf(countryData[i].countryName);
                 if (index > -1) { // only splice array when item is found
                     questionList.splice(index, 1); // 2nd parameter means remove one item only
-                    capitalList.splice(index, 1);
+                    if (doCapitals) {
+                        capitalList.splice(index, 1);
+                    }
                 }
             } else {
                 dataMaphilight = ""
@@ -198,7 +200,7 @@ function setNewRandomCountry(oldCountry) {
     if (!(isQuizOver())) {
         if (!(oldCountry == "none")) {
             // correctGuesses += 1
-            if (doCapitals == true) {
+            if (doCapitals) {
                 // feedback_box.innerHTML = "Correct, that's " + calcCapitalFromCountry(oldCountry) + ", the capital of " + oldCountry
                 feedback_box.innerHTML = "Correct, that's " + oldCountry + ", whose capital is  " + calcCapitalFromCountry(oldCountry)
                 question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
@@ -209,7 +211,7 @@ function setNewRandomCountry(oldCountry) {
 
         } else {
             // feedback_box.innerHTML = "Click a country to start."
-            if (doCapitals == true) {
+            if (doCapitals) {
                 question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
             } else {
                 question_box.innerHTML = "Where is " + whereIs + "?"
@@ -259,14 +261,14 @@ function skipQuestion() {
 }
 
 function submitCountry(country) {
-    if (quizOver == true) {
+    if (quizOver) {
         alert("The quiz is over.")
         return
     }
 
-    if (isCustomQuiz == true) {
+    if (isCustomQuiz) {
         if (excludeList.includes(country)) {
-            // if (doCapitals == true) {
+            // if (doCapitals) {
             //     alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
             // } else {
             //     alert(country + " is not part of this quiz.")
@@ -290,12 +292,12 @@ function submitCountry(country) {
         incorrectGuesses += 1
         updateGuessBox()
 
-        if (doCapitals == true) {
+        if (doCapitals) {
             feedback_box.innerHTML = "Incorrect, that's " + calcCapitalFromCountry(country) + ", the capital of " + country + ". Try again."
         } else {
             feedback_box.innerHTML = "Incorrect, that's " + country + ". Try again."
         }
-        if (doCapitals == true) {
+        if (doCapitals) {
             question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
         } else {
             question_box.innerHTML = "Where is " + whereIs + "?"
@@ -356,19 +358,19 @@ function updateSettings() {
     values.push(document.getElementById("show-guesses").checked)
     localStorage.setItem("quiz-settings", values)
 
-    if (values[0] == true) {
+    if (values[0]) {
         points_box.hidden = false
     } else {
         points_box.hidden = true
     }
 
-    if (values[1] == true) {
+    if (values[1]) {
         question_count_box.hidden = false
     } else {
         question_count_box.hidden = true
     }
 
-    if (values[2] == true) {
+    if (values[2]) {
         guesses_box.hidden = false
     } else {
         guesses_box.hidden = true
