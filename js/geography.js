@@ -81,7 +81,12 @@ function mapLoaded() {
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         let dataMaphilight
         if (excludeList.includes(countryData[i].countryName)) {
-            dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'"
+            dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'";
+            
+            const index = questionList.indexOf(5);
+            if (index > -1) { // only splice array when item is found
+                questionList.splice(index, 1); // 2nd parameter means remove one item only
+              }
         } else {
             dataMaphilight = ""
         }
@@ -252,7 +257,11 @@ function submitCountry(country) {
     }
 
     if (excludeList.includes(country)) {
-        alert(country + " is not part of this quiz.")
+        if (doCapitals == true) {
+            alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
+        } else {
+            alert(country + " is not part of this quiz.")
+        }
         return
     }
 
