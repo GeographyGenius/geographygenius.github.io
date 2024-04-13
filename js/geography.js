@@ -81,7 +81,7 @@ function mapLoaded() {
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         let dataMaphilight
         if (excludeList.includes(countryData[i].countryName)) {
-            dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":1,\"alwaysOn\":true}'"
+            dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'"
         } else {
             dataMaphilight = ""
         }
@@ -248,6 +248,11 @@ function skipQuestion() {
 function submitCountry(country) {
     if (quizOver == true) {
         alert("The quiz is over.")
+        return
+    }
+
+    if (excludeList.includes(country)) {
+        alert(country + " is not part of this quiz.")
         return
     }
 
