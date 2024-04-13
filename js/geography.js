@@ -79,14 +79,14 @@ function mapLoaded() {
     console.log("map loaded")
     let fancyInnerHTML = ""
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
+        let dataMaphilight
         if (excludeList.includes(countryData[i].countryName)) {
-            let dataMaphilight = "data-maphilight=\"{'alwaysOn':true}\" "
+            dataMaphilight = "data-maphilight=\"{'alwaysOn':true}\" "
         } else {
-            let dataMaphilight = ""
+            dataMaphilight = ""
         }
         console.log(dataMaphilight)
-        // ' + dataMaphilight + '
-        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly" coords="' + countryData[i].countryCoords + '" />'
+        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly"' + dataMaphilight + ' coords="' + countryData[i].countryCoords + '" />'
     }
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
