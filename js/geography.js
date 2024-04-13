@@ -85,7 +85,8 @@ function mapLoaded() {
             let dataMaphilight = ""
         }
         console.log(dataMaphilight)
-        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly" ' + dataMaphilight + 'coords="' + countryData[i].countryCoords + '" />'
+        // ' + dataMaphilight + '
+        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly" coords="' + countryData[i].countryCoords + '" />'
     }
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
