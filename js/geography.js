@@ -83,7 +83,7 @@ function mapLoaded() {
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         if (isCustomQuiz) {
             if (excludeList.includes(countryData[i].countryName)) {
-                dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'";
+                dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.3,\"alwaysOn\":true}'";
                 extraStyles = 'style="cursor:default" '
                 
                 const index = questionList.indexOf(countryData[i].countryName);
@@ -106,7 +106,7 @@ function mapLoaded() {
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
-    document.getElementById("quiz-footer").hidden = false // so fotter isn't visible during loading
+    document.getElementById("quiz-footer").hidden = false // so footter isn't visible during loading
     finishSetup()
 
     $(function(){
