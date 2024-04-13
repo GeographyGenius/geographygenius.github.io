@@ -1,5 +1,6 @@
 let questionList
 let capitalList
+let fullCountryList
 let remainingQuestions
 let whereIs
 let quizOver
@@ -130,6 +131,7 @@ function loadFromJSON(url) {
     .done(function(data) {
         loadedData = data
         questionList = loadedData.countryList
+        fullCountryList = structuredClone(questionList)
         if (loadedData.info.capitals == "true") {
             doCapitals = true
             capitalList = loadedData.capitalList
@@ -274,7 +276,7 @@ function submitCountry(country) {
     }
 
     if (isCustomQuiz) {
-        if (excludeData.charAt(questionList.indexOf(country)) == "1") {
+        if (excludeData.charAt(fullCountryList.indexOf(country)) == "1") {
             if (doCapitals) {
                 alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
             } else {
