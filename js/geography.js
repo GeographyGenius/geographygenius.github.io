@@ -86,7 +86,8 @@ function mapLoaded() {
             const index = questionList.indexOf(countryData[i].countryName);
             if (index > -1) { // only splice array when item is found
                 questionList.splice(index, 1); // 2nd parameter means remove one item only
-              }
+                capitalList.splice(index, 1);
+            }
         } else {
             dataMaphilight = ""
         }
