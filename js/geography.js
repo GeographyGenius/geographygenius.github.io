@@ -258,11 +258,11 @@ function submitCountry(country) {
     }
 
     if (excludeList.includes(country)) {
-        if (doCapitals == true) {
-            alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
-        } else {
-            alert(country + " is not part of this quiz.")
-        }
+        // if (doCapitals == true) {
+        //     alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
+        // } else {
+        //     alert(country + " is not part of this quiz.")
+        // }
         return
     }
 
