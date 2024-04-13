@@ -81,7 +81,7 @@ function mapLoaded() {
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         let dataMaphilight
         if (excludeList.includes(countryData[i].countryName)) {
-            dataMaphilight = "data-maphilight=\"{'alwaysOn':true}\" "
+            dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":1,\"alwaysOn\":true}'"
         } else {
             dataMaphilight = ""
         }
