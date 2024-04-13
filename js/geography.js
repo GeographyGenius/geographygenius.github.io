@@ -80,9 +80,11 @@ function mapLoaded() {
     let fancyInnerHTML = ""
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         let dataMaphilight
+        let extraStyles
         if (isCustomQuiz == true) {
             if (excludeList.includes(countryData[i].countryName)) {
                 dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'";
+                extraStyles = 'style="cursor:default" '
                 
                 const index = questionList.indexOf(countryData[i].countryName);
                 if (index > -1) { // only splice array when item is found
@@ -91,11 +93,13 @@ function mapLoaded() {
                 }
             } else {
                 dataMaphilight = ""
+                extraStyles = ""
             }
         } else {
             dataMaphilight = ""
+            extraStyles = ""
         }
-        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly"' + dataMaphilight + ' coords="' + countryData[i].countryCoords + '" />'
+        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly"' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
