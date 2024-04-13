@@ -79,7 +79,7 @@ function mapLoaded() {
     console.log("map loaded")
     let fancyInnerHTML = ""
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
-        if (excludeList.includes(countryList[i])) {
+        if (excludeList.includes(countryData[i].countryName)) {
             let dataMaphilight = "data-maphilight=\"{'alwaysOn':true}\" "
         } else {
             let dataMaphilight = ""
