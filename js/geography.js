@@ -84,7 +84,7 @@ function mapLoaded() {
     let extraStyles
     if (searchParams.has("custom")) {
         isCustomQuiz = true
-        excludeData = base36ToBinary(searchParams.get("custom"), fullCountryList)
+        excludeData = base36ToBinary(searchParams.get("custom"), fullCountryList.length)
     } else {
         isCustomQuiz = false
     }
