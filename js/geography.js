@@ -83,7 +83,7 @@ function mapLoaded() {
         if (excludeList.includes(countryData[i].countryName)) {
             dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'";
             
-            const index = questionList.indexOf(5);
+            const index = questionList.indexOf(countryData[i].countryName);
             if (index > -1) { // only splice array when item is found
                 questionList.splice(index, 1); // 2nd parameter means remove one item only
               }
