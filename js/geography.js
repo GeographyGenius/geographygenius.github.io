@@ -82,9 +82,9 @@ function mapLoaded() {
     let fancyInnerHTML = ""
     let dataMaphilight
     let extraStyles
-    if (searchParams.has("grayedout")) {
+    if (searchParams.has("custom")) {
         isCustomQuiz = true
-        excludeData = searchParams.get("grayedout")
+        excludeData = searchParams.get("custom")
     } else {
         isCustomQuiz = false
     }
