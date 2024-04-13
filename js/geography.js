@@ -18,6 +18,7 @@ let doCapitals
 let correctGuesses
 let incorrectGuesses
 let isCustomQuiz
+let excludeData
 const pointsPerQuestion = 4
 searchParams = new URLSearchParams(window.location.search);
 
@@ -80,9 +81,15 @@ function mapLoaded() {
     let fancyInnerHTML = ""
     let dataMaphilight
     let extraStyles
+    if (searchParams.has("grayedout")) {
+        isCustomQuiz = true
+        excludeData = searchParams.get("grayedout")
+    } else {
+        isCustomQuiz = false
+    }
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         if (isCustomQuiz) {
-            if (excludeList.includes(countryData[i].countryName)) {
+            if (excludeData.charAt(i) = "1") {
                 dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.1,\"alwaysOn\":true}'";
                 extraStyles = 'style="cursor:default" '
                 
@@ -127,10 +134,10 @@ function loadFromJSON(url) {
             doCapitals = true
             capitalList = loadedData.capitalList
         }
-        if (loadedData.info.custom == "true") {
-            isCustomQuiz = true
-            excludeList = loadedData.excludeList
-        }
+        // if (loadedData.info.custom == "true") {   // no more exclude list
+        //     isCustomQuiz = true
+        //     excludeList = loadedData.excludeList
+        // }
         console.log("loaded question list")
         let headerLinks = document.getElementsByClassName("h-a")
         let areaOfWorld = loadedData.info.area
