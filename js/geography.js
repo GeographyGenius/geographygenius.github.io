@@ -80,18 +80,21 @@ function mapLoaded() {
     let fancyInnerHTML = ""
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         let dataMaphilight
-        if (excludeList.includes(countryData[i].countryName)) {
-            dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'";
-            
-            const index = questionList.indexOf(countryData[i].countryName);
-            if (index > -1) { // only splice array when item is found
-                questionList.splice(index, 1); // 2nd parameter means remove one item only
-                capitalList.splice(index, 1);
+        if (isCustomQuiz == true) {
+            if (excludeList.includes(countryData[i].countryName)) {
+                dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"e1e1e1\",\"fillOpacity\":1,\"alwaysOn\":true}'";
+                
+                const index = questionList.indexOf(countryData[i].countryName);
+                if (index > -1) { // only splice array when item is found
+                    questionList.splice(index, 1); // 2nd parameter means remove one item only
+                    capitalList.splice(index, 1);
+                }
+            } else {
+                dataMaphilight = ""
             }
         } else {
             dataMaphilight = ""
         }
-        console.log(dataMaphilight)
         fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly"' + dataMaphilight + ' coords="' + countryData[i].countryCoords + '" />'
     }
     document.getElementById("map-land").innerHTML = fancyInnerHTML
