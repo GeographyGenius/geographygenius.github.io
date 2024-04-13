@@ -17,6 +17,7 @@ let quizName
 let doCapitals
 let correctGuesses
 let incorrectGuesses
+let isCustomQuiz
 const pointsPerQuestion = 4
 
 window.onload = function() {
@@ -78,7 +79,12 @@ function mapLoaded() {
     console.log("map loaded")
     let fancyInnerHTML = ""
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
-        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly" coords="' + countryData[i].countryCoords + '" />'
+        if (excludeList.includes(countryList[i])) {
+            let dataMaphilight = "data-maphilight=\"{'alwaysOn':true}\" "
+        } else {
+            let dataMaphilight = ""
+        }
+        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly" ' + dataMaphilight + 'coords="' + countryData[i].countryCoords + '" />'
     }
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
@@ -103,6 +109,10 @@ function loadFromJSON(url) {
         if (loadedData.info.capitals == "true") {
             doCapitals = true
             capitalList = loadedData.capitalList
+        }
+        if (loadedData.info.custom == "true") {
+            isCustomQuiz = true
+            excludeList = loadedData.excludeList
         }
         console.log("loaded question list")
         let headerLinks = document.getElementsByClassName("h-a")
@@ -143,7 +153,7 @@ function loadFromJSON(url) {
             var failText = "Hm, it looks like the quiz failed to load. Reload the page, or try again later?"
         }
         document.getElementById("map-land").innerHTML = failText;
-        document.getElementsByClassName("map")[0].remove()
+        // document.getElementsByClassName("map")[0].remove()
     })
 }
 

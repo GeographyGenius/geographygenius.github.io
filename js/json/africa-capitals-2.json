@@ -119,6 +119,12 @@
     "Lusaka",
     "Harare"
   ],
+  "excludeList": [
+    "Algeria",
+    "Madagascar",
+    "Egypt",
+    "Cameroon"
+  ],
   "countryData": [
     {
       "countryName": "Zimbabwe",
