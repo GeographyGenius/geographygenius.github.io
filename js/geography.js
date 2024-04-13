@@ -83,7 +83,7 @@ function mapLoaded() {
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         if (isCustomQuiz) {
             if (excludeList.includes(countryData[i].countryName)) {
-                dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.3,\"alwaysOn\":true}'";
+                dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.1,\"alwaysOn\":true}'";
                 extraStyles = 'style="cursor:default" '
                 
                 const index = questionList.indexOf(countryData[i].countryName);
