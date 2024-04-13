@@ -260,13 +260,15 @@ function submitCountry(country) {
         return
     }
 
-    if (excludeList.includes(country)) {
-        // if (doCapitals == true) {
-        //     alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
-        // } else {
-        //     alert(country + " is not part of this quiz.")
-        // }
-        return
+    if (isCustomQuiz == true) {
+        if (excludeList.includes(country)) {
+            // if (doCapitals == true) {
+            //     alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
+            // } else {
+            //     alert(country + " is not part of this quiz.")
+            // }
+            return
+        }
     }
 
     // console.log(country, whereIs)
