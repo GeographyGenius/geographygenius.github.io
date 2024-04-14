@@ -16,11 +16,6 @@ let possibleQuizzes
 let searchParams
 let quizName
 let doCapitals
-let correctGuesses
-let incorrectGuesses
-let isCustomQuiz
-let excludeData
-const pointsPerQuestion = 4
 
 window.onload = function() {
     console.log("setup...")

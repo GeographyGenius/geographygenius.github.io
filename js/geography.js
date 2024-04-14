@@ -171,6 +171,7 @@ function loadFromJSON(url) {
         displayQuizName = toTitleCase(displayQuizName)
         // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
+        document.getElementById("quiz-name").innerHTML = displayQuizName // update quiz title on page
     })
 
     .fail(function() {
