@@ -64,7 +64,7 @@ function finishSetup() {
     quizOver = false
     points = 0
     questionNumber = 0
-    changeQuestionNumber()
+    // changeQuestionNumber()
 
     // setNewRandomCountry("none");
 }
@@ -175,12 +175,12 @@ function loadFromJSON(url) {
     })
 }
 
-function changeQuestionNumber() {
-    questionNumber += 1
-    questionNumber = Math.min(questionNumber, totalQuestionCount)
-    let question_count_box = document.getElementById("questions")
-    question_count_box.innerHTML = "Question " + questionNumber + "/" + totalQuestionCount
-}
+// function changeQuestionNumber() {
+//     questionNumber += 1
+//     questionNumber = Math.min(questionNumber, totalQuestionCount)
+//     let question_count_box = document.getElementById("questions")
+//     question_count_box.innerHTML = "Question " + questionNumber + "/" + totalQuestionCount
+// }
 
 function getRandomCountry() {
     return(remainingQuestions[Math.floor(Math.random()*remainingQuestions.length)]);
@@ -275,7 +275,7 @@ function submitCountry(country) {
     if (country == whereIs) {
         // console.log("right country")
         correctGuesses += 1
-        updateGuessBox()
+        // updateGuessBox()
 
         changeQuestionNumber()
         removeOldCountryFromList(country)
@@ -283,7 +283,7 @@ function submitCountry(country) {
     } else {
         // console.log("wrong country")
         incorrectGuesses += 1
-        updateGuessBox()
+        // updateGuessBox()
 
         if (doCapitals) {
             feedback_box.innerHTML = "Incorrect, that's " + calcCapitalFromCountry(country) + ", the capital of " + country + ". Try again."
@@ -299,9 +299,9 @@ function submitCountry(country) {
     }
 }
 
-function updateGuessBox() {
-    guesses_box.innerHTML = correctGuesses + "/" + (correctGuesses + incorrectGuesses) + " guesses correct"
-}
+// function updateGuessBox() {
+//     guesses_box.innerHTML = correctGuesses + "/" + (correctGuesses + incorrectGuesses) + " guesses correct"
+// }
 
 function calcCapitalFromCountry(country) {
     return(capitalList[questionList.indexOf(country)])
