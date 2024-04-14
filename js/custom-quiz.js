@@ -100,8 +100,8 @@ function mapLoaded() {
         } else {
             dataMaphilight = ""
             extraStyles = ""
-        }
-        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly"' + ' id="thing-' + countryData[i].countryName + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+        }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
+        fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + countryData[i].countryName + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
@@ -246,13 +246,13 @@ function removeOldCountryFromList(country) {
         }
 }
 
-function skipQuestion() {
-    removeOldCountryFromList(whereIs)
-    setNewRandomCountry('none')
-    feedback_box.innerHTML = ""
-    isQuizOver()
-    changeQuestionNumber()
-}
+// function skipQuestion() {
+//     removeOldCountryFromList(whereIs)
+//     setNewRandomCountry('none')
+//     feedback_box.innerHTML = ""
+//     isQuizOver()
+//     changeQuestionNumber()
+// }
 
 function submitCountry(country) {
     if (quizOver) {
