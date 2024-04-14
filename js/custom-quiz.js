@@ -58,7 +58,6 @@ function finishSetup() {
         location.reload()
     }
     map.width *= mapScale;
-    scaleCoordinates(mapScale);
 
     totalQuestionCount = questionList.length
     remainingQuestions = structuredClone(questionList)
