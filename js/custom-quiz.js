@@ -124,8 +124,8 @@ function mapLoaded() {
 
     $(function(){
     $('.map').maphilight({
-       fillColor: 'cff0cc',//'4ead45',//'fff4a1',
-       fillOpacity:0.6,
+       fillColor: '000000',//'4ead45',//'fff4a1',
+       fillOpacity:0.1,
        stroke:false,
     });
     })
