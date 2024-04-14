@@ -65,7 +65,6 @@ function finishSetup() {
     points = 0
     questionNumber = 0
     changeQuestionNumber()
-    changePointsBy(0)
 
     setNewRandomCountry("none");
 }
