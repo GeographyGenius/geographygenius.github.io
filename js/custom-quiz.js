@@ -16,6 +16,7 @@ let possibleQuizzes
 let searchParams
 let quizName
 let doCapitals
+let checkBoxes
 
 window.onload = function() {
     console.log("setup...")
@@ -23,6 +24,7 @@ window.onload = function() {
 }
 
 function setupData() {
+    checkBoxes = document.getElementById("check-countries")
     points_box = document.getElementById("points") // get points box
     question_count_box = document.getElementById("questions") // get questions box
     guesses_box = document.getElementById("guesses") // get guesses box
@@ -102,6 +104,9 @@ function mapLoaded() {
             extraStyles = ""
         }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
         fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + countryData[i].countryName + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+    }
+    for (let i = 0; i < fullCountryList.length; i++) {
+        checkBoxes.innerHTML += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}"><label for="${fullCountryList[i] + "-checkbox"}> ${fullCountryList[i]}</label><br>`
     }
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
