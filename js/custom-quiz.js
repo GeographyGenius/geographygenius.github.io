@@ -105,11 +105,12 @@ function mapLoaded() {
         }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
         fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + countryData[i].countryName + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
-    checkBoxes.innerHTML = ""
+    let checkboxesString = ""
     for (let i = 0; i < fullCountryList.length; i++) {
-        checkBoxes.innerHTML += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}"><label for="${fullCountryList[i] + "-checkbox"}> ${fullCountryList[i]}</label><br>`
-        console.log(checkBoxes.innerHTML)
+        checkboxesString += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}"><label for="${fullCountryList[i] + "-checkbox"}> ${fullCountryList[i]}</label><br>`
+        console.log(checkboxesString)
     }
+    checkBoxes.innerHTML = checkboxesString
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
