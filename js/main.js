@@ -30,48 +30,48 @@ mobileCheck = function() {
 	return check;
 };
 
-function binaryToBase36(binaryString) {
-	let i = 0
-	let chunk
-	let parsed
-	let base36encoded
-	let encoded = ""
-	while(i < binaryString.length) {
-		chunk = binaryString.slice(i, i + 5)
-		while(chunk.length < 5) {
-			chunk = "0" + chunk
-		}
-		parsed = parseInt(chunk, 2)
-		base36encoded = parsed.toString(36)
-		encoded += base36encoded
-		i += 5
-	}
-	return encoded
-}
+// function binaryToBase36(binaryString) {
+// 	let i = 0
+// 	let chunk
+// 	let parsed
+// 	let base36encoded
+// 	let encoded = ""
+// 	while(i < binaryString.length) {
+// 		chunk = binaryString.slice(i, i + 5)
+// 		while(chunk.length < 5) {
+// 			chunk = "0" + chunk
+// 		}
+// 		parsed = parseInt(chunk, 2)
+// 		base36encoded = parsed.toString(36)
+// 		encoded += base36encoded
+// 		i += 5
+// 	}
+// 	return encoded
+// }
 
-function base36ToBinary(input, totalLength) {
-	let result
-	let decoded = ""
-	let i = 0
-	for (i = 0; i < input.length - 1; i++) {
-		result = decimal2binary(parseInt(input[i], 36))
-		while (result.length < 5) {
-			result = "0" + result
-		}
-		decoded += result
-	};
-	result = decimal2binary(parseInt(input[i], 36))
-	while (decoded.length + result.length < totalLength) {
-		result = "0" + result
-	}
-	decoded += result
+// function base36ToBinary(input, totalLength) {
+// 	let result
+// 	let decoded = ""
+// 	let i = 0
+// 	for (i = 0; i < input.length - 1; i++) {
+// 		result = decimal2binary(parseInt(input[i], 36))
+// 		while (result.length < 5) {
+// 			result = "0" + result
+// 		}
+// 		decoded += result
+// 	};
+// 	result = decimal2binary(parseInt(input[i], 36))
+// 	while (decoded.length + result.length < totalLength) {
+// 		result = "0" + result
+// 	}
+// 	decoded += result
 
-	return decoded
-}
+// 	return decoded
+// }
 
-function decimal2binary(dec) {
-	return (dec >>> 0).toString(2);
-}
+// function decimal2binary(dec) {
+// 	return (dec >>> 0).toString(2);
+// }
 
 let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz+_"
 
