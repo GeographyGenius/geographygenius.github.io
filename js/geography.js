@@ -171,7 +171,7 @@ function loadFromJSON(url) {
         displayQuizName = toTitleCase(displayQuizName)
         // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
-        document.getElementById("quiz-name").innerHTML = displayQuizName // update quiz title on page
+        document.getElementById("quiz-name").innerHTML = displayQuizName + " Quiz" // update quiz title on page
     })
 
     .fail(function() {
@@ -181,7 +181,7 @@ function loadFromJSON(url) {
         } else {
             var failText = "Hm, it looks like the quiz failed to load. Reload the page, or try again later?"
         }
-        document.getElementById("map-land").innerHTML = failText;
+        document.getElementById("quiz-title").innerHTML = failText;
         // document.getElementsByClassName("map")[0].remove()
     })
 }
