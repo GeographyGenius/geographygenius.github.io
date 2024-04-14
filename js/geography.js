@@ -181,7 +181,7 @@ function loadFromJSON(url) {
         } else {
             var failText = "Hm, it looks like the quiz failed to load. Reload the page, or try again later?"
         }
-        document.getElementById("quiz-title").innerHTML = failText;
+        document.getElementById("quiz-name").innerHTML = failText;
         // document.getElementsByClassName("map")[0].remove()
     })
 }
