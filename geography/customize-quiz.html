@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Learn geography easily">
+    <meta name="keywords" content="Learn, Geography, Easily, Genius">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="og:image" content="https://geographygenius.github.io/favicon.ico">
+    
+    <title>Customize Quiz - Geography Genius</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/geography.css">
+
+</head>
+<body>
+
+<!-- start header -->
+<ul class="h-ul">
+    <li class="h-li-icon"><a class="h-a" href="/"><img src="/images/logos/logo-horizontal-new-icon.png" width=200></a></li>
+    <li class="h-li"><a class="h-a" href="/geography/americas">Americas</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/africa">Africa</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/europe">Europe</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/asia">Asia</a></li>
+    <li class="h-li"><a class="h-a" href="/geography/oceania">Oceania</a></li>
+</ul>
+<!-- end header -->
+
+<div class="everything">
+<div class="geo-container">
+<div class="fade-in-everything">
+<div id="cool-image"></div>
+</div>
+<map name="map-area" id="map-land">Loading quiz...
+</map>
+
+<table style="margin: 0px;padding: 0px;border: 4px solid black;" width="400px" id="quiz-ui" hidden="true">
+    <tr>
+        <td width="33.3%" id="points" style="font-size: small;"></td>
+        <td width="33.3%" id="questions" style="font-size: small;"></td>
+        <td width="33.3%" id="guesses" style="font-size: small;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" id="feedback"></td>
+    </tr>
+    <tr>
+        <td colspan="3" id="text_box">Loading questions...</td>
+    </tr>
+    <tr><td><div id="check-countries">Loading settings...</div></td></tr>
+
+</table>
+
+</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.maphilight.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/custom-quiz.js"></script>
+
+<footer id="quiz-footer" hidden="true">
+    <hr>
+    <a href="/info/disclaimer">Disclaimer</a><span> • </span>
+    <a href="/info/credits">Credits</a>
+</footer>
+
+</body>
+</html>
