@@ -106,9 +106,14 @@ function mapLoaded() {
         fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + countryData[i].countryName + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     let checkboxesString = ""
-    for (let i = 0; i < fullCountryList.length; i++) {
-        checkboxesString += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}">\n<label for="${fullCountryList[i] + "-checkbox"}"> ${fullCountryList[i]}</label><br>\n`
-        console.log(checkboxesString)
+    let count = 0
+    while (count < fullCountryList.length) {
+        checkboxesString += "<td>"
+        for (let i = 0; i < 20 || i < fullCountryList.kength; i++, count++) {
+            checkboxesString += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}">\n<label for="${fullCountryList[i] + "-checkbox"}"> ${fullCountryList[i]}</label><br>\n`
+            console.log(checkboxesString)
+        }
+        checkboxesString += "</td>"
     }
     checkBoxes.innerHTML = checkboxesString
     document.getElementById("map-land").innerHTML = fancyInnerHTML
