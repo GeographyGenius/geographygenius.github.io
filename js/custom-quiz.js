@@ -102,7 +102,7 @@ function mapLoaded() {
             dataMaphilight = ""
             extraStyles = ""
         }
-        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly"' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+        fancyInnerHTML = fancyInnerHTML + '<area onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" shape="poly"' + ' id="thing-' + countryData[i].countryName + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
@@ -174,13 +174,6 @@ function loadFromJSON(url) {
         document.getElementById("map-land").innerHTML = failText;
         // document.getElementsByClassName("map")[0].remove()
     })
-}
-
-function changePointsBy(change) {
-    points += change
-    points = Math.max(0, points)
-    points_box.innerHTML = "Points: " + points + "/" + totalQuestionCount * pointsPerQuestion
-    // points_box.innerHTML = ""
 }
 
 function changeQuestionNumber() {
@@ -285,7 +278,6 @@ function submitCountry(country) {
         correctGuesses += 1
         updateGuessBox()
 
-        changePointsBy(pointsPerQuestion)
         changeQuestionNumber()
         removeOldCountryFromList(country)
         setNewRandomCountry(whereIs)
@@ -305,7 +297,6 @@ function submitCountry(country) {
             question_box.innerHTML = "Where is " + whereIs + "?"
         }
         
-        changePointsBy(-1)
     }
 }
 
