@@ -66,7 +66,7 @@ function finishSetup() {
     questionNumber = 0
     changeQuestionNumber()
 
-    setNewRandomCountry("none");
+    // setNewRandomCountry("none");
 }
 
 function mapLoaded() {
@@ -186,34 +186,34 @@ function getRandomCountry() {
     return(remainingQuestions[Math.floor(Math.random()*remainingQuestions.length)]);
 }
 
-function setNewRandomCountry(oldCountry) {
-    question_box = document.getElementById("text_box")
-    feedback_box = document.getElementById("feedback")
+// function setNewRandomCountry(oldCountry) {
+//     question_box = document.getElementById("text_box")
+//     feedback_box = document.getElementById("feedback")
 
-    whereIs = getRandomCountry()
-    if (!(isQuizOver())) {
-        if (!(oldCountry == "none")) {
-            // correctGuesses += 1
-            if (doCapitals) {
-                // feedback_box.innerHTML = "Correct, that's " + calcCapitalFromCountry(oldCountry) + ", the capital of " + oldCountry
-                feedback_box.innerHTML = "Correct, that's " + oldCountry + ", whose capital is  " + calcCapitalFromCountry(oldCountry)
-                question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
-            } else {
-                feedback_box.innerHTML = "Correct, that's " + oldCountry
-                question_box.innerHTML = "Where is " + whereIs + "?"
-            }
+//     whereIs = getRandomCountry()
+//     if (!(isQuizOver())) {
+//         if (!(oldCountry == "none")) {
+//             // correctGuesses += 1
+//             if (doCapitals) {
+//                 // feedback_box.innerHTML = "Correct, that's " + calcCapitalFromCountry(oldCountry) + ", the capital of " + oldCountry
+//                 feedback_box.innerHTML = "Correct, that's " + oldCountry + ", whose capital is  " + calcCapitalFromCountry(oldCountry)
+//                 question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
+//             } else {
+//                 feedback_box.innerHTML = "Correct, that's " + oldCountry
+//                 question_box.innerHTML = "Where is " + whereIs + "?"
+//             }
 
-        } else {
-            // feedback_box.innerHTML = "Click a country to start."
-            if (doCapitals) {
-                question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
-            } else {
-                question_box.innerHTML = "Where is " + whereIs + "?"
-            }
-        }
-    }
+//         } else {
+//             // feedback_box.innerHTML = "Click a country to start."
+//             if (doCapitals) {
+//                 question_box.innerHTML = "What country is " + calcCapitalFromCountry(whereIs) + " the capital of?"
+//             } else {
+//                 question_box.innerHTML = "Where is " + whereIs + "?"
+//             }
+//         }
+//     }
     
-}
+// }
 
 function isQuizOver() {
     if (remainingQuestions.length == 0) {
