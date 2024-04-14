@@ -1,6 +1,7 @@
 let questionList
 let capitalList
 let fullCountryList
+let fullCapitalList
 let remainingQuestions
 let whereIs
 let quizOver
@@ -136,6 +137,7 @@ function loadFromJSON(url) {
             doCapitals = true
             capitalList = loadedData.capitalList
         }
+        fullCapitalList = structuredClone(capitalList)
         // if (loadedData.info.custom == "true") {   // no more exclude list
         //     isCustomQuiz = true
         //     excludeList = loadedData.excludeList
@@ -321,7 +323,7 @@ function updateGuessBox() {
 }
 
 function calcCapitalFromCountry(country) {
-    return(capitalList[questionList.indexOf(country)])
+    return(fullCapitalList[fullCountryList.indexOf(country)])
 }
 
 function scaleCoordinates(scaleAmount) {
