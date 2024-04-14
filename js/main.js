@@ -88,17 +88,44 @@ function binaryToBase64(binaryString) {
         } else {
     		chunk = binaryString.slice(i - 6, i)
         }
-        console.log(chunk)
+        // console.log(chunk)
 		while(chunk.length < 6) {
 			chunk = "0" + chunk
 		}
-        console.log(chunk)
+        // console.log(chunk)
 		decimal = parseInt(chunk, 2)
-        console.log(decimal)
+        // console.log(decimal)
 		b64Char = base64lookup.charAt(decimal)
-        console.log(b64Char)
+        // console.log(b64Char)
 		encoded = b64Char + encoded
 		i -= 6
 	}
 	return encoded
+}
+
+function base64ToBinary(input, totalLength) {
+	let i = 0
+	let decodedBinary = ""
+	firstDigitWidth = totalLength % 6
+	if (firstDigitWidth == 0) {
+		firstDigitWidth = 6
+	}
+	decimal = base64lookup.indexOf(input.charAt(i))
+	binary = decimal.toString(2)
+	while (binary.length < firstDigitWidth) {
+		binary = "0" + binary
+	}
+	decodedBinary += binary
+	for (i = 1; i < input.length; i++) {
+		decimal = base64lookup.indexOf(input.charAt(i))
+		// console.log(decimal)
+		binary = decimal.toString(2)
+		// console.log(binary)
+		while (binary.length < 6) {
+			binary = "0" + binary
+		}
+		decodedBinary += binary
+	}
+	// console.log(decodedBinary.length)
+	return decodedBinary
 }
