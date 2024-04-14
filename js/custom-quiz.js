@@ -107,7 +107,7 @@ function mapLoaded() {
     }
     let checkboxesString = ""
     for (let i = 0; i < fullCountryList.length; i++) {
-        checkboxesString += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}"><label for="${fullCountryList[i] + "-checkbox"}> ${fullCountryList[i]}</label><br>`
+        checkboxesString += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}">\n<label for="${fullCountryList[i] + "-checkbox"}> ${fullCountryList[i]}</label><br>`
         console.log(checkboxesString)
     }
     checkBoxes.innerHTML = checkboxesString
