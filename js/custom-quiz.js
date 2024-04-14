@@ -26,7 +26,7 @@ function setupData() {
     points_box = document.getElementById("points") // get points box
     question_count_box = document.getElementById("questions") // get questions box
     guesses_box = document.getElementById("guesses") // get guesses box
-    guesses_box.innerHTML = "0/0 guesses correct"
+    // guesses_box.innerHTML = "0/0 guesses correct"
 
     correctGuesses = 0
     incorrectGuesses = 0
