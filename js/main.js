@@ -82,7 +82,7 @@ function binaryToBase64(binaryString) {
 	let base64Char
 	let encoded = ""
 	while(i > 0) {
-        console.log(i)
+        // console.log(i)
         if (i < 6) {
             chunk = binaryString.slice(0, i)
         } else {
