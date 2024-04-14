@@ -72,3 +72,33 @@ function base36ToBinary(input, totalLength) {
 function decimal2binary(dec) {
 	return (dec >>> 0).toString(2);
 }
+
+let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz+="
+
+function binaryToBase64(binaryString) {
+	let i = binaryString.length
+	let chunk
+	let parsed
+	let base64Char
+	let encoded = ""
+	while(i > 0) {
+        console.log(i)
+        if (i < 6) {
+            chunk = binaryString.slice(0, i)
+        } else {
+    		chunk = binaryString.slice(i - 6, i)
+        }
+        console.log(chunk)
+		while(chunk.length < 6) {
+			chunk = "0" + chunk
+		}
+        console.log(chunk)
+		decimal = parseInt(chunk, 2)
+        console.log(decimal)
+		b64Char = base64lookup.charAt(decimal)
+        console.log(b64Char)
+		encoded = b64Char + encoded
+		i -= 6
+	}
+	return encoded
+}
