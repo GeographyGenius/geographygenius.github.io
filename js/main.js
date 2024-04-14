@@ -73,7 +73,7 @@ function decimal2binary(dec) {
 	return (dec >>> 0).toString(2);
 }
 
-let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz+="
+let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz+_"
 
 function binaryToBase64(binaryString) {
 	let i = binaryString.length
