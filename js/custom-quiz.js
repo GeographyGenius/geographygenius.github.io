@@ -109,7 +109,7 @@ function mapLoaded() {
     let i = 0
     while (i < fullCountryList.length) {
         checkboxesString += '<td valign="top" style="font-size:small;">'
-        for (let count = 0; count < 35 && i < fullCountryList.length; i++, count++) {
+        for (let count = 0; count < 32 && i < fullCountryList.length; i++, count++) {
             checkboxesString += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}">\n<label for="${fullCountryList[i] + "-checkbox"}"> ${fullCountryList[i]}</label><br>\n`
             console.log(count)
         }
