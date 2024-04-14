@@ -21,7 +21,6 @@ let incorrectGuesses
 let isCustomQuiz
 let excludeData
 const pointsPerQuestion = 4
-searchParams = new URLSearchParams(window.location.search);
 
 window.onload = function() {
     console.log("setup...")
@@ -49,6 +48,7 @@ function setupData() {
                     "europe-countries",
                     "europe-capitals",
                     ]
+    searchParams = new URLSearchParams(window.location.search);
     quizName = searchParams.get("quiz")
     if (!searchParams.has("quiz")) { // if invalid url, redirect to home
         location.href = "/"
