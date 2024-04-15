@@ -130,8 +130,7 @@ function mapLoaded() {
     });
     })
 
-    setTimeout(() => {clickToggle();}, 2000);
-    console.log("toggle highlighting started")
+    setTimeout(() => {clickToggle();console.log("toggle highlighting started")}, 2000);
 }
 
 function generateHighlightJS() {
