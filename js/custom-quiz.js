@@ -103,7 +103,7 @@ function mapLoaded() {
             dataMaphilight = ""
             extraStyles = ""
         }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
-        fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + countryData[i].countryName + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+        fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + spaceToHyphen(countryData[i].countryName) + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     let checkboxesString = ""
     let i = 0
