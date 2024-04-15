@@ -110,7 +110,7 @@ function mapLoaded() {
     while (i < fullCountryList.length) {
         checkboxesString += '<td valign="top" style="font-size:small;">'
         for (let count = 0; count < 32 && i < fullCountryList.length; i++, count++) {
-            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" name="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(fullCountryList[i])}">\n<label for="${fullCountryList[i] + "-checkbox"}"> ${spaceToHyphen(fullCountryList[i])}</label><br>\n`
+            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" name="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(fullCountryList[i])}">\n<label for="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}"> ${fullCountryList[i]}</label><br>\n`
         }
         checkboxesString += "</td>"
     }
