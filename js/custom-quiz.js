@@ -133,13 +133,15 @@ function mapLoaded() {
 
 function generateHighlightJS() {
     let jsString
-    let code = ""
+    let code = "function clickToggle() {"
     for (let i = 0; i < fullCountryList.length; i++) {
-        jsString = '$("#thing-' + fullCountryList[i] + '").click(function(a){a.preventDefault();a=$("#thing-' + fullCountryList[i] + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log("' + fullCountryList[i] + ' is now " + a.alwaysOn),$("#thing-${fullCountryList[i]}").data("maphilight",a).trigger("alwaysOn.maphilight")});'
+        jsString = '$("#thing-' + fullCountryList[i] + '").click(function(a){a.preventDefault();a=$("#thing-' + fullCountryList[i] + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log("' + fullCountryList[i] + ' is now " + a.alwaysOn),$("#thing-' + fullCountryList[i] + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
         console.log(jsString)
         code += jsString
     }
+    code += "}"
     document.getElementById("country-scripts").innerHTML = code
+    clickToggle()
 }
 
 function loadFromJSON(url) {
