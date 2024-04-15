@@ -111,7 +111,6 @@ function mapLoaded() {
         checkboxesString += '<td valign="top" style="font-size:small;">'
         for (let count = 0; count < 32 && i < fullCountryList.length; i++, count++) {
             checkboxesString += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}">\n<label for="${fullCountryList[i] + "-checkbox"}"> ${fullCountryList[i]}</label><br>\n`
-            console.log(count)
         }
         checkboxesString += "</td>"
     }
@@ -137,6 +136,7 @@ function generateHighlightJS() {
     let code
     for (let i = 0; i < fullCountryList.length; i++) {
         jsString = '$("#thing-' + fullCountryList[i] + '").click(function(a){a.preventDefault();a=$("#thing-' + fullCountryList[i] + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log(' + fullCountryList[i] + '" is now "} a.alwaysOn),$("#thing-${fullCountryList[i]}").data("maphilight",a).trigger("alwaysOn.maphilight")});'
+        console.log(jsString)
         code += jsString
     }
     document.getElementById("country-scripts").innerHTML = code
