@@ -133,3 +133,7 @@ function base64ToBinary(input, totalLength) {
 	// console.log(decodedBinary.length)
 	return decodedBinary
 }
+
+function spaceToHyphen(str) {
+	return str.replace(" ", "-")
+}

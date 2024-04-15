@@ -110,7 +110,7 @@ function mapLoaded() {
     while (i < fullCountryList.length) {
         checkboxesString += '<td valign="top" style="font-size:small;">'
         for (let count = 0; count < 32 && i < fullCountryList.length; i++, count++) {
-            checkboxesString += `<input type="checkbox" id="${fullCountryList[i] + "-checkbox"}" name="${fullCountryList[i] + "-checkbox"}" value="${fullCountryList[i]}">\n<label for="${fullCountryList[i] + "-checkbox"}"> ${fullCountryList[i]}</label><br>\n`
+            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" name="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(fullCountryList[i])}">\n<label for="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}"> ${spaceToHyphen(fullCountryList[i])}</label><br>\n`
         }
         checkboxesString += "</td>"
     }
@@ -137,7 +137,7 @@ function generateHighlightJS() {
     let jsString
     let code = "function clickToggle() {\n"
     for (let i = 0; i < fullCountryList.length; i++) {
-        jsString = '$("#thing-' + fullCountryList[i] + '").click(function(a){a.preventDefault();a=$("#thing-' + fullCountryList[i] + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log("' + fullCountryList[i] + ' is now " + a.alwaysOn),$("#thing-' + fullCountryList[i] + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
+        jsString = '$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log("' + spaceToHyphen(fullCountryList[i]) + ' is now " + a.alwaysOn),$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
         console.log(jsString)
         code += jsString
     }
