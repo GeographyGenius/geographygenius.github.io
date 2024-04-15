@@ -135,5 +135,5 @@ function base64ToBinary(input, totalLength) {
 }
 
 function spaceToHyphen(str) {
-	return str.replaceAll(" ", "_")
+	return ((str.replaceAll(" ", "_")).replaceAll("(", "\(")).replaceAll(")", "\)")
 }
