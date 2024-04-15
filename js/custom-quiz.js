@@ -129,19 +129,22 @@ function mapLoaded() {
        stroke:false,
     });
     })
+
+    setTimeout(() => {clickToggle();}, 2000);
+    console.log("toggle highlighting started")
 }
 
 function generateHighlightJS() {
     let jsString
-    let code = "function clickToggle() {"
-    for (let i = 0; i < /*fullCountryList.length*/1; i++) {
+    let code = "function clickToggle() {\n"
+    for (let i = 0; i < fullCountryList.length; i++) {
         jsString = '$("#thing-' + fullCountryList[i] + '").click(function(a){a.preventDefault();a=$("#thing-' + fullCountryList[i] + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log("' + fullCountryList[i] + ' is now " + a.alwaysOn),$("#thing-' + fullCountryList[i] + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
         console.log(jsString)
         code += jsString
     }
-    code += "}"
+    code += "\n}"
     document.getElementById("country-scripts").innerHTML = code
-    clickToggle()
+    // clickToggle()
 }
 
 function loadFromJSON(url) {
