@@ -116,6 +116,7 @@ function mapLoaded() {
         checkboxesString += "</td>"
     }
     checkBoxes.innerHTML = checkboxesString
+    generateHighlightJS() // add the highlighting
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
@@ -136,7 +137,6 @@ function generateHighlightJS() {
     let code
     for (let i = 0; i < fullCountryList.length; i++) {
         jsString = `$("#thing-${fullCountryList[i]}").click(function(a){a.preventDefault();a=$("#thing-${fullCountryList[i]}").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log(${fullCountryList[i] + " is now "}a.alwaysOn),$("#thing-${fullCountryList[i]}").data("maphilight",a).trigger("alwaysOn.maphilight")});`
-        console.log(jsString)
         code += jsString
     }
     document.getElementById("country-scripts").innerHTML = code
