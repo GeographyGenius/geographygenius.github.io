@@ -138,7 +138,7 @@ function generateHighlightJS() {
     let code = "function clickToggle() {\n"
     for (let i = 0; i < fullCountryList.length; i++) {
         jsString = '$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log("' + spaceToHyphen(fullCountryList[i]) + ' is now " + a.alwaysOn),$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
-        console.log(jsString)
+        // console.log(jsString)
         code += jsString
     }
     code += "\n}"
