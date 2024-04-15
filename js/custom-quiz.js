@@ -134,7 +134,7 @@ function mapLoaded() {
 function generateHighlightJS() {
     let jsString
     let code = "function clickToggle() {"
-    for (let i = 0; i < fullCountryList.length; i++) {
+    for (let i = 0; i < /*fullCountryList.length*/1; i++) {
         jsString = '$("#thing-' + fullCountryList[i] + '").click(function(a){a.preventDefault();a=$("#thing-' + fullCountryList[i] + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log("' + fullCountryList[i] + ' is now " + a.alwaysOn),$("#thing-' + fullCountryList[i] + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
         console.log(jsString)
         code += jsString
