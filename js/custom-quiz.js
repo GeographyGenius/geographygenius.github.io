@@ -116,6 +116,7 @@ function mapLoaded() {
     }
     checkBoxes.innerHTML = checkboxesString
     generateHighlightJS() // add the highlighting
+    setTimeout(() => {clickToggle();console.log("highlighting started")}, 200);
     document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
@@ -130,7 +131,6 @@ function mapLoaded() {
     });
     })
 
-    setTimeout(() => {clickToggle();console.log("toggle highlighting started")}, 2000);
 }
 
 function generateHighlightJS() {
