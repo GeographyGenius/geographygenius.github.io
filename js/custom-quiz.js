@@ -342,7 +342,7 @@ function calcCapitalFromCountry(country) {
 }
 
 function setCountryVisible(countryNumber, value) {
-    print(value)
+    console.log(value)
     binaryExcludeData.replaceAt(countryNumber, value.toString())
-    print(binaryExcludeData)
+    console.log(binaryExcludeData)
 }
