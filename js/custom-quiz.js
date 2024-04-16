@@ -17,6 +17,7 @@ let searchParams
 let quizName
 let doCapitals
 let checkBoxes
+let binaryExcludeData
 
 window.onload = function() {
     console.log("setup...")
@@ -137,7 +138,7 @@ function generateHighlightJS() {
     let jsString
     let code = "function clickToggle() {\n"
     for (let i = 0; i < fullCountryList.length; i++) {
-        jsString = '$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,console.log("' + spaceToHyphen(fullCountryList[i]) + ' is now " + a.alwaysOn),$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
+        jsString = '$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,setCountryVisible("' + spaceToHyphen(fullCountryList[i]) + ', a.alwaysOn"),$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
         // console.log(jsString)
         code += jsString
     }
@@ -155,6 +156,11 @@ function loadFromJSON(url) {
         if (loadedData.info.capitals == "true") {
             doCapitals = true
             capitalList = loadedData.capitalList
+        }
+
+        binaryExcludeData = ""
+        while (binaryExcludeData.length < fullCountryList.length) {
+            binaryExcludeData += "0"
         }
         // if (loadedData.info.custom == "true") {   // no more exclude list
         //     isCustomQuiz = true
@@ -333,4 +339,9 @@ function submitCountry(country) {
 
 function calcCapitalFromCountry(country) {
     return(capitalList[questionList.indexOf(country)])
+}
+
+function setCountryVisible(counryNumber, value) {
+    binaryExcludeData.replaceAt(countryNumber, value)
+    print(binaryExcludeData)
 }
