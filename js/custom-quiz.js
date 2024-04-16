@@ -348,7 +348,7 @@ function setCountryVisible(countryNumber, value) {
     } else {
         bit = "0"
     }
-    console.log(value, bit)
+    console.log(value, bit, countryNumber)
     binaryExcludeData.replaceAt(countryNumber, bit)
     console.log(binaryExcludeData)
 }
