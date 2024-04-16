@@ -341,7 +341,7 @@ function calcCapitalFromCountry(country) {
     return(capitalList[questionList.indexOf(country)])
 }
 
-function setCountryVisible(counryNumber, value) {
+function setCountryVisible(countryNumber, value) {
     binaryExcludeData.replaceAt(countryNumber, value)
     print(binaryExcludeData)
 }
