@@ -342,10 +342,11 @@ function calcCapitalFromCountry(country) {
 }
 
 function setCountryVisible(countryNumber, value) {
+    let bit
     if (value == true) {
-        let bit = "1"
+        bit = "1"
     } else {
-        let bit = "0"
+        bit = "0"
     }
     binaryExcludeData.replaceAt(countryNumber, bit)
     console.log(binaryExcludeData)
