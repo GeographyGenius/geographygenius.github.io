@@ -349,6 +349,6 @@ function setCountryVisible(countryNumber, value) {
         bit = "0"
     }
     console.log(value, bit, countryNumber)
-    binaryExcludeData = binaryExcludeData.replaceAt(countryNumber, bit)
+    binaryExcludeData = setChatAt(binaryExcludeData, countryNumber, bit)
     console.log(binaryExcludeData)
 }
