@@ -348,7 +348,7 @@ function setCountryVisible(countryNumber, value) {
     } else {
         bit = "0"
     }
-    console.log(value, bit, countryNumber)
-    binaryExcludeData = setCharAt(binaryExcludeData, countryNumber, bit)
+    console.log(value, bit, countryNumber.parseInt())
+    binaryExcludeData = setCharAt(binaryExcludeData, countryNumber.parseInt(), bit)
     console.log(binaryExcludeData)
 }
