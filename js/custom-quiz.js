@@ -104,7 +104,12 @@ function mapLoaded() {
             dataMaphilight = ""
             extraStyles = ""
         }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
-        fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + spaceToHyphen(countryData[i].countryName) + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+        let id
+        id = spaceToHyphen(countryData[i].countryName)
+        if (document.getElementById(id) == null) {
+            id += "-2"
+        }
+        fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     let checkboxesString = ""
     let i = 0
@@ -135,6 +140,12 @@ function mapLoaded() {
 }
 
 function generateHighlightJS() {
+    let areaNames = document.getElementsByTagName("area")
+    let actualCountryNames = []
+    for (let i = 0; i < areaNames.length; i++) {
+        actualCountryNames.push(areaNames[i].splice(6))
+    }
+    console.log(actualCountryNames)
     let jsString
     let code = "function clickToggle() {\n"
     for (let i = 0; i < fullCountryList.length; i++) {
