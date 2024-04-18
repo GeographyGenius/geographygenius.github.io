@@ -106,7 +106,7 @@ function mapLoaded() {
         }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
         let id
         id = spaceToHyphen(countryData[i].countryName)
-        if (fancyInnerHTML.includes("thing" + id)) {
+        if (fancyInnerHTML.includes("thing-" + id)) {
             id += "-2"
         }
         fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
