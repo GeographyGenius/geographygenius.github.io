@@ -109,6 +109,7 @@ function mapLoaded() {
         if (document.getElementById(id) == null) {
             id += "-2"
         }
+        console.log(document.getElementById(id))
         fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     let checkboxesString = ""
@@ -143,7 +144,8 @@ function generateHighlightJS() {
     let areaNames = document.getElementsByTagName("area")
     let actualCountryNames = []
     for (let i = 0; i < areaNames.length; i++) {
-        actualCountryNames = actualCountryNames.push(areaNames[i])
+        let id = areaNames[i].id
+        actualCountryNames.push(id.slice(0))
     }
     console.log(actualCountryNames)
     let jsString
