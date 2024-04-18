@@ -141,6 +141,9 @@ function mapLoaded() {
 
 function generateHighlightJS() {
     let areaNames = document.getElementsByTagName("area")
+    let myClone = areaNames.structuredClone()
+    console.log(myClone)
+    console.log(myClone.length)
     console.log(areaNames)
     console.log(areaNames.length)
     console.log(areaNames[3])
