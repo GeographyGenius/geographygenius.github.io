@@ -141,19 +141,13 @@ function mapLoaded() {
 
 function generateHighlightJS() {
     let areaNames = document.getElementsByTagName("area")
-    // let myClone = structuredClone(areaNames)
-    // console.log(myClone)
-    // console.log(myClone.length)
-    console.log(areaNames)
-    console.log(areaNames.length)
-    console.log(areaNames[3])
-    // let actualCountryNames = []
-    // for (let i = 0; i < areaNames.length; i++) {
-    //     let id = areaNames[i].id
-    //     actualCountryNames.push(id.slice(0))
-    //     console.log(actualCountryNames, id)
-    // }
-    // console.log(actualCountryNames)
+    let actualCountryNames = []
+    for (let i = 0; i < areaNames.length; i++) {
+        let id = areaNames[i].id
+        actualCountryNames.push(id.slice(0))
+        console.log(actualCountryNames, id)
+    }
+    console.log(actualCountryNames)
     let jsString
     let code = "function clickToggle() {\n"
     for (let i = 0; i < fullCountryList.length; i++) {
