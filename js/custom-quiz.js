@@ -121,9 +121,9 @@ function mapLoaded() {
         checkboxesString += "</td>"
     }
     checkBoxes.innerHTML = checkboxesString
+    document.getElementById("map-land").innerHTML = fancyInnerHTML
     generateHighlightJS() // add the highlighting
     setTimeout(() => {clickToggle();console.log("highlighting started")}, 200);
-    document.getElementById("map-land").innerHTML = fancyInnerHTML
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footter isn't visible during loading
