@@ -143,7 +143,7 @@ function generateHighlightJS() {
     let areaNames = document.getElementsByTagName("area")
     let actualCountryNames = []
     for (let i = 0; i < areaNames.length; i++) {
-        actualCountryNames.push(areaNames[i].splice(6))
+        actualCountryNames.push(areaNames[i])
     }
     console.log(actualCountryNames)
     let jsString
