@@ -143,6 +143,7 @@ function generateHighlightJS() {
     let areaNames = document.getElementsByTagName("area")
     console.log(areaNames)
     console.log(areaNames.length)
+    console.log(areaNames[3])
     // let actualCountryNames = []
     // for (let i = 0; i < areaNames.length; i++) {
     //     let id = areaNames[i].id
