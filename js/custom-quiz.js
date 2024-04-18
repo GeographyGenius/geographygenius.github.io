@@ -149,7 +149,7 @@ function generateHighlightJS() {
     console.log(actualCountryNames)
     let jsString
     let code = "function clickToggle() {\n"
-    // for (let i = 0; i < fullCountryList.length; i++) {
+    // for (let i = 0; i < fullCountryList.length; i++) { // old code
     //     jsString = '$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,setCountryVisible("' + i + '", a.alwaysOn),$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
     //     // console.log(jsString)
     //     code += jsString
