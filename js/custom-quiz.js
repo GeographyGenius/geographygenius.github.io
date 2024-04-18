@@ -142,8 +142,8 @@ function mapLoaded() {
 function generateHighlightJS() {
     let areaNames = document.getElementsByTagName("area")
     console.log(areaNames)
-    let actualCountryNames = []
     console.log(areaNames.length)
+    let actualCountryNames = []
     for (let i = 0; i < areaNames.length; i++) {
         let id = areaNames[i].id
         actualCountryNames.push(id.slice(0))
