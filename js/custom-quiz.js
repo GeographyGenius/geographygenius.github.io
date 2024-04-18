@@ -144,8 +144,7 @@ function generateHighlightJS() {
     let actualCountryNames = []
     for (let i = 0; i < areaNames.length; i++) {
         let id = areaNames[i].id
-        actualCountryNames.push(id.slice(0))
-        console.log(actualCountryNames, id)
+        actualCountryNames.push(id.slice(5))
     }
     console.log(actualCountryNames)
     let jsString
