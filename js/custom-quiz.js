@@ -106,10 +106,9 @@ function mapLoaded() {
         }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
         let id
         id = spaceToHyphen(countryData[i].countryName)
-        if (document.getElementById(id) == null) {
+        if (fancyInnerHTML.includes("thing" + id)) {
             id += "-2"
         }
-        console.log(document.getElementById(id))
         fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     let checkboxesString = ""
