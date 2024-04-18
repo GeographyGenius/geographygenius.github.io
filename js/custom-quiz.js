@@ -143,13 +143,13 @@ function generateHighlightJS() {
     let areaNames = document.getElementsByTagName("area")
     console.log(areaNames)
     console.log(areaNames.length)
-    let actualCountryNames = []
-    for (let i = 0; i < areaNames.length; i++) {
-        let id = areaNames[i].id
-        actualCountryNames.push(id.slice(0))
-        console.log(actualCountryNames, id)
-    }
-    console.log(actualCountryNames)
+    // let actualCountryNames = []
+    // for (let i = 0; i < areaNames.length; i++) {
+    //     let id = areaNames[i].id
+    //     actualCountryNames.push(id.slice(0))
+    //     console.log(actualCountryNames, id)
+    // }
+    // console.log(actualCountryNames)
     let jsString
     let code = "function clickToggle() {\n"
     for (let i = 0; i < fullCountryList.length; i++) {
