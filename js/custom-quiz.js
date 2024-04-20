@@ -125,6 +125,7 @@ function mapLoaded() {
     // generateHighlightJS() // add the highlighting
     // setTimeout(() => {clickToggle();console.log("highlighting started")}, 200);
     // document.getElementById("main_map").hidden = false
+    selectAllCountries()
     document.getElementById("quiz-ui").hidden = false
     document.getElementById("text_box").hidden = false
     document.getElementById("everything").hidden = false
@@ -376,7 +377,6 @@ function setCountryVisible(countryNumber, value) {
 
 function selectAllCountries() {
     let countries = document.getElementsByClassName("country-checkbox")
-    console.log(countries)
     for (let i = 0; i < countries.length; i++) {
         countries[i].checked = true
     }
@@ -384,8 +384,24 @@ function selectAllCountries() {
 
 function deselectAllCountries() {
     let countries = document.getElementsByClassName("country-checkbox")
-    console.log(countries)
     for (let i = 0; i < countries.length; i++) {
         countries[i].checked = false
     }
+}
+
+function saveCustom() {
+    let countries = document.getElementsByClassName("country-checkbox")
+    let encodedString = ""
+    for (let i = 0; i < countries.length; i++) {
+        if (countries[i].checked = true) {
+            encodedString += "0"
+        } else {
+            encodedString += "1"
+        }
+    }
+    encodedString = binaryToBase64(encodedString)
+    searchParams.append("custom", encodedString)
+    let finalString = window.location.href
+    searchParams.delete("custom")
+    console.log("Final quiz url: " + finalString)
 }
