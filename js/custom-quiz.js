@@ -400,8 +400,6 @@ function saveCustom() {
         }
     }
     encodedString = binaryToBase64(encodedString)
-    searchParams.append("custom", encodedString)
-    let finalString = window.location.href
-    searchParams.delete("custom")
+    let finalString = window.location.href + "&custom=" + encodedString
     console.log("Final quiz url: " + finalString)
 }
