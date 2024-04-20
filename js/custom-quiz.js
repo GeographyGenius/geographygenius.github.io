@@ -217,6 +217,7 @@ function loadFromJSON(url) {
     })
 
     .fail(function() {
+        alert(`Failed to load quiz "${displayQuizName}"`)
         console.log("JSON request failed - quiz failed to load.");
         if (!possibleQuizzes.includes(quizName)) {
             var failText = "404 - Quiz not found"
