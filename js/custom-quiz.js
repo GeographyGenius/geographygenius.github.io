@@ -127,7 +127,7 @@ function mapLoaded() {
     // document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
     document.getElementById("text_box").hidden = false
-    document.getElementByClassName("everything").hidden = false
+    document.getElementById("everything").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
     // finishSetup()
 
