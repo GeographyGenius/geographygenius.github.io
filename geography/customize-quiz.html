@@ -35,6 +35,12 @@
 
 <p id="text_box" hidden="true">Welcome to customizing a quiz on Geography Genius! Customizing a quiz means that you can remove countries you don't want and only keep the ones you want. To start, click on checkboxes to include/exclude them from the quiz.</p>
 <br>
+<div class="buttons">
+<button onclick="selectAllCountries()">Select All</button>
+<button onclick="deselectAllCountries()">Deselect All</button>
+<span width="50px"></span>
+<button onclick="saveCustom()">Save & Share</button>
+</div>
 <table style="margin: 0px;padding: 0px;" id="quiz-ui" hidden="true"> <!--border: 4px solid black;"-->
     <tr id="check-countries"></tr>
 </table>
