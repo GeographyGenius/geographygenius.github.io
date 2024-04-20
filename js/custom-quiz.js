@@ -393,7 +393,7 @@ function saveCustom() {
     let countries = document.getElementsByClassName("country-checkbox")
     let encodedString = ""
     for (let i = 0; i < countries.length; i++) {
-        if (countries[i].checked = true) {
+        if (countries[i].checked == true) {
             encodedString += "0"
         } else {
             encodedString += "1"
