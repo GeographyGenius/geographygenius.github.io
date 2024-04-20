@@ -127,7 +127,7 @@ function mapLoaded() {
     // document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
-    finishSetup()
+    // finishSetup()
 
     // $(function(){
     // $('.map').maphilight({
@@ -212,6 +212,7 @@ function loadFromJSON(url) {
         displayQuizName = toTitleCase(displayQuizName)
         // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
+        mapLoaded()
     })
 
     .fail(function() {
