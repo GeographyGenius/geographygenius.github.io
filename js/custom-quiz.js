@@ -203,9 +203,9 @@ function loadFromJSON(url) {
             headerLinks[5].classList = "h-a active"
         }
 
-        let imageURL = "/images/maps/" + loadedData.info.imgUrl
-        // let imageURL = "/images/maps/" + quizName + ".png"
-        document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
+        // let imageURL = "/images/maps/" + loadedData.info.imgUrl
+        // // let imageURL = "/images/maps/" + quizName + ".png"
+        // document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
 
         let displayQuizName = structuredClone(quizName)
         displayQuizName = displayQuizName.replaceAll("-",  " ")
@@ -221,7 +221,7 @@ function loadFromJSON(url) {
         } else {
             var failText = "Hm, it looks like the quiz failed to load. Reload the page, or try again later?"
         }
-        document.getElementById("map-land").innerHTML = failText;
+        // document.getElementById("map-land").innerHTML = failText;
         // document.getElementsByClassName("map")[0].remove()
     })
 }
