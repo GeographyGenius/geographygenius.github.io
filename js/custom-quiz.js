@@ -114,7 +114,7 @@ function mapLoaded() {
     let checkboxesString = ""
     let i = 0
     while (i < fullCountryList.length) {
-        checkboxesString += '<td valign="top" min-width="250px" width="250px">' //" style="font-size:small;
+        checkboxesString += '<td valign="top" style="font-size:small;" min-width="250px" width="250px">'
         for (let count = 0; count < 28 && i < fullCountryList.length; i++, count++) {
             checkboxesString += `<input type="checkbox" id="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" name="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(fullCountryList[i])}">\n<label for="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}"> ${fullCountryList[i]}</label><br>\n`
         }
@@ -212,7 +212,7 @@ function loadFromJSON(url) {
         displayQuizName = displayQuizName.replaceAll("-",  " ")
         displayQuizName = toTitleCase(displayQuizName)
         // console.log("quiz name fancy: " + displayQuizName)
-        document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
+        document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
         mapLoaded()
     })
 
