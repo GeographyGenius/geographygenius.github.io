@@ -26,13 +26,13 @@ window.onload = function() {
 
 function setupData() {
     checkBoxes = document.getElementById("check-countries")
-    points_box = document.getElementById("points") // get points box
-    question_count_box = document.getElementById("questions") // get questions box
-    guesses_box = document.getElementById("guesses") // get guesses box
+    // points_box = document.getElementById("points") // get points box
+    // question_count_box = document.getElementById("questions") // get questions box
+    // guesses_box = document.getElementById("guesses") // get guesses box
     // guesses_box.innerHTML = "0/0 guesses correct"
 
-    correctGuesses = 0
-    incorrectGuesses = 0
+    // correctGuesses = 0
+    // incorrectGuesses = 0
     possibleQuizzes = [  // possible quizzes
                     "africa-countries", 
                     "africa-capitals", 
@@ -54,23 +54,23 @@ function setupData() {
     loadFromJSON(urlToLoad)
     }
 
-function finishSetup() {
-    let mapScale = 1;
-    let map = document.getElementById("main_map");
-    if (map.width == 0) {
-        location.reload()
-    }
-    map.width *= mapScale;
+// function finishSetup() {
+    // let mapScale = 1;
+    // let map = document.getElementById("main_map");
+    // if (map.width == 0) {
+    //     location.reload()
+    // }
+    // map.width *= mapScale;
 
-    totalQuestionCount = questionList.length
-    remainingQuestions = structuredClone(questionList)
-    quizOver = false
-    points = 0
-    questionNumber = 0
+    // totalQuestionCount = questionList.length
+    // remainingQuestions = structuredClone(questionList)
+    // quizOver = false
+    // points = 0
+    // questionNumber = 0
     // changeQuestionNumber()
 
     // setNewRandomCountry("none");
-}
+// }
 
 function mapLoaded() {
     console.log("map loaded")
@@ -80,36 +80,36 @@ function mapLoaded() {
     if (searchParams.has("custom")) {
         isCustomQuiz = true
         excludeData = base64ToBinary(searchParams.get("custom"), fullCountryList.length)
-    } else {
-        isCustomQuiz = false
-    }
-    for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
-        if (isCustomQuiz) {
-            if (excludeData.charAt(fullCountryList.indexOf(countryData[i].countryName)) == "1") {
-                dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.1,\"alwaysOn\":true}'";
-                extraStyles = 'style="cursor:default" '
+    // } else {
+    //     isCustomQuiz = false
+    // }
+    // for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
+    //     if (isCustomQuiz) {
+    //         if (excludeData.charAt(fullCountryList.indexOf(countryData[i].countryName)) == "1") {
+    //             dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.1,\"alwaysOn\":true}'";
+    //             extraStyles = 'style="cursor:default" '
                 
-                const index = questionList.indexOf(countryData[i].countryName);
-                if (index > -1) { // only splice array when item is found
-                    questionList.splice(index, 1); // 2nd parameter means remove one item only
-                    if (doCapitals) {
-                        capitalList.splice(index, 1);
-                    }
-                }
-            } else {
-                dataMaphilight = ""
-                extraStyles = ""
-            }
-        } else {
-            dataMaphilight = ""
-            extraStyles = ""
-        }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
-        let id
-        id = spaceToHyphen(countryData[i].countryName)
-        if (fancyInnerHTML.includes('"thing-' + id + '"')) {
-            id += "-2"
-        }
-        fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+    //             const index = questionList.indexOf(countryData[i].countryName);
+    //             if (index > -1) { // only splice array when item is found
+    //                 questionList.splice(index, 1); // 2nd parameter means remove one item only
+    //                 if (doCapitals) {
+    //                     capitalList.splice(index, 1);
+    //                 }
+    //             }
+    //         } else {
+    //             dataMaphilight = ""
+    //             extraStyles = ""
+    //         }
+    //     } else {
+    //         dataMaphilight = ""
+    //         extraStyles = ""
+    //     }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
+    //     let id
+    //     id = spaceToHyphen(countryData[i].countryName)
+    //     if (fancyInnerHTML.includes('"thing-' + id + '"')) {
+    //         id += "-2"
+    //     }
+    //     fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
     }
     let checkboxesString = ""
     let i = 0
@@ -121,21 +121,21 @@ function mapLoaded() {
         checkboxesString += "</td>"
     }
     checkBoxes.innerHTML = checkboxesString
-    document.getElementById("map-land").innerHTML = fancyInnerHTML
-    generateHighlightJS() // add the highlighting
-    setTimeout(() => {clickToggle();console.log("highlighting started")}, 200);
-    document.getElementById("main_map").hidden = false
+    // document.getElementById("map-land").innerHTML = fancyInnerHTML
+    // generateHighlightJS() // add the highlighting
+    // setTimeout(() => {clickToggle();console.log("highlighting started")}, 200);
+    // document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
-    document.getElementById("quiz-footer").hidden = false // so footter isn't visible during loading
+    document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
     finishSetup()
 
-    $(function(){
-    $('.map').maphilight({
-       fillColor: '000000',//'4ead45',//'fff4a1',
-       fillOpacity:0.1,
-       stroke:false,
-    });
-    })
+    // $(function(){
+    // $('.map').maphilight({
+    //    fillColor: '000000',//'4ead45',//'fff4a1',
+    //    fillOpacity:0.1,
+    //    stroke:false,
+    // });
+    // })
 
 }
 
