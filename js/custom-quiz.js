@@ -114,7 +114,7 @@ function mapLoaded() {
     let checkboxesString = ""
     let i = 0
     while (i < fullCountryList.length) {
-        checkboxesString += '<td valign="top" min-width="250px">' //" style="font-size:small;
+        checkboxesString += '<td valign="top" min-width="250px" width="250px">' //" style="font-size:small;
         for (let count = 0; count < 28 && i < fullCountryList.length; i++, count++) {
             checkboxesString += `<input type="checkbox" id="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" name="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(fullCountryList[i])}">\n<label for="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}"> ${fullCountryList[i]}</label><br>\n`
         }
@@ -126,6 +126,7 @@ function mapLoaded() {
     // setTimeout(() => {clickToggle();console.log("highlighting started")}, 200);
     // document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
+    document.getElementById("text_box").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
     // finishSetup()
 
