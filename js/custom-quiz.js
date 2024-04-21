@@ -18,7 +18,8 @@ let quizName
 let doCapitals
 let checkBoxes
 let binaryExcludeData
-const Swal = require('sweetalert2')
+// const Swal = require('sweetalert2')
+import Swal from 'sweetalert2'
 
 window.onload = function() {
     console.log("setup...")
