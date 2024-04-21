@@ -404,6 +404,13 @@ function saveCustom() {
     encodedString = binaryToBase64(encodedString)
     finalString = window.location.href + "&custom=" + encodedString
     finalString = finalString.replaceAll("customize-quiz", "quiz")
+
+    let shortenedURL
+    fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
+    .then((response) => response.text())
+    .then((shortenedURL) => response.slice(20))
+    finalString = "https://" + window.location.hostname + "/q/" + shortenedURL
+
     console.log("Final quiz url: " + finalString)
     Sweetalert2.fire({
         title: 'Save & Share',
