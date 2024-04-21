@@ -18,6 +18,7 @@ let quizName
 let doCapitals
 let checkBoxes
 let binaryExcludeData
+let finalString
 // const Swal = require('sweetalert2')
 
 window.onload = function() {
@@ -401,12 +402,25 @@ function saveCustom() {
         }
     }
     encodedString = binaryToBase64(encodedString)
-    let finalString = window.location.href + "&custom=" + encodedString
+    finalString = window.location.href + "&custom=" + encodedString
     finalString = finalString.replaceAll("customize-quiz", "quiz")
     console.log("Final quiz url: " + finalString)
     Sweetalert2.fire({
         title: 'Save & Share',
-        html: `Copy the link below to share this custom quiz<br><a href="${finalString}">${finalString}</a>`,
+        html: `Copy the link below to share this custom quiz<br><span id="finished-url" onclick="copyQuizURL()">${finalString}</span>`,
         icon: 'success',
         confirmButtonText: 'Done'
       })}
+
+function copyQuizURL() {
+    let copyText = document.getElementById("finished-url")
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+    
+    // Alert the copied text
+    alert("Copied to clipboard");
+}
