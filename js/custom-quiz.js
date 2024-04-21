@@ -181,7 +181,7 @@ function loadFromJSON(url) {
             doCapitals = true
             capitalList = loadedData.capitalList
         }
-        let imgUrlLabeled = loadedData.info.imgUrl + "-labeled"
+        let imgUrlLabeled = loadedData.info.imgUrl.replaceAll(".png", "") + "-labeled"
 
         binaryExcludeData = ""
         while (binaryExcludeData.length < fullCountryList.length) {
