@@ -129,7 +129,7 @@ function mapLoaded() {
     // setTimeout(() => {clickToggle();console.log("highlighting started")}, 200);
     // document.getElementById("main_map").hidden = false
     selectAllCountries()
-    document.getElementById("quiz-ui").hidden = false
+    // document.getElementById("quiz-ui").hidden = false
     document.getElementById("text_box").hidden = false
     document.getElementById("everything").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
@@ -220,8 +220,8 @@ function loadFromJSON(url) {
         displayQuizName = toTitleCase(displayQuizName)
         // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
-        document.getElementsByClassName("geo-container")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png">`//onload="mapLoaded()">`
-        mapLoaded() // img doesNOT it instead
+        document.getElementsByClassName("geo-container")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
+        // mapLoaded() // img does it instead
     })
 
     .fail(function() {
