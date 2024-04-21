@@ -406,22 +406,23 @@ function saveCustom() {
     encodedString = binaryToBase64(encodedString)
     finalString = window.location.href + "&custom=" + encodedString
     finalString = finalString.replaceAll("customize-quiz", "quiz")
-    let backupString = structuredClone(finalString)
+    console.log(finalString)
+    // let backupString = structuredClone(finalString)
 
     // fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
     //     .then((response) => response.text())
     //     .then((text) => text.slice(20))
     //     .then((short) => setShortenedURL(short))
     // setTimeout(() => {finishSaving()}, 500);
-    try {
+    // try {
     let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
     response = response.slice(20)
 
     finalString = "https://" + window.location.hostname + "/q/" + response
-    }
-    catch(err) {
-        finalString = backupString
-    }
+    // }
+    // catch(err) {
+        // finalString = backupString
+    // }
     document.getElementById("save-custom-quiz").innerHTML = "Save & Share"
 
     // console.log("Final quiz url: " + finalString)
