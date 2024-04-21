@@ -133,6 +133,7 @@ function mapLoaded() {
     document.getElementById("text_box").hidden = false
     document.getElementById("everything").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
+    document.getElementById("map_land").hidden = false
     // finishSetup()
 
     // $(function(){
@@ -180,6 +181,7 @@ function loadFromJSON(url) {
             doCapitals = true
             capitalList = loadedData.capitalList
         }
+        let imgUrlLabeled = loadedData.info.imgUrl + "-labeled"
 
         binaryExcludeData = ""
         while (binaryExcludeData.length < fullCountryList.length) {
@@ -218,7 +220,8 @@ function loadFromJSON(url) {
         displayQuizName = toTitleCase(displayQuizName)
         // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
-        mapLoaded()
+        document.getElementsByClassName("geo-container")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
+        // mapLoaded() // img does it instead
     })
 
     .fail(function() {
