@@ -408,7 +408,8 @@ function saveCustom() {
     let shortenedURL
     fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
         .then((response) => response.text())
-        .then((text) => shortenedURL)
+        .then((text) => text.slice(20))
+        .then((short) => console.log(short))
     finalString = "https://" + window.location.hostname + "/q/" + shortenedURL
 
     console.log("Final quiz url: " + finalString)
