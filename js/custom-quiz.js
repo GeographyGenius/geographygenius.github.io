@@ -394,6 +394,10 @@ function deselectAllCountries() {
 
 function saveCustom() {
     document.getElementById("save-custom-quiz").innerHTML = "Please wait..."
+    setTimeout(() => {actuallySaveCustomQuiz()}, 100);
+}
+
+function actuallySaveCustomQuiz() {
     let countries = document.getElementsByClassName("country-checkbox")
     let encodedString = ""
     for (let i = 0; i < countries.length; i++) {
@@ -444,18 +448,6 @@ function saveCustom() {
         confirmButtonText: 'Done'
     })
 }
-
-function finishSaving() {
-    document.getElementById("save-custom-quiz").innerHTML = "Save & Share"
-    finalString = "https://" + window.location.hostname + "/q/" + shortenedURL
-
-    console.log("Final quiz url: " + finalString)
-    Sweetalert2.fire({
-        title: 'Save & Share',
-        html: `<span id="main-copy-text">Copy the link below to share this custom quiz</span><br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" style="width: 400px;margin: 10px;font-size: 15px;"value="${finalString}">`,
-        icon: 'success',
-        confirmButtonText: 'Done'
-    })}
 
 function copyQuizURL() {
     let copyText = document.getElementById("finished-url")
