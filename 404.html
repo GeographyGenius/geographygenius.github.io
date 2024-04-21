@@ -14,7 +14,7 @@
 <body>
 
 <script src="/js/main.js"></script>
-
+<span id="redirect-message" hidden="true">Redirecting...</span>
 <div id="actually-everything" hidden="true">
 <!-- start header -->
 <ul class="h-ul">
@@ -44,6 +44,7 @@
 <script>
     if (window.location.pathname.includes("/q/")) {
         document.getElementsByTagName("title")[0].innerHTML = "Redirecting..."
+        document.getElementById("redirect-message").hidden = false
         let redirectURL = "https://tinyurl.com/" + window.location.pathname.slice(3)
         try {
             let response = httpGet(redirectURL)
