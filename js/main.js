@@ -106,7 +106,7 @@ function binaryToBase64(binaryString) {
 }
 
 function base64ToBinary(input, totalLength) {
-	let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz+_"
+	let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz-_"
 
 	let i = 0
 	let decodedBinary = ""
