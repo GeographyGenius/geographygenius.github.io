@@ -1,4 +1,9 @@
-let httpResponseStatus
+try {
+	let httpResponseStatus
+}
+catch(err) {
+	console.log("Error - " + err)
+}
 
 function goToUrl(url) {
 	location.href = url
