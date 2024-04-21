@@ -407,7 +407,7 @@ function saveCustom() {
     console.log("Final quiz url: " + finalString)
     Sweetalert2.fire({
         title: 'Save & Share',
-        html: `Copy the link below to share this custom quiz<br><span id="finished-url" onclick="copyQuizURL()">${finalString}</span>`,
+        html: `Copy the link below to share this custom quiz<br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" value="${finalString}">`,
         icon: 'success',
         confirmButtonText: 'Done'
       })}
