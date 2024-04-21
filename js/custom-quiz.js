@@ -410,6 +410,7 @@ function saveCustom() {
         .then((response) => response.text())
         .then((text) => text.slice(20))
         .then((short) => console.log(short))
+        .then((shortenedURL) => short)
     finalString = "https://" + window.location.hostname + "/q/" + shortenedURL
 
     console.log("Final quiz url: " + finalString)
