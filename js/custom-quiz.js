@@ -416,11 +416,14 @@ function saveCustom() {
     // try {
     let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
     let shareMessage
+    let icon
     if (!(httpResponseStatus == 200)) {
         console.log("Error")
         shareMessage = `There was an error contacting the server - Error ${httpResponseStatus} - instead, use the link below`
+        icon = "info"
     } else {
         shareMessage = "Copy the link below to share this custom quiz"
+        icon = "success"
         console.log(httpResponseStatus)
         response = response.slice(20)
 
