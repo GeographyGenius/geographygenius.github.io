@@ -407,11 +407,13 @@ function saveCustom() {
     finalString = window.location.href + "&custom=" + encodedString
     finalString = finalString.replaceAll("customize-quiz", "quiz")
 
-    fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
-        .then((response) => response.text())
-        .then((text) => text.slice(20))
-        .then((short) => setShortenedURL(short))
-    setTimeout(() => {finishSaving()}, 500);
+    // fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
+    //     .then((response) => response.text())
+    //     .then((text) => text.slice(20))
+    //     .then((short) => setShortenedURL(short))
+    // setTimeout(() => {finishSaving()}, 500);
+    let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
+    setShortenedURL(response.slice(20))
 }
 
 function finishSaving() {
