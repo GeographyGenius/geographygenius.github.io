@@ -413,8 +413,18 @@ function saveCustom() {
     //     .then((short) => setShortenedURL(short))
     // setTimeout(() => {finishSaving()}, 500);
     let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
-    setShortenedURL(response.slice(20))
-    finishSaving()
+    response = response.slice(20)
+
+    document.getElementById("save-custom-quiz").innerHTML = "Save & Share"
+    finalString = "https://" + window.location.hostname + "/q/" + response
+
+    // console.log("Final quiz url: " + finalString)
+    Sweetalert2.fire({
+        title: 'Save & Share',
+        html: `<span id="main-copy-text">Copy the link below to share this custom quiz</span><br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" style="width: 400px;margin: 10px;font-size: 15px;"value="${finalString}">`,
+        icon: 'success',
+        confirmButtonText: 'Done'
+    })
 }
 
 function finishSaving() {
@@ -427,11 +437,7 @@ function finishSaving() {
         html: `<span id="main-copy-text">Copy the link below to share this custom quiz</span><br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" style="width: 400px;margin: 10px;font-size: 15px;"value="${finalString}">`,
         icon: 'success',
         confirmButtonText: 'Done'
-      })}
-
-function setShortenedURL(value) {
-    shortenedURL = value
-}
+    })}
 
 function copyQuizURL() {
     let copyText = document.getElementById("finished-url")
