@@ -73,10 +73,10 @@ mobileCheck = function() {
 // 	return (dec >>> 0).toString(2);
 // }
 
-// let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz+_"
+// let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz-_"
 
 function binaryToBase64(binaryString) {
-	let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz+_"
+	let base64lookup = "0123456789ABCDEFGHIJKLMNOPQRSTVUWXYZabcdefghijklmnopqrstuvwxyz-_"
 
 	let i = binaryString.length
 	let chunk
