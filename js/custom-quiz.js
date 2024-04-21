@@ -417,7 +417,7 @@ function saveCustom() {
     let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
     }
     catch(err) {
-        httpResponseStatus = 418
+        httpResponseStatus = 500
     }
     let shareMessage
     let icon
