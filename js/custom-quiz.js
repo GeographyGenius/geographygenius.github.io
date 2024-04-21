@@ -19,6 +19,7 @@ let doCapitals
 let checkBoxes
 let binaryExcludeData
 let finalString
+let shortenedURL
 // const Swal = require('sweetalert2')
 
 window.onload = function() {
@@ -405,11 +406,10 @@ function saveCustom() {
     finalString = window.location.href + "&custom=" + encodedString
     finalString = finalString.replaceAll("customize-quiz", "quiz")
 
-    let shortenedURL
     fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
         .then((response) => response.text())
         .then((text) => text.slice(20))
-        .then((short) => console.log(short))
+        .then((short) => setShortenedURL(short))
         .then((shortenedURL) => short)
     finalString = "https://" + window.location.hostname + "/q/" + shortenedURL
 
@@ -420,6 +420,10 @@ function saveCustom() {
         icon: 'success',
         confirmButtonText: 'Done'
       })}
+
+function setShortenedURL(value) {
+    shortenedURL = value
+}
 
 function copyQuizURL() {
     let copyText = document.getElementById("finished-url")
