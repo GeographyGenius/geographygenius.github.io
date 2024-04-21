@@ -15,6 +15,7 @@
 
 <script src="/js/main.js"></script>
 
+<div id="actually-everything" hidden="true">
 <!-- start header -->
 <ul class="h-ul">
     <li class="h-li-icon"><a class="h-a" href="/"><img src="/images/logos/logo-horizontal-new-icon.png" width=200></a></li>
@@ -38,6 +39,15 @@
     <a href="/info/disclaimer">Disclaimer</a><span> • </span>
     <a href="/info/credits">Credits</a>
 </footer>
+</div>
+
+<script>
+    if(window.location.pathname.includes("/q/")) {
+        window.location.href = "https://tinyurl.com/" + window.location.pathname.slice(3)
+    } else {
+        document.getElementById("actually-everything").hidden = false
+    }
+</script>
 
 </body>
 </html>
