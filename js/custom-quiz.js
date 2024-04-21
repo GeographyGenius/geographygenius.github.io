@@ -402,10 +402,11 @@ function saveCustom() {
     }
     encodedString = binaryToBase64(encodedString)
     let finalString = window.location.href + "&custom=" + encodedString
+    finalString = finalString.replaceAll("customize-quiz", "quiz")
     console.log("Final quiz url: " + finalString)
     Sweetalert2.fire({
         title: 'Save & Share',
-        html: `Copy the link below to share this custom quiz<br>${finalString}`,
+        html: `Copy the link below to share this custom quiz<br><a href="${finalString}">${finalString}</a>`,
         icon: 'success',
         confirmButtonText: 'Done'
       })}
