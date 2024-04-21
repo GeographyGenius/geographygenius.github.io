@@ -423,7 +423,7 @@ function saveCustom() {
     let icon
     if (!(httpResponseStatus == 200)) {
         console.log("Error")
-        shareMessage = `There was an error contacting the server - Error ${httpResponseStatus} - instead, use the link below`
+        shareMessage = `Encountered http error ${httpResponseStatus} while attempting to contact the server - instead, use the link below`
         icon = "info"
     } else {
         shareMessage = "Copy the link below to share this custom quiz"
