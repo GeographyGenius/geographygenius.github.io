@@ -422,5 +422,5 @@ function copyQuizURL() {
     navigator.clipboard.writeText(copyText.value);
     
     // Alert the copied text
-    document.getElementById("main-copy-text").innerHTML = "Copied!"
+    document.getElementById("main-copy-text").innerHTML = "Copied to clipboard!"
 }
