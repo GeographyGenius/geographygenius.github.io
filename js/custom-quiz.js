@@ -413,8 +413,12 @@ function saveCustom() {
     //     .then((text) => text.slice(20))
     //     .then((short) => setShortenedURL(short))
     // setTimeout(() => {finishSaving()}, 500);
-    // try {
+    try {
     let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
+    }
+    catch(err) {
+        httpResponseStatus = 418
+    }
     let shareMessage
     let icon
     if (!(httpResponseStatus == 200)) {
@@ -428,17 +432,13 @@ function saveCustom() {
         response = response.slice(20)
 
         finalString = "https://" + window.location.hostname + "/q/" + response
-        // }
-        // catch(err) {
-            // finalString = backupString
-        // }
     }
     document.getElementById("save-custom-quiz").innerHTML = "Save & Share"
     // console.log("Final quiz url: " + finalString)
     Sweetalert2.fire({
         title: 'Save & Share',
         html: `<span id="main-copy-text">${shareMessage}</span><br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" style="width: 400px;margin: 10px;font-size: 15px;"value="${finalString}">`,
-        icon: 'success',
+        icon: icon,
         confirmButtonText: 'Done'
     })
 }
