@@ -406,8 +406,7 @@ function saveCustom() {
     encodedString = binaryToBase64(encodedString)
     finalString = window.location.href + "&custom=" + encodedString
     finalString = finalString.replaceAll("customize-quiz", "quiz")
-    console.log(finalString)
-    // let backupString = structuredClone(finalString)
+    let backupString = structuredClone(finalString)
 
     // fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
     //     .then((response) => response.text())
@@ -416,23 +415,26 @@ function saveCustom() {
     // setTimeout(() => {finishSaving()}, 500);
     // try {
     let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
-    if (!httpResponseStatus == 200) {
+    let shareMessage
+    if (!(httpResponseStatus == 200)) {
         console.log("Error")
+        shareMessage = `There was an error contacting the server - Error ${httpResponseStatus} - instead, use the link below`
+    } else {
+        shareMessage = "Copy the link below to share this custom quiz"
+        console.log(httpResponseStatus)
+        response = response.slice(20)
+
+        finalString = "https://" + window.location.hostname + "/q/" + response
+        // }
+        // catch(err) {
+            // finalString = backupString
+        // }
     }
-    console.log(httpResponseStatus)
-    response = response.slice(20)
-
-    finalString = "https://" + window.location.hostname + "/q/" + response
-    // }
-    // catch(err) {
-        // finalString = backupString
-    // }
     document.getElementById("save-custom-quiz").innerHTML = "Save & Share"
-
     // console.log("Final quiz url: " + finalString)
     Sweetalert2.fire({
         title: 'Save & Share',
-        html: `<span id="main-copy-text">Copy the link below to share this custom quiz</span><br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" style="width: 400px;margin: 10px;font-size: 15px;"value="${finalString}">`,
+        html: `<span id="main-copy-text">${shareMessage}</span><br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" style="width: 400px;margin: 10px;font-size: 15px;"value="${finalString}">`,
         icon: 'success',
         confirmButtonText: 'Done'
     })
