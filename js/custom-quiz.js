@@ -406,10 +406,14 @@ function saveCustom() {
     finalString = window.location.href + "&custom=" + encodedString
     finalString = finalString.replaceAll("customize-quiz", "quiz")
 
-    await fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
+    fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
         .then((response) => response.text())
         .then((text) => text.slice(20))
         .then((short) => setShortenedURL(short))
+    setTimeout(() => {finishSaving()}, 200);
+}
+
+function finishSaving() {
     finalString = "https://" + window.location.hostname + "/q/" + shortenedURL
 
     console.log("Final quiz url: " + finalString)
