@@ -393,6 +393,7 @@ function deselectAllCountries() {
 }
 
 function saveCustom() {
+    document.getElementById("save-custom-quiz").innerHTML = "Please wait..."
     let countries = document.getElementsByClassName("country-checkbox")
     let encodedString = ""
     for (let i = 0; i < countries.length; i++) {
@@ -410,10 +411,11 @@ function saveCustom() {
         .then((response) => response.text())
         .then((text) => text.slice(20))
         .then((short) => setShortenedURL(short))
-    setTimeout(() => {finishSaving()}, 200);
+    setTimeout(() => {finishSaving()}, 500);
 }
 
 function finishSaving() {
+    document.getElementById("save-custom-quiz").innerHTML = "Save & Share"
     finalString = "https://" + window.location.hostname + "/q/" + shortenedURL
 
     console.log("Final quiz url: " + finalString)
