@@ -416,6 +416,10 @@ function saveCustom() {
     // setTimeout(() => {finishSaving()}, 500);
     // try {
     let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
+    if (!httpResponseStatus == 200) {
+        console.log("Error")
+    }
+    console.log(httpResponseStatus)
     response = response.slice(20)
 
     finalString = "https://" + window.location.hostname + "/q/" + response

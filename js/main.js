@@ -1,3 +1,5 @@
+let httpResponseStatus
+
 function goToUrl(url) {
 	location.href = url
 }
@@ -152,5 +154,6 @@ function httpGet(theUrl)
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
+	httpResponseStatus = xmlHttp.status
     return xmlHttp.responseText;
 }
