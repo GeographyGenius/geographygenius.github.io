@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="og:image" content="https://geographygenius.github.io/favicon.ico">
 
-    <title>404 - Page not found</title>
+    <title>Loading...</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -43,9 +43,11 @@
 
 <script>
     if(window.location.pathname.includes("/q/")) {
+        document.getElementsByTagName("title")[0].innerHTML = "Redirecting..."
         window.location.href = "https://tinyurl.com/" + window.location.pathname.slice(3)
     } else {
         document.getElementById("actually-everything").hidden = false
+        document.getElementsByTagName("title")[0].innerHTML = "404 - Page Not Found - Geography Genius"
     }
 </script>
 
