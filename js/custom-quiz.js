@@ -407,7 +407,7 @@ function saveCustom() {
     console.log("Final quiz url: " + finalString)
     Sweetalert2.fire({
         title: 'Save & Share',
-        html: `Copy the link below to share this custom quiz<br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" value="${finalString}">`,
+        html: `<span id="main-copy-text">Copy the link below to share this custom quiz</span><br><input type="text" readonly="readonly" id="finished-url" onclick="copyQuizURL()" style="width: 400px;margin: 10px;font-size: 15px;"value="${finalString}">`,
         icon: 'success',
         confirmButtonText: 'Done'
       })}
@@ -422,5 +422,5 @@ function copyQuizURL() {
     navigator.clipboard.writeText(copyText.value);
     
     // Alert the copied text
-    alert("Copied to clipboard");
+    document.getElementById("main-copy.text").innerHTML = "Copied!"
 }
