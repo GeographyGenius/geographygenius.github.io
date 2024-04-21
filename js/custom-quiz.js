@@ -414,6 +414,7 @@ function saveCustom() {
     // setTimeout(() => {finishSaving()}, 500);
     let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
     setShortenedURL(response.slice(20))
+    finishSaving()
 }
 
 function finishSaving() {
