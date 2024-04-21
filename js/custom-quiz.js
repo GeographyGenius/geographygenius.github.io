@@ -133,7 +133,8 @@ function mapLoaded() {
     document.getElementById("text_box").hidden = false
     document.getElementById("everything").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
-    document.getElementById("map_land").hidden = false
+    // document.getElementById("map_land").hidden = false
+    document.getElementById("main_map").hidden = false
     // finishSetup()
 
     // $(function(){
