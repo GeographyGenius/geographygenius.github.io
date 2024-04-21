@@ -135,7 +135,7 @@ function base64ToBinary(input, totalLength) {
 }
 
 function spaceToHyphen(str) {
-	return str.replaceAll(" ", "-")
+	return str.replaceAll(" ", "_")
 }
 
 String.prototype.replaceAt = function(index, replacement) {
