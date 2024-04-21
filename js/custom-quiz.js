@@ -413,14 +413,16 @@ function saveCustom() {
     //     .then((text) => text.slice(20))
     //     .then((short) => setShortenedURL(short))
     // setTimeout(() => {finishSaving()}, 500);
+    let response
+    let shareMessage
+    let icon
     try {
-    let response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
+        response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
     }
     catch(err) {
         httpResponseStatus = 500
     }
-    let shareMessage
-    let icon
+
     if (!(httpResponseStatus == 200)) {
         console.log("Error")
         shareMessage = `Encountered http error ${httpResponseStatus} while attempting to contact the server - instead, use the link below`
