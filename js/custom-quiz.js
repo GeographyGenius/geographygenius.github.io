@@ -83,6 +83,7 @@ function mapLoaded() {
     if (searchParams.has("custom")) {
         isCustomQuiz = true
         excludeData = base64ToBinary(searchParams.get("custom"), fullCountryList.length)
+        loadState(excludeData)
     // } else {
     //     isCustomQuiz = false
     // }
@@ -464,4 +465,11 @@ function copyQuizURL() {
     
     // Alert the copied text
     document.getElementById("main-copy-text").innerHTML = "Copied to clipboard!"
+}
+
+function loadState(data) {
+    let countries = document.getElementsByClassName("country-checkbox")
+    for (let i = 0; i < countries.length; i++) {
+        countries[i].checked = data.charAt(data)
+    }
 }
