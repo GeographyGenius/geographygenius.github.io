@@ -126,7 +126,7 @@ function mapLoaded() {
     checkBoxes.innerHTML = checkboxesString
     // document.getElementById("map-land").innerHTML = fancyInnerHTML
     // generateHighlightJS() // add the highlighting
-    setTimeout(() => {finishSetup()}, 100);
+    setTimeout(() => {finishSetup()}, 200);
     // document.getElementById("main_map").hidden = false
     
     // finishSetup()
@@ -142,6 +142,7 @@ function mapLoaded() {
 }
 
 function finishSetup() {
+    console.log("running...")
     loadState(excludeData)
     selectAllCountries()
     document.getElementById("quiz-ui").hidden = false
@@ -472,6 +473,7 @@ function copyQuizURL() {
 }
 
 function loadState(data) {
+    console.log(data)
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
         countries[i].checked = data.charAt(data)
