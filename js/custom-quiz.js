@@ -483,10 +483,11 @@ function loadState(data) {
     let countries = document.getElementsByClassName("country-checkbox")
     // console.log(countries)
     for (let i = 0; i < countries.length; i++) {
+        let isChecked
         if (data[i] == "0") {
-            let checked = false
+            isChecked = false
         } else {
-            let checked  = true
+            ischecked  = true
         }
         countries[i].checked = checked
     }
