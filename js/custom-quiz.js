@@ -489,6 +489,7 @@ function loadState(data) {
         } else {
             ischecked  = true
         }
+        console.log(data[i], isChecked)
         countries[i].checked = isChecked
     }
 }
