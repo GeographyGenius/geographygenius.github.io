@@ -83,7 +83,6 @@ function mapLoaded() {
     if (searchParams.has("custom")) {
         isCustomQuiz = true
         excludeData = base64ToBinary(searchParams.get("custom"), fullCountryList.length)
-        loadState(excludeData)
     // } else {
     //     isCustomQuiz = false
     // }
@@ -127,15 +126,9 @@ function mapLoaded() {
     checkBoxes.innerHTML = checkboxesString
     // document.getElementById("map-land").innerHTML = fancyInnerHTML
     // generateHighlightJS() // add the highlighting
-    // setTimeout(() => {clickToggle();console.log("highlighting started")}, 200);
+    setTimeout(() => {finishSetup()}, 100);
     // document.getElementById("main_map").hidden = false
-    selectAllCountries()
-    document.getElementById("quiz-ui").hidden = false
-    document.getElementById("text_box").hidden = false
-    document.getElementById("everything").hidden = false
-    document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
-    // document.getElementById("map_land").hidden = false
-    document.getElementById("main_map").hidden = false
+    
     // finishSetup()
 
     // $(function(){
@@ -146,6 +139,17 @@ function mapLoaded() {
     // });
     // })
 
+}
+
+function finishSetup() {
+    loadState(excludeData)
+    selectAllCountries()
+    document.getElementById("quiz-ui").hidden = false
+    document.getElementById("text_box").hidden = false
+    document.getElementById("everything").hidden = false
+    document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
+    // document.getElementById("map_land").hidden = false
+    document.getElementById("main_map").hidden = false
 }
 
 function generateHighlightJS() {
