@@ -489,6 +489,6 @@ function loadState(data) {
         } else {
             ischecked  = true
         }
-        countries[i].checked = checked
+        countries[i].checked = isChecked
     }
 }
