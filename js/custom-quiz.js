@@ -481,13 +481,13 @@ function copyQuizURL() {
 function loadState(data) {
     // console.log(data)
     let countries = document.getElementsByClassName("country-checkbox")
+    let isChecked
     // console.log(countries)
     for (let i = 0; i < countries.length; i++) {
-        let isChecked
         if (data[i] == "0") {
             isChecked = false
         } else {
-            ischecked  = true
+            isChecked = true
         }
         console.log(data[i], isChecked)
         countries[i].checked = isChecked
