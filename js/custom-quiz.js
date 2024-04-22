@@ -511,4 +511,5 @@ function saveStateToURL() {
     } else {
         searchParams.append("custom", binaryToBase64(saveString))
     }
+    window.location.search = searchParams
 }
