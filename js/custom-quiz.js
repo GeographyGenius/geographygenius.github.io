@@ -414,17 +414,18 @@ function saveCustom() {
 }
 
 function actuallySaveCustomQuiz() {
-    let countries = document.getElementsByClassName("country-checkbox")
-    let encodedString = ""
-    for (let i = 0; i < countries.length; i++) {
-        if (countries[i].checked == true) {
-            encodedString += "0"
-        } else {
-            encodedString += "1"
-        }
-    }
-    encodedString = binaryToBase64(encodedString)
-    finalString = window.location.href + "&custom=" + encodedString
+    // let countries = document.getElementsByClassName("country-checkbox")
+    // let encodedString = ""
+    // for (let i = 0; i < countries.length; i++) {
+    //     if (countries[i].checked == true) {
+    //         encodedString += "0"
+    //     } else {
+    //         encodedString += "1"
+    //     }
+    // }
+    // encodedString = binaryToBase64(encodedString)
+    saveStateToURL()
+    finalString = window.location.href
     finalString = finalString.replaceAll("customize-quiz", "quiz")
     let backupString = structuredClone(finalString)
 
@@ -485,11 +486,29 @@ function loadState(data) {
     // console.log(countries)
     for (let i = 0; i < countries.length; i++) {
         if (data[i] == "0") {
-            isChecked = false
-        } else {
             isChecked = true
+        } else {
+            isChecked = false
         }
         console.log(data[i], isChecked)
         countries[i].checked = isChecked
+    }
+}
+
+function saveStateToURL() {
+    let saveString = ""
+    let countries = document.getElementsByClassName("country-checkbox")
+    for (let i = 0; i < countries.length; i++) {
+        if (countries[i].checked == true) {
+            saveString += "0"
+        } else {
+            saveString += "1"
+        }
+    }
+
+    if (searchParams.has("custom")) {
+        searchParams.set("custom", binaryToBase64(saveString))
+    } else {
+        searchParams.append("custom", binaryToBase64(saveString))
     }
 }
