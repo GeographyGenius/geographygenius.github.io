@@ -113,6 +113,8 @@ function mapLoaded() {
     //         id += "-2"
     //     }
     //     fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+    } else {
+        excludeData = ""
     }
     let checkboxesString = ""
     let i = 0
@@ -126,7 +128,8 @@ function mapLoaded() {
     checkBoxes.innerHTML = checkboxesString
     // document.getElementById("map-land").innerHTML = fancyInnerHTML
     // generateHighlightJS() // add the highlighting
-    setTimeout(() => {finishSetup()}, 200);
+    // setTimeout(() => {finishSetup()}, 200);
+    finishSetup()
     // document.getElementById("main_map").hidden = false
     
     // finishSetup()
@@ -142,9 +145,12 @@ function mapLoaded() {
 }
 
 function finishSetup() {
-    console.log("running...")
-    loadState(excludeData)
-    selectAllCountries()
+    // console.log("running...")
+    if (!(excludeData == "")) {
+        loadState(excludeData)
+    } else {
+        selectAllCountries()
+    }
     document.getElementById("quiz-ui").hidden = false
     document.getElementById("text_box").hidden = false
     document.getElementById("everything").hidden = false
@@ -473,9 +479,9 @@ function copyQuizURL() {
 }
 
 function loadState(data) {
-    console.log(data)
+    // console.log(data)
     let countries = document.getElementsByClassName("country-checkbox")
-    console.log(countries)
+    // console.log(countries)
     for (let i = 0; i < countries.length; i++) {
         countries[i].checked = data[i]
     }
