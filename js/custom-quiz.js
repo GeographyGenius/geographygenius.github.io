@@ -516,6 +516,6 @@ function saveStateToURL() {
 }
 
 function updateURLParams() {
-    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search;
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + searchParams.toString();
     window.history.pushState({path:newurl},'',newurl);
 }
