@@ -512,7 +512,7 @@ function saveStateToURL() {
         searchParams.append("custom", binaryToBase64(saveString))
     }
 
-    updateURLParams()
+    updateURLParams() 
 }
 
 function updateURLParams() {
