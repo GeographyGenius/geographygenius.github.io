@@ -511,5 +511,11 @@ function saveStateToURL() {
     } else {
         searchParams.append("custom", binaryToBase64(saveString))
     }
-    window.location.search = searchParams
+
+    updateURLParams()
+}
+
+function updateURLParams() {
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search;
+    window.history.pushState({path:newurl},'',newurl);
 }
