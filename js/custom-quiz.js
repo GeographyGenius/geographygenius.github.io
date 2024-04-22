@@ -475,7 +475,8 @@ function copyQuizURL() {
 function loadState(data) {
     console.log(data)
     let countries = document.getElementsByClassName("country-checkbox")
+    console.log(countries)
     for (let i = 0; i < countries.length; i++) {
-        countries[i].checked = data.charAt(data)
+        countries[i].checked = data[i]
     }
 }
