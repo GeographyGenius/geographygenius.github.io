@@ -519,3 +519,8 @@ function updateURLParams() {
     var newurl = window.location.protocol + "//" + window.location.host + "/geography/customize-quiz?" + searchParams.toString();
     window.history.pushState({path:newurl},'',newurl);
 }
+
+function playQuiz() {
+    saveStateToURL()
+    window.location.href = window.location.href.replace("customize-quiz", "quiz")
+}
