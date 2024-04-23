@@ -116,6 +116,7 @@ function mapLoaded() {
     document.getElementById("main_map").hidden = false
     document.getElementById("quiz-ui").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footter isn't visible during loading
+    document.getElementById("ui").hidden = false
     finishSetup()
 
     $(function(){
