@@ -389,3 +389,7 @@ function updateSettings() {
     }
     
 }
+
+function customizeQuiz() {
+    window.location.href = window.location.href.replace("quiz", "customize-quiz")
+}
