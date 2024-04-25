@@ -151,6 +151,7 @@ function finishSetup() {
     } else {
         selectAllCountries()
     }
+    document.getElementById("message-box").hidden = true
     document.getElementById("quiz-ui").hidden = false
     document.getElementById("text_box").hidden = false
     document.getElementById("everything").hidden = false
@@ -243,9 +244,9 @@ function loadFromJSON(url) {
         if (!possibleQuizzes.includes(quizName)) {
             var failText = "404 - Quiz not found"
         } else {
-            var failText = "Hm, it looks like the quiz failed to load. Reload the page, or try again later?"
+            var failText = "Hm, it looks like the page failed to load. Reload the page, or try again later?"
         }
-        // document.getElementById("map-land").innerHTML = failText;
+        document.getElementById("message-box").innerHTML = failText;
         // document.getElementsByClassName("map")[0].remove()
     })
 }
