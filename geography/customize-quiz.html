@@ -25,14 +25,15 @@
 </ul>
 <!-- end header -->
 
-<div class="everything" id="everything" hidden="true">
+<div class="everything" id="everything">
+<p id="message-box" style="font-size: large;">Loading...</p>
+<div class="ui-section" hidden="true">
 <!-- <div class="fade-in-everything">
 <div id="cool-image"></div>
 </div>
 <map name="map-area" id="map-land">Loading quiz...
 </map> -->
-<p id="message-box">Loading...</p>
-<p id="text_box" hidden="true">Welcome to customizing a quiz on Geography Genius! Customizing a quiz means that you can remove places you don't want and only keep the ones you want. To start, click on checkboxes to include/exclude places from the quiz.</p>
+<p id="text_box">Welcome to customizing a quiz on Geography Genius! Customizing a quiz means that you can remove places you don't want and only keep the ones you want. To start, click on checkboxes to include/exclude places from the quiz.</p>
 <div class="buttons">
 <button class="gg-button" onclick="selectAllCountries()" alt="select all countries">Select All</button>
 <button class="gg-button" onclick="deselectAllCountries()" alt="deselect all countries">Deselect All</button>
@@ -43,11 +44,11 @@
 </div>
 <br><br>
 <div class="geo-container">
-<table style="margin: 0px;padding: 0px;" id="quiz-ui" hidden="true"> <!--border: 4px solid black;"-->
+<table style="margin: 0px;padding: 0px;" id="quiz-ui"> <!--border: 4px solid black;"-->
     <tr id="check-countries"></tr>
 </table>
 <div class="labeled-map"></div>
-
+</div>
 </div>
 </div>
 

@@ -151,10 +151,10 @@ function finishSetup() {
     } else {
         selectAllCountries()
     }
-    document.getElementById("message-box").hidden = true
-    document.getElementById("quiz-ui").hidden = false
-    document.getElementById("text_box").hidden = false
-    document.getElementById("everything").hidden = false
+    // document.getElementById("message-box").hidden = true
+    document.getElementById("ui-section").hidden = false
+    // document.getElementById("text_box").hidden = false
+    // document.getElementById("everything").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footer isn't visible during loading
     // document.getElementById("map_land").hidden = false
     document.getElementById("main_map").hidden = false
@@ -235,6 +235,7 @@ function loadFromJSON(url) {
         // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
         document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
+        document.getElementById("message-box").innerHTML = "Customize Quiz - " + displayQuizName
         // mapLoaded() // img does it instead
     })
 
