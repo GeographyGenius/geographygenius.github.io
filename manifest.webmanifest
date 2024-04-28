@@ -1,0 +1,21 @@
+{
+    "short_name": "Geography Genius",
+    "name": "Geography Genius",
+    "description": "Learn geography with fun map quizzes, customizing quizzes, and more.",
+    "icons": [
+      {
+        "src": "images/logos/192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "images/logos/512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#1e3b26",
+    "display": "standalone",
+    "theme_color": "#1e3b26"
+  }
