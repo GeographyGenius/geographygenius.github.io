@@ -554,7 +554,7 @@ function submitQuizToShare() {
     Sweetalert2.fire({
         title: 'Sumbit This Quiz',
         html: `<span>Submit this quiz to be added to be added to the <link rel="/geography/custom-quizzes"> custom quiz list.`,
-        icon: icon,
+        icon: "info",
         confirmButtonText: 'Submit',
         showCancelButton: true,
     }).then((result) => {
