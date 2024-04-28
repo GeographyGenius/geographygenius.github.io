@@ -503,7 +503,7 @@ function loadState(data) {
         } else {
             isChecked = false
         }
-        console.log(data[i], isChecked)
+        // console.log(data[i], isChecked)
         countries[i].checked = isChecked
     }
 }
