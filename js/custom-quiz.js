@@ -552,14 +552,14 @@ function playQuiz() {
 
 function submitQuizToShare() {
     Sweetalert2.fire({
-        title: 'Sumbit This Quiz',
+        title: 'submit This Quiz',
         html: `<span>Submit this quiz to be added to be added to the <link rel="/geography/custom-quizzes"> custom quiz list.`,
         icon: "info",
         confirmButtonText: 'Submit',
         showCancelButton: true,
     }).then((result) => {
         if (result.isConfirmed) {
-            window.open(`/misc/sumbit-quiz?data=${btoa(window.location.search)}`, '_blank').focus();
+            window.open(`/misc/submit-quiz?data=${btoa(window.location.search)}`, '_blank').focus();
         }
     })
 }
