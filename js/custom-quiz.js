@@ -233,6 +233,7 @@ function loadFromJSON(url) {
         displayQuizName = displayQuizName.replaceAll("-",  " ")
         displayQuizName = toTitleCase(displayQuizName)
         document.getElementById("base-title").innerHTML = displayQuizName + ": "
+        addTitleAndDescription()
         // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
         document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
@@ -251,6 +252,15 @@ function loadFromJSON(url) {
         document.getElementById("message-box").innerHTML = failText;
         // document.getElementsByClassName("map")[0].remove()
     })
+}
+
+function addTitleAndDescription() {
+    if (searchParams.has("title")) {
+        document.getElementById("input-title").value = searchParams.get("title")
+    }
+    if (searchParams.has("desc")) {
+        document.getElementById("input-description").innerHTML = searchParams.get("desc")
+    }
 }
 
 // function changeQuestionNumber() {
