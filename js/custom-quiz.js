@@ -549,3 +549,17 @@ function playQuiz() {
     saveStateToURL()
     window.location.href = window.location.href.replace("customize-quiz", "quiz")
 }
+
+function submitQuizToShare() {
+    Sweetalert2.fire({
+        title: 'Sumbit This Quiz',
+        html: `<span>Submit this quiz to be added to be added to the <link rel="/geography/custom-quizzes"> custom quiz list.`,
+        icon: icon,
+        confirmButtonText: 'Submit',
+        showCancelButton: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.open(`/misc/sumbit-quiz?data=${btoa(window.location.search)}`, '_blank').focus();
+        }
+    })
+}
