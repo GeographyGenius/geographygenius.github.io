@@ -525,6 +525,18 @@ function saveStateToURL() {
         searchParams.append("custom", binaryToBase64(saveString))
     }
 
+    if (searchParams.has("title")) {
+        searchParams.set("title", encodeURIComponent(document.getElementById("input-title").value))
+    } else {
+        searchParams.append("title",  encodeURIComponent(document.getElementById("input-title").value))
+    }
+
+    if (searchParams.has("desc")) {
+        searchParams.set("desc", encodeURIComponent(document.getElementById("input-description").innerHTML))
+    } else {
+        searchParams.append("desc",  encodeURIComponent(document.getElementById("input-description").innerHTML))
+    }
+
     updateURLParams() 
 }
 
