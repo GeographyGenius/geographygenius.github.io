@@ -232,6 +232,7 @@ function loadFromJSON(url) {
         let displayQuizName = structuredClone(quizName)
         displayQuizName = displayQuizName.replaceAll("-",  " ")
         displayQuizName = toTitleCase(displayQuizName)
+        document.getElementById("base-title").innerHTML = displayQuizName + ": "
         // console.log("quiz name fancy: " + displayQuizName)
         document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
         document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
