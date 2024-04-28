@@ -259,7 +259,7 @@ function addTitleAndDescription() {
         document.getElementById("input-title").value = decodeURIComponent(searchParams.get("title"))
     }
     if (searchParams.has("desc")) {
-        document.getElementById("input-description").innerHTML = decodeURIComponent(searchParams.get("desc"))
+        document.getElementById("input-description").value = decodeURIComponent(searchParams.get("desc"))
     }
 }
 
@@ -532,9 +532,9 @@ function saveStateToURL() {
     }
 
     if (searchParams.has("desc")) {
-        searchParams.set("desc", encodeURIComponent(document.getElementById("input-description").innerHTML))
+        searchParams.set("desc", encodeURIComponent(document.getElementById("input-description").value))
     } else {
-        searchParams.append("desc",  encodeURIComponent(document.getElementById("input-description").innerHTML))
+        searchParams.append("desc",  encodeURIComponent(document.getElementById("input-description").value))
     }
 
     updateURLParams() 
