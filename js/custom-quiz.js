@@ -584,7 +584,7 @@ function submitQuizToShare() {
         showCancelButton: true,
     }).then((result) => {
         if (result.isConfirmed) {
-            window.open(`/misc/submit-quiz?data=${btoa(shortenQuizURL())}`, '_blank').focus();
+            window.open(`/misc/submit-quiz?data=${btoa(window.location.search/*shortenQuizURL()*/)}`, '_blank').focus();
         }
     })
 }
