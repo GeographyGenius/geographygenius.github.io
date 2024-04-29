@@ -18,7 +18,7 @@ async function requestData() {
         } else {
             title = baseTitle + " - Custom Quiz"
         }
-        listTable.innerHTML += `<tr><td><a href="${url}">${title}</a></td></tr>`
+        listTable.innerHTML += `<tr><td><a class="a-list" href="${url}">${title}</a></td></tr>`
     }
 
     listTable.hidden = false
