@@ -1,7 +1,6 @@
-window.onload = setup()
-
 let searchParams = new URLSearchParams(window.location.search)
 
+setup()
 function setup() {
     if (!(searchParams.has("url"))) {
         window.location.href = "/"
