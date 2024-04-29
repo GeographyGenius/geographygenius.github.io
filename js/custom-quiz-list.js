@@ -10,6 +10,9 @@ async function requestData() {
     let url
     for (let i = 0; i < quizList.length; i++) {
         url = quizList[i]
-        listTable.innerHTML += `<tr><td>${`<a href="${url}">Link to Quiz</a>`}</td></tr>`
+        listTable.innerHTML += `<tr><td><a href="${url}">${url.indexOf()}</a></td></tr>`
     }
+
+    listTable.hidden = false
+    document.getElementById("fetching-data").hidden = true
 }
