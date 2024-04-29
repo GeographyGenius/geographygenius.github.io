@@ -1,4 +1,5 @@
 // window.onload = setup()
+setTimeout(() => {setup()}, 200);
 
 function setup() {
     let searchParams = new URLSearchParams(window.location.search)
