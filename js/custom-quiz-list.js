@@ -14,11 +14,10 @@ async function requestData() {
         var searchParams = new URLSearchParams(url.slice(url.indexOf("?")))
         if (searchParams.has("title")) {
             title = searchParams.get("title")
-            title = title.slice(0, title.length - 2)
         } else {
             title = toTitleCase(searchParams.get("quiz").replaceAll("-", " "))
         }
-        listTable.innerHTML += `<tr><td><a href="${url}">${title})}</a></td></tr>`
+        listTable.innerHTML += `<tr><td><a href="${url}">${title}</a></td></tr>`
     }
 
     listTable.hidden = false
