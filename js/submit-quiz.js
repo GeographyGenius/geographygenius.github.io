@@ -1,4 +1,4 @@
-window.onload = setup()
+// window.onload = setup()
 
 function setup() {
     let searchParams = new URLSearchParams(window.location.search)
