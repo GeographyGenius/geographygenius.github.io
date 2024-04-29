@@ -426,6 +426,31 @@ function saveCustom() {
     setTimeout(() => {actuallySaveCustomQuiz()}, 100);
 }
 
+function shortenQuizURL() {
+    saveStateToURL()
+    let finalString
+    finalString = window.location.href
+    finalString = finalString.replaceAll("customize-quiz", "quiz")
+    let backupString = structuredClone(finalString)
+    let response
+    try {
+        response = httpGet(`https://tinyurl.com/api-create.php?url=${finalString}`)
+    }
+    catch(err) {
+        httpResponseStatus = 500
+    }
+    if (!(httpResponseStatus == 200)) {
+        console.log("Error")
+        return finalString
+    } else {
+        console.log(httpResponseStatus)
+        response = response.slice(20)
+
+        finalString = "https://" + window.location.hostname + "/q/" + response
+        return finalString
+    }
+}
+
 function actuallySaveCustomQuiz() {
     // let countries = document.getElementsByClassName("country-checkbox")
     // let encodedString = ""
@@ -559,7 +584,7 @@ function submitQuizToShare() {
         showCancelButton: true,
     }).then((result) => {
         if (result.isConfirmed) {
-            window.open(`/misc/submit-quiz?data=${btoa(window.location.search)}`, '_blank').focus();
+            window.open(`/misc/submit-quiz?data=${btoa(shortenQuizURL())}`, '_blank').focus();
         }
     })
 }
