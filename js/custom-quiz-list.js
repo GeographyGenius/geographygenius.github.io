@@ -12,10 +12,11 @@ async function requestData() {
     for (let i = 0; i < quizList.length; i++) {
         url = quizList[i]
         var searchParams = new URLSearchParams(url.slice(url.indexOf("?")))
+        let baseTitle = toTitleCase(searchParams.get("quiz").replaceAll("-", " "))
         if (searchParams.has("title")) {
-            title = searchParams.get("title")
+            title = baseTitle + " - " + searchParams.get("title")
         } else {
-            title = toTitleCase(searchParams.get("quiz").replaceAll("-", " "))
+            title = baseTitle + " - Custom Quiz"
         }
         listTable.innerHTML += `<tr><td><a href="${url}">${title}</a></td></tr>`
     }
