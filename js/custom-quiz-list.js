@@ -8,9 +8,16 @@ async function requestData() {
 
     let listTable = document.getElementById("quiz-list-table")
     let url
+    let title
     for (let i = 0; i < quizList.length; i++) {
         url = quizList[i]
-        listTable.innerHTML += `<tr><td><a href="${url}">${url.indexOf()}</a></td></tr>`
+        var searchParams = new URLSearchParams(url.slice(url.indexOf("?")))
+        if (searchParams.has("title")) {
+            title = searchParams.get("title")
+        } else {
+            title = toTitleCase(searchParams.get("quiz").replaceAll("-", " "))
+        }
+        listTable.innerHTML += `<tr><td><a href="${url}">${title})}</a></td></tr>`
     }
 
     listTable.hidden = false
