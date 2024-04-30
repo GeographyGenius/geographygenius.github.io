@@ -23,4 +23,5 @@ async function requestData() {
 
     listTable.hidden = false
     document.getElementById("fetching-data").hidden = true
+    document.getElementById("custom-quizzes-footer").hidden = false
 }
