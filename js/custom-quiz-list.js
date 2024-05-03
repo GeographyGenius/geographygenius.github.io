@@ -1,27 +1,32 @@
 window.onload = requestData()
 
 async function requestData() {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbw7N1XKrFFc2BkPEZCHa43luCCD0vCprS5QcRbQ1UFv5oSXHaD43GFXTYvQXGfFNxsCbA/exec?action=getlist")
-    let quizList = await response.json()
-    quizList = quizList.urlList
-    console.log(`Quiz list: ${quizList}`)
+    try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbw7N1XKrFFc2BkPEZCHa43luCCD0vCprS5QcRbQ1UFv5oSXHaD43GFXTYvQXGfFNxsCbA/exec?action=getlist")
+        let quizList = await response.json()
+        quizList = quizList.urlList
+        console.log(`Quiz list: ${quizList}`)
 
-    let listTable = document.getElementById("quiz-list-table")
-    let url
-    let title
-    for (let i = 0; i < quizList.length; i++) {
-        url = quizList[i]
-        var searchParams = new URLSearchParams(url.slice(url.indexOf("?")))
-        let baseTitle = toTitleCase(searchParams.get("quiz").replaceAll("-", " "))
-        if (searchParams.has("title")) {
-            title = baseTitle + " - " + searchParams.get("title")
-        } else {
-            title = baseTitle + " - Custom Quiz"
+        let listTable = document.getElementById("quiz-list-table")
+        let url
+        let title
+        for (let i = 0; i < quizList.length; i++) {
+            url = quizList[i]
+            var searchParams = new URLSearchParams(url.slice(url.indexOf("?")))
+            let baseTitle = toTitleCase(searchParams.get("quiz").replaceAll("-", " "))
+            if (searchParams.has("title")) {
+                title = baseTitle + " - " + searchParams.get("title")
+            } else {
+                title = baseTitle + " - Custom Quiz"
+            }
+            listTable.innerHTML += `<tr><td><a class="a-list" href="${url}">${title}</a></td></tr>`
         }
-        listTable.innerHTML += `<tr><td><a class="a-list" href="${url}">${title}</a></td></tr>`
-    }
 
-    listTable.hidden = false
-    document.getElementById("fetching-data").hidden = true
-    document.getElementById("custom-quizzes-footer").hidden = false
+        listTable.hidden = false
+        document.getElementById("fetching-data").hidden = true
+        document.getElementById("custom-quizzes-footer").hidden = false
+    }
+    catch {
+        document.getElementById("fetching-data").innerHTML = "Failed to load custom quizzes - Check back later"
+    }
 }
