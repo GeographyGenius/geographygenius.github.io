@@ -2,7 +2,7 @@ window.onload = requestData()
 
 async function requestData() {
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbw7N1XKrFFc2BkPEZCHa43luCCD0vCprS5QcRbQ1UFv5oSXHaD43GFXTYvQXGfFNxsCbA/exec?action=getlist")
+        const response = await fetch("https://script.google.com/macros/s/AKfycbyB0uZhfFaNyIQIsxz1KhxvyOE7ooXlWp4GVpZOljasiKOm2rGI7cxSuS0FFZqArX1E_w/exec?action=getlist")
         let quizList = await response.json()
         quizList = quizList.urlList
         console.log(`Quiz list: ${quizList}`)
