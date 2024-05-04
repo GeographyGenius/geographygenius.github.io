@@ -162,3 +162,7 @@ function httpGet(theUrl)
 	httpResponseStatus = xmlHttp.status
     return xmlHttp.responseText;
 }
+
+if (window.location.pathanme = "/") {
+	window.location.href = "/home"
+}
