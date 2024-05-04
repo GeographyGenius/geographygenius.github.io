@@ -77,6 +77,14 @@ function setupData() {
 
 function mapLoaded() {
     console.log("map loaded")
+
+    // update title
+    let displayQuizName = structuredClone(quizName)
+    displayQuizName = displayQuizName.replaceAll("-",  " ")
+    displayQuizName = toTitleCase(displayQuizName)
+    document.getElementById("base-title").innerHTML = displayQuizName + ": "
+    document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
+
     let fancyInnerHTML = ""
     let dataMaphilight
     let extraStyles
@@ -229,13 +237,7 @@ function loadFromJSON(url) {
         // // let imageURL = "/images/maps/" + quizName + ".png"
         // document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
 
-        let displayQuizName = structuredClone(quizName)
-        displayQuizName = displayQuizName.replaceAll("-",  " ")
-        displayQuizName = toTitleCase(displayQuizName)
-        document.getElementById("base-title").innerHTML = displayQuizName + ": "
         addTitleAndDescription()
-        // console.log("quiz name fancy: " + displayQuizName)
-        document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
         document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
         document.getElementById("message-box").innerHTML = "Customize Quiz - " + displayQuizName
         // mapLoaded() // img does it instead
