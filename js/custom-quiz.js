@@ -77,13 +77,14 @@ function setupData() {
 
 function mapLoaded() {
     console.log("map loaded")
-
-    // update title
+    
     let displayQuizName = structuredClone(quizName)
     displayQuizName = displayQuizName.replaceAll("-",  " ")
     displayQuizName = toTitleCase(displayQuizName)
     document.getElementById("base-title").innerHTML = displayQuizName + ": "
+    // console.log("quiz name fancy: " + displayQuizName)
     document.getElementsByTagName("title")[0].text = "Customize Quiz - " + displayQuizName + " - Geography Genius"; // update page title
+    document.getElementById("message-box").innerHTML = "Customize Quiz - " + displayQuizName
 
     let fancyInnerHTML = ""
     let dataMaphilight
@@ -239,7 +240,6 @@ function loadFromJSON(url) {
 
         addTitleAndDescription()
         document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
-        document.getElementById("message-box").innerHTML = "Customize Quiz - " + displayQuizName
         // mapLoaded() // img does it instead
     })
 
