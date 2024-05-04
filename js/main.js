@@ -163,6 +163,6 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
-if (window.location.pathanme = "/") {
-	window.location.href = "/home"
-}
+// if (window.location.pathanme = "/") {
+// 	window.location.href = "/home"
+// }
