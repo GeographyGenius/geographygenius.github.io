@@ -80,6 +80,14 @@ function finishSetup() {
 
 function mapLoaded() {
     console.log("map loaded")
+
+    let displayQuizName = structuredClone(quizName)
+    displayQuizName = displayQuizName.replaceAll("-",  " ")
+    displayQuizName = toTitleCase(displayQuizName)
+    // console.log("quiz name fancy: " + displayQuizName)
+    document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
+    document.getElementById("quiz-name").innerHTML = displayQuizName + " Quiz" // update quiz title on page
+
     let fancyInnerHTML = ""
     let dataMaphilight
     let extraStyles
@@ -166,13 +174,6 @@ function loadFromJSON(url) {
         let imageURL = "/images/maps/" + loadedData.info.imgUrl
         // let imageURL = "/images/maps/" + quizName + ".png"
         document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
-
-        let displayQuizName = structuredClone(quizName)
-        displayQuizName = displayQuizName.replaceAll("-",  " ")
-        displayQuizName = toTitleCase(displayQuizName)
-        // console.log("quiz name fancy: " + displayQuizName)
-        document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
-        document.getElementById("quiz-name").innerHTML = displayQuizName + " Quiz" // update quiz title on page
     })
 
     .fail(function() {
