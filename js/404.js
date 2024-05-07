@@ -2,11 +2,7 @@ if (window.location.pathname.includes("/q/")) {
     document.getElementsByTagName("title")[0].innerHTML = "Redirecting..."
     document.getElementById("redirect-message").hidden = false
     let redirectURL = "https://tinyurl.com/" + window.location.pathname.slice(3)
-    if (redirectURL.length = 20) {
-        location.href = "/404"
-    } else {
-        location.href = redirectURL
-    }
+    location.href = redirectURL
     // try {
     //     let response = httpGet(redirectURL)
     //     if (response.includes("Geography Genius - Quiz") && response.includes("Loading quiz...")) {
