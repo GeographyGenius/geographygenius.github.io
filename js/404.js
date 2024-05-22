@@ -1,8 +1,13 @@
 if (window.location.pathname.includes("/q/")) {
     document.getElementsByTagName("title")[0].innerHTML = "Redirecting..."
     document.getElementById("redirect-message").hidden = false
-    let redirectURL = "https://tinyurl.com/" + window.location.pathname.slice(3)
-    location.href = redirectURL
+    tinyurl_id = window.location.pathname.slice(3)
+    if (tinyurl_id == "") {
+        window.location.href = "/404"
+    } else {
+        let redirectURL = "https://tinyurl.com/" + tinyurl_id
+        location.href = redirectURL
+    }
     // try {
     //     let response = httpGet(redirectURL)
     //     if (response.includes("Geography Genius - Quiz") && response.includes("Loading quiz...")) {
