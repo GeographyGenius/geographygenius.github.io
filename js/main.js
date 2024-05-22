@@ -10,7 +10,7 @@ function goToUrl(url) {
 }
 
 function goToQuiz(quiz) {
-	location.href = "/geography/quiz.html?quiz=" + quiz
+	location.href = "/geography/quiz?quiz=" + quiz
 }
 
 // function getElement(element) {               // USELESS!!11!
