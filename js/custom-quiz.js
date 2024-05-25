@@ -552,16 +552,16 @@ function saveStateToURL() {
         }
     }
 
-    if (parseInt(saveString) + 0 == 0) {
+    if (Math.round(parseInt(saveString)) == 0) {
         if (searchParams.has("custom")) {
             searchParams.delete("custom")
         }
-    }
-
-    if (searchParams.has("custom")) {
-        searchParams.set("custom", binaryToBase64(saveString))
     } else {
-        searchParams.append("custom", binaryToBase64(saveString))
+        if (searchParams.has("custom")) {
+            searchParams.set("custom", binaryToBase64(saveString))
+        } else {
+            searchParams.append("custom", binaryToBase64(saveString))
+        }
     }
 
     if (searchParams.has("title")) {
