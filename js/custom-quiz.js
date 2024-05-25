@@ -552,6 +552,12 @@ function saveStateToURL() {
         }
     }
 
+    if (parseInt(saveString) + 0 == 0) {
+        if (searchParams.has("custom")) {
+            searchParams.delete("custom")
+        }
+    }
+
     if (searchParams.has("custom")) {
         searchParams.set("custom", binaryToBase64(saveString))
     } else {
