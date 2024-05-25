@@ -15,7 +15,7 @@ async function requestData() {
             var searchParams = new URLSearchParams(url.slice(url.indexOf("?")))
             let baseTitle = toTitleCase(searchParams.get("q").replaceAll("-", " "))
             if (searchParams.has("t")) {
-                title = baseTitle + " - " + searchParams.get("t")
+                title = baseTitle + " - " + atob(searchParams.get("t"))
             } else {
                 title = baseTitle + " - Custom Quiz"
             }
