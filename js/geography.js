@@ -99,8 +99,8 @@ function mapLoaded() {
     }
 
     let customQuizDesc = ""
-    if (searchParams.has("desc")) {
-        customQuizDesc = decodeURIComponent(searchParams.get("desc"))
+    if (searchParams.has("d")) {
+        customQuizDesc = decodeURIComponent(searchParams.get("d"))
     }
 
     if (!(customQuizDesc == "")) {

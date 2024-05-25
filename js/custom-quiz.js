@@ -266,8 +266,8 @@ function addTitleAndDescription() {
     if (searchParams.has("t")) {
         document.getElementById("input-title").value = decodeURIComponent(searchParams.get("t"))
     }
-    if (searchParams.has("desc")) {
-        document.getElementById("input-description").value = decodeURIComponent(searchParams.get("desc"))
+    if (searchParams.has("d")) {
+        document.getElementById("input-description").value = decodeURIComponent(searchParams.get("d"))
     }
 }
 
@@ -578,15 +578,15 @@ function saveStateToURL() {
     }
 
     if ((document.getElementById("input-description").value) == "") {
-        if (searchParams.has("desc")) {
-            searchParams.delete("desc")
+        if (searchParams.has("d")) {
+            searchParams.delete("d")
         }
     }
-    if (searchParams.has("desc")) {
-        searchParams.set("desc", encodeURIComponent(document.getElementById("input-description").value))
+    if (searchParams.has("d")) {
+        searchParams.set("d", encodeURIComponent(document.getElementById("input-description").value))
     } else {
         if (!(document.getElementById("input-description").value) == "") {
-            searchParams.append("desc",  encodeURIComponent(document.getElementById("input-description").value))
+            searchParams.append("d",  encodeURIComponent(document.getElementById("input-description").value))
         }
     }
 
