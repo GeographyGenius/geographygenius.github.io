@@ -168,5 +168,5 @@ function httpGet(theUrl)
 // }
 
 function decode3encode(str) {
-	return encodeURIComponent(decodeURIComponent(decodeURIComponent(decodeURIComponent(str))))
+	return decodeURIComponent(decodeURIComponent(decodeURIComponent(str)))
 }
