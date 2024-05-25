@@ -164,8 +164,11 @@ function mapLoaded() {
         event.target.value = event.target.value.replace(/[\r\n\v]+/g, '')
     }
       
-      document.querySelectorAll('textarea').forEach(el => {
+    document.querySelectorAll('textarea').forEach(el => {
         el.addEventListener('keydown', constrainInput)
+    })
+    document.querySelectorAll('textarea').forEach(el => {
+        el.addEventListener('keyup', constrainInput)
     })
 
 }
@@ -553,6 +556,7 @@ function loadState(data) {
 }
 
 function saveStateToURL() {
+    constrainInput(document.getElementById("input-description"))
     let saveString = ""
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
