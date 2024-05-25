@@ -286,10 +286,22 @@ function loadFromJSON(url) {
 
 function addTitleAndDescription() {
     if (searchParams.has("t")) {
-        document.getElementById("input-title").value = atob(searchParams.get("t"))
+        try {
+            document.getElementById("input-title").value = atob(encodeURIComponent(searchParams.get("t")))
+        }
+        catch {
+            console.log("Error - failed to decode quiz title with atob")
+            document.getElementById("input-title").value = "[Invalid Quiz Title]"
+        }
     }
     if (searchParams.has("d")) {
-        document.getElementById("input-description").value = atob(searchParams.get("d"))
+        try {
+            document.getElementById("input-description").value = atob(encodeURIComponent(searchParams.get("d")))
+        }
+        catch {
+            console.log("Error - failed to decode quiz description with atob")
+            document.getElementById("input-description").value = "[Invalid Quiz Description]"
+        }
     }
 }
 
