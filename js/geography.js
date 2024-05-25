@@ -104,7 +104,8 @@ function mapLoaded() {
     }
 
     if (!(customQuizDesc == "")) {
-        document.getElementById("quiz-desc").innerText = "Quiz Description:\n\n" + customQuizDesc
+        document.getElementById("quiz-desc").innerText = customQuizDesc
+        document.getElementById("quiz-desc-wrapper").hidden = false
     }
 
     let fancyInnerHTML = ""
