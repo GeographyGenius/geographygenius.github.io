@@ -263,7 +263,7 @@ function loadFromJSON(url) {
 }
 
 function addTitleAndDescription() {
-    if (searchParams.has("title")) {
+    if (searchParams.has("t")) {
         document.getElementById("input-title").value = decodeURIComponent(searchParams.get("title"))
     }
     if (searchParams.has("desc")) {
@@ -565,15 +565,15 @@ function saveStateToURL() {
     }
 
     if ((document.getElementById("input-title").value) == "") {
-        if (searchParams.has("title")) {
-            searchParams.delete("title")
+        if (searchParams.has("t")) {
+            searchParams.delete("t")
         }
     }
-    if (searchParams.has("title")) {
-        searchParams.set("title", encodeURIComponent(document.getElementById("input-title").value))
+    if (searchParams.has("t")) {
+        searchParams.set("t", encodeURIComponent(document.getElementById("input-title").value))
     } else {
         if (!(document.getElementById("input-title").value) == "") {
-            searchParams.append("title",  encodeURIComponent(document.getElementById("input-title").value))
+            searchParams.append("t",  encodeURIComponent(document.getElementById("input-title").value))
         }
     }
 

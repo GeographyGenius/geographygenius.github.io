@@ -88,7 +88,7 @@ function mapLoaded() {
     document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
     
     let customQuizName = ""
-    if (searchParams.has("title")) {
+    if (searchParams.has("t")) {
         customQuizName = decodeURIComponent(searchParams.get("title"))
     }
 
