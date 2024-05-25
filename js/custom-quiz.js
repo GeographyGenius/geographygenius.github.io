@@ -157,6 +157,10 @@ function mapLoaded() {
     // });
     // })
 
+    $('input-description').on('keyup', function(){
+        $(this).val($(this).val().replace(/[\r\n\v]+/g, ''));
+    });
+
 }
 
 function finishSetup() {
