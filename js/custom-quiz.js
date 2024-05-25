@@ -160,7 +160,7 @@ function mapLoaded() {
     // $('input-description').on('keyup', function(){
     //     $(this).val($(this).val().replace(/[\r\n\v]+/g, ''));
     // });
-    
+
     // constrainInput = (event) => { 
     //     event.target.value = event.target.value.replace(/[\r\n\v]+/g, '')
     // }
@@ -593,7 +593,7 @@ function saveStateToURL() {
         }
     }
     if (searchParams.has("t")) {
-        searchParams.set("t", bota(document.getElementById("input-title").value))
+        searchParams.set("t", btoa(document.getElementById("input-title").value))
     } else {
         if (!(document.getElementById("input-title").value) == "") {
             searchParams.append("t", btoa(document.getElementById("input-title").value))
