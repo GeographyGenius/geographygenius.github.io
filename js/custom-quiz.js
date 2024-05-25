@@ -165,7 +165,7 @@ function mapLoaded() {
     }
       
       document.querySelectorAll('textarea').forEach(el => {
-        el.addEventListener('keyup', constrainInput)
+        el.addEventListener('keydown', constrainInput)
     })
 
 }
