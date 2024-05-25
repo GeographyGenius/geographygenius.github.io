@@ -90,11 +90,11 @@ function mapLoaded() {
     let customQuizName = ""
     if (searchParams.has("t")) {
         try {
-            customQuizName = atob(decodeURIComponent(searchParams.get("t")))
+            customQuizName = atob(searchParams.get("t"))
         }
         catch {
             console.log("Error - failed to decode quiz name with atob")
-            customQuizName = "[Invalid Quiz Name]"
+            customQuizName = "[Invalid Quiz Title]"
         }
     }
 
@@ -107,7 +107,7 @@ function mapLoaded() {
     let customQuizDesc = ""
     if (searchParams.has("d")) {
         try {
-            customQuizDesc = atob(decodeURIComponent(searchParams.get("d")))
+            customQuizDesc = atob(searchParams.get("d"))
         }
         catch {
             console.log("Error - failed to decode quiz description with atob")
