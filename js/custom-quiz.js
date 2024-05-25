@@ -569,6 +569,8 @@ function saveStateToURL() {
     } else {
         if (!(document.getElementById("input-title").value) == "") {
             searchParams.append("title",  encodeURIComponent(document.getElementById("input-title").value))
+        } else {
+            searchParams.delete("title")
         }
     }
 
@@ -577,6 +579,8 @@ function saveStateToURL() {
     } else {
         if (!(document.getElementById("input-description").value) == "") {
             searchParams.append("desc",  encodeURIComponent(document.getElementById("input-description").value))
+        } else {
+            searchParams.delete("desc")
         }
     }
 
