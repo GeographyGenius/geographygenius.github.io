@@ -50,8 +50,8 @@ function setupData() {
                     "europe-capitals",
                     ]
     searchParams = new URLSearchParams(window.location.search);
-    quizName = searchParams.get("quiz")
-    if (!searchParams.has("quiz")) { // if invalid url, redirect to home
+    quizName = searchParams.get("q")
+    if (!searchParams.has("q")) { // if invalid url, redirect to home
         location.href = "/"
     }
     const urlToLoad = "/js/json/" + quizName + ".json"
@@ -114,9 +114,9 @@ function mapLoaded() {
     let fancyInnerHTML = ""
     let dataMaphilight
     let extraStyles
-    if (searchParams.has("custom")) {
+    if (searchParams.has("c")) {
         isCustomQuiz = true
-        excludeData = base64ToBinary(searchParams.get("custom"), fullCountryList.length)
+        excludeData = base64ToBinary(searchParams.get("c"), fullCountryList.length)
     } else {
         isCustomQuiz = false
     }

@@ -13,7 +13,7 @@ async function requestData() {
         for (let i = 0; i < quizList.length; i++) {
             url = quizList[i]
             var searchParams = new URLSearchParams(url.slice(url.indexOf("?")))
-            let baseTitle = toTitleCase(searchParams.get("quiz").replaceAll("-", " "))
+            let baseTitle = toTitleCase(searchParams.get("q").replaceAll("-", " "))
             if (searchParams.has("t")) {
                 title = baseTitle + " - " + searchParams.get("t")
             } else {

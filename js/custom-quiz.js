@@ -49,8 +49,8 @@ function setupData() {
                     "europe-capitals",
                     ]
     searchParams = new URLSearchParams(window.location.search);
-    quizName = searchParams.get("quiz")
-    if (!searchParams.has("quiz")) { // if invalid url, redirect to home
+    quizName = searchParams.get("q")
+    if (!searchParams.has("q")) { // if invalid url, redirect to home
         location.href = "/"
     }
     const urlToLoad = "/js/json/" + quizName + ".json"
@@ -89,9 +89,9 @@ function mapLoaded() {
     let fancyInnerHTML = ""
     let dataMaphilight
     let extraStyles
-    if (searchParams.has("custom")) {
+    if (searchParams.has("c")) {
         isCustomQuiz = true
-        excludeData = base64ToBinary(searchParams.get("custom"), fullCountryList.length)
+        excludeData = base64ToBinary(searchParams.get("c"), fullCountryList.length)
     // } else {
     //     isCustomQuiz = false
     // }
@@ -553,14 +553,14 @@ function saveStateToURL() {
     }
 
     if (Math.round(parseInt(saveString)) == 0) {
-        if (searchParams.has("custom")) {
-            searchParams.delete("custom")
+        if (searchParams.has("c")) {
+            searchParams.delete("c")
         }
     } else {
-        if (searchParams.has("custom")) {
-            searchParams.set("custom", binaryToBase64(saveString))
+        if (searchParams.has("c")) {
+            searchParams.set("c", binaryToBase64(saveString))
         } else {
-            searchParams.append("custom", binaryToBase64(saveString))
+            searchParams.append("c", binaryToBase64(saveString))
         }
     }
 
