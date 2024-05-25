@@ -170,3 +170,5 @@ function httpGet(theUrl)
 function decode3encode(str) {
 	return decodeURIComponent(decodeURIComponent(decodeURIComponent(str)))
 }
+
+var stringRegex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;

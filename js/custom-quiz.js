@@ -287,7 +287,7 @@ function loadFromJSON(url) {
 function addTitleAndDescription() {
     if (searchParams.has("t")) {
         try {
-            document.getElementById("input-title").value = atob(encodeURIComponent(searchParams.get("t")))
+            document.getElementById("input-title").value = atob(searchParams.get("t"))
         }
         catch {
             console.log("Error - failed to decode quiz title with atob")
@@ -296,7 +296,7 @@ function addTitleAndDescription() {
     }
     if (searchParams.has("d")) {
         try {
-            document.getElementById("input-description").value = atob(encodeURIComponent(searchParams.get("d")))
+            document.getElementById("input-description").value = atob(searchParams.get("d"))
         }
         catch {
             console.log("Error - failed to decode quiz description with atob")
