@@ -173,6 +173,11 @@ function mapLoaded() {
 
 }
 
+function constrainInputV2(el) {
+    el = el.replace(/[\r\n\v]+/g, '')
+    return
+}
+
 function finishSetup() {
     // console.log("running...")
     if (!(excludeData == "")) {
@@ -556,7 +561,7 @@ function loadState(data) {
 }
 
 function saveStateToURL() {
-    constrainInput(document.getElementById("input-description"))
+    constrainInputV2(document.getElementById("input-description"))
     let saveString = ""
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
