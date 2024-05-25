@@ -104,8 +104,11 @@ function mapLoaded() {
     }
 
     if (!(customQuizDesc == "")) {
+        let descPieces = document.getElementsByClassName("gg-q-desc")
+        descPieces[0].hidden = false
+        descPieces[1].hidden = false
+        descPieces[2].hidden = false
         document.getElementById("quiz-desc").innerText = customQuizDesc
-        document.getElementById("quiz-desc-wrapper").hidden = false
     }
 
     let fancyInnerHTML = ""
