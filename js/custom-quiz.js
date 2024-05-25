@@ -564,23 +564,29 @@ function saveStateToURL() {
         }
     }
 
+    if ((document.getElementById("input-title").value) == "") {
+        if (searchParams.has("title")) {
+            searchParams.delete("title")
+        }
+    }
     if (searchParams.has("title")) {
         searchParams.set("title", encodeURIComponent(document.getElementById("input-title").value))
     } else {
         if (!(document.getElementById("input-title").value) == "") {
             searchParams.append("title",  encodeURIComponent(document.getElementById("input-title").value))
-        } else {
-            searchParams.delete("title")
         }
     }
 
+    if ((document.getElementById("input-description").value) == "") {
+        if (searchParams.has("desc")) {
+            searchParams.delete("desc")
+        }
+    }
     if (searchParams.has("desc")) {
         searchParams.set("desc", encodeURIComponent(document.getElementById("input-description").value))
     } else {
         if (!(document.getElementById("input-description").value) == "") {
             searchParams.append("desc",  encodeURIComponent(document.getElementById("input-description").value))
-        } else {
-            searchParams.delete("desc")
         }
     }
 
