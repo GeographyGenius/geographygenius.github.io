@@ -174,7 +174,9 @@ function mapLoaded() {
 }
 
 function constrainInputV2(el) {
-    el = el.value.replace(/[\r\n\v]+/g, '')
+    el = el.value.replaceAll("\r", "")
+    el = el.value.replaceAll("\n", "")
+    el = el.value.replaceAll("\v", "")
     return
 }
 
