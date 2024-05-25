@@ -89,7 +89,7 @@ function mapLoaded() {
     
     let customQuizName = ""
     if (searchParams.has("t")) {
-        customQuizName = decodeURIComponent(searchParams.get("t"))
+        customQuizName = atob(decodeURIComponent(searchParams.get("t")))
     }
 
     if (!(customQuizName == "")) {
@@ -100,7 +100,7 @@ function mapLoaded() {
 
     let customQuizDesc = ""
     if (searchParams.has("d")) {
-        customQuizDesc = decodeURIComponent(searchParams.get("d"))
+        customQuizDesc = atob(decodeURIComponent(searchParams.get("d")))
     }
 
     if (!(customQuizDesc == "")) {
