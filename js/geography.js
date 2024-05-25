@@ -89,7 +89,7 @@ function mapLoaded() {
     
     let customQuizName = ""
     if (searchParams.has("t")) {
-        customQuizName = decodeURIComponent(searchParams.get("title"))
+        customQuizName = decodeURIComponent(searchParams.get("t"))
     }
 
     if (!(customQuizName == "")) {

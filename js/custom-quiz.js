@@ -264,7 +264,7 @@ function loadFromJSON(url) {
 
 function addTitleAndDescription() {
     if (searchParams.has("t")) {
-        document.getElementById("input-title").value = decodeURIComponent(searchParams.get("title"))
+        document.getElementById("input-title").value = decodeURIComponent(searchParams.get("t"))
     }
     if (searchParams.has("desc")) {
         document.getElementById("input-description").value = decodeURIComponent(searchParams.get("desc"))
