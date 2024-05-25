@@ -166,3 +166,7 @@ function httpGet(theUrl)
 // if (window.location.pathanme = "/") {
 // 	window.location.href = "/home"
 // }
+
+function decode3encode(str) {
+	return encodeURIComponent(decodeURIComponent(decodeURIComponent(decodeURIComponent(str))))
+}

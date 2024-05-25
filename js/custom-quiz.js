@@ -570,10 +570,10 @@ function saveStateToURL() {
         }
     }
     if (searchParams.has("t")) {
-        searchParams.set("t", encodeURIComponent(document.getElementById("input-title").value))
+        searchParams.set("t", decode3encode(document.getElementById("input-title").value))
     } else {
         if (!(document.getElementById("input-title").value) == "") {
-            searchParams.append("t",  encodeURIComponent(document.getElementById("input-title").value))
+            searchParams.append("t",  decode3encode(document.getElementById("input-title").value))
         }
     }
 
@@ -583,10 +583,10 @@ function saveStateToURL() {
         }
     }
     if (searchParams.has("d")) {
-        searchParams.set("d", encodeURIComponent(document.getElementById("input-description").value))
+        searchParams.set("d", decode3encode(document.getElementById("input-description").value))
     } else {
         if (!(document.getElementById("input-description").value) == "") {
-            searchParams.append("d",  encodeURIComponent(document.getElementById("input-description").value))
+            searchParams.append("d",  decode3encode(document.getElementById("input-description").value))
         }
     }
 
