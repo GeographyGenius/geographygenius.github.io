@@ -132,9 +132,9 @@ function mapLoaded() {
         for (let count = 0, displayName; count < 28 && i < fullCountryList.length; i++, count++) {
             displayName = fullCountryList[i]
 
-            if (doCapitals == true) {
-                displayName = calcCapitalFromCountry(displayName)
-            }
+            // if (doCapitals == true) { // removed temperarily
+                // displayName = calcCapitalFromCountry(displayName)
+            // }
 
             checkboxesString += `<input type="checkbox" id="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" class="country-checkbox" name="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(fullCountryList[i])}">\n<label for="${spaceToHyphen(fullCountryList[i]) + "-checkbox"}"> ${displayName}</label><br>\n`
         }

@@ -86,7 +86,26 @@ function mapLoaded() {
     displayQuizName = toTitleCase(displayQuizName)
     // console.log("quiz name fancy: " + displayQuizName)
     document.getElementsByTagName("title")[0].text = displayQuizName + " - Geography Genius"; // update page title
-    document.getElementById("quiz-name").innerHTML = displayQuizName + " Quiz" // update quiz title on page
+    
+    let customQuizName = ""
+    if (searchParams.has("title")) {
+        customQuizName = decodeURIComponent(searchParams.get("title"))
+    }
+
+    if (!(customQuizName == "")) {
+        document.getElementById("quiz-name").innerText = displayQuizName + " - " + customQuizName
+    } else {
+        document.getElementById("quiz-name").innerHTML = displayQuizName + " Quiz" // update quiz title on page
+    }
+
+    let customQuizDesc = ""
+    if (searchParams.has("desc")) {
+        customQuizDesc = decodeURIComponent(searchParams.get("desc"))
+    }
+
+    if (!(customQuizDesc == "")) {
+        document.getElementById("quiz-desc").innerText = "Quiz Description:\n\n" + customQuizDesc
+    }
 
     let fancyInnerHTML = ""
     let dataMaphilight
