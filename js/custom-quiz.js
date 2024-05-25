@@ -285,10 +285,10 @@ function loadFromJSON(url) {
 
 function addTitleAndDescription() {
     if (searchParams.has("t")) {
-        document.getElementById("input-title").value = decodeURIComponent(searchParams.get("t"))
+        document.getElementById("input-title").value = atob(searchParams.get("t"))
     }
     if (searchParams.has("d")) {
-        document.getElementById("input-description").value = decodeURIComponent(searchParams.get("d"))
+        document.getElementById("input-description").value = atob(searchParams.get("d"))
     }
 }
 
@@ -563,7 +563,7 @@ function loadState(data) {
 }
 
 function saveStateToURL() {
-    constrainInputV2(document.getElementById("input-description"))
+    // constrainInputV2(document.getElementById("input-description"))
     let saveString = ""
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
@@ -592,10 +592,10 @@ function saveStateToURL() {
         }
     }
     if (searchParams.has("t")) {
-        searchParams.set("t", decode3encode(document.getElementById("input-title").value))
+        searchParams.set("t", bota(document.getElementById("input-title").value))
     } else {
         if (!(document.getElementById("input-title").value) == "") {
-            searchParams.append("t",  decode3encode(document.getElementById("input-title").value))
+            searchParams.append("t", btoa(document.getElementById("input-title").value))
         }
     }
 
@@ -605,10 +605,10 @@ function saveStateToURL() {
         }
     }
     if (searchParams.has("d")) {
-        searchParams.set("d", decode3encode(document.getElementById("input-description").value))
+        searchParams.set("d", btoa(document.getElementById("input-description").value))
     } else {
         if (!(document.getElementById("input-description").value) == "") {
-            searchParams.append("d",  decode3encode(document.getElementById("input-description").value))
+            searchParams.append("d", btoa(document.getElementById("input-description").value))
         }
     }
 
