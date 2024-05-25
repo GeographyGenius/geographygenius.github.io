@@ -89,7 +89,13 @@ function mapLoaded() {
     
     let customQuizName = ""
     if (searchParams.has("t")) {
-        customQuizName = atob(decodeURIComponent(searchParams.get("t")))
+        try {
+            customQuizName = atob(decodeURIComponent(searchParams.get("t")))
+        }
+        catch {
+            console.log("Error - failed to decode quiz name with atob")
+            customQuizName = "[Invalid Quiz Name]"
+        }
     }
 
     if (!(customQuizName == "")) {
@@ -100,8 +106,14 @@ function mapLoaded() {
 
     let customQuizDesc = ""
     if (searchParams.has("d")) {
-        customQuizDesc = atob(decodeURIComponent(searchParams.get("d")))
-    }
+        try {
+            customQuizDesc = atob(decodeURIComponent(searchParams.get("d")))
+        }
+        catch {
+            console.log("Error - failed to decode quiz description with atob")
+            customQuizDesc = "[Invalid Quiz Description]"
+        }
+    }    
 
     if (!(customQuizDesc == "")) {
         let descPieces = document.getElementsByClassName("gg-q-desc")
