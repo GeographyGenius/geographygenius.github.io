@@ -157,9 +157,16 @@ function mapLoaded() {
     // });
     // })
 
-    $('input-description').on('keyup', function(){
-        $(this).val($(this).val().replace(/[\r\n\v]+/g, ''));
-    });
+    // $('input-description').on('keyup', function(){
+    //     $(this).val($(this).val().replace(/[\r\n\v]+/g, ''));
+    // });
+    constrainInput = (event) => { 
+        event.target.value = event.target.value.replace(/[\r\n\v]+/g, '')
+    }
+      
+      document.querySelectorAll('textarea').forEach(el => {
+        el.addEventListener('keyup', constrainInput)
+    })
 
 }
 
