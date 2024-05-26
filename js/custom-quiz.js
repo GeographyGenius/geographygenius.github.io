@@ -582,7 +582,7 @@ function loadState(data) {
 function saveStateToURL() {
     // constrainInputV2(document.getElementById("input-description"))
     let saveString = ""
-    for (let i = 0; i < countries.length; i++) {
+    for (let i = 0; i < fullCountryList.length; i++) {
         saveString += "0"
     }
 
