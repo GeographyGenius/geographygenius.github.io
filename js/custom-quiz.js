@@ -582,12 +582,20 @@ function loadState(data) {
 function saveStateToURL() {
     // constrainInputV2(document.getElementById("input-description"))
     let saveString = ""
+    for (let i = 0; i < countries.length; i++) {
+        saveString += "0"
+    }
+
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
+        let cIndex = fullCountryList.indexOf(countries[i].value)
+
         if (countries[i].checked == true) {
-            saveString += "0"
+            // saveString += "0"
+            saveString = saveString.replaceAt(cIndex, "0")
         } else {
-            saveString += "1"
+            // saveString += "1"
+            saveString = saveString.replaceAt(cIndex, "1")
         }
     }
 

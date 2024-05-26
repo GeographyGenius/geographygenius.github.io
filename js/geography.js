@@ -141,12 +141,12 @@ function mapLoaded() {
         isCustomQuiz = false
     }
 
-    let sortedCountryList = structuredClone(fullCountryList)
-    sortedCountryList.sort()
+    // let sortedCountryList = structuredClone(fullCountryList)
+    // sortedCountryList.sort()
 
     for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
         if (isCustomQuiz) {
-            if (excludeData.charAt(sortedCountryList.indexOf(countryData[i].countryName)) == "1") {
+            if (excludeData.charAt(fullCountryList.indexOf(countryData[i].countryName)) == "1") {
                 dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.1,\"alwaysOn\":true}'";
                 extraStyles = 'style="cursor:default" '
                 
