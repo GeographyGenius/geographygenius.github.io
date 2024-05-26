@@ -130,7 +130,7 @@ function mapLoaded() {
     let checkboxesString = ""
     let i = 0
     let sortedCountryList = structuredClone(fullCountryList)
-    // sortedCountryList.sort() //remove sorting
+    sortedCountryList.sort() //remove sorting
     while (i < sortedCountryList.length) {
         checkboxesString += '<td valign="top" style="font-size:small;" min-width="200px" width="230px">'
         for (let count = 0, displayName; count < 28 && i < sortedCountryList.length; i++, count++) {
@@ -140,7 +140,7 @@ function mapLoaded() {
                 // displayName = calcCapitalFromCountry(displayName)
             // }
 
-            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" class="country-checkbox" name="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(sortedCountryList[i])}">\n<label for="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}"> ${displayName}</label><br>\n`
+            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" class="country-checkbox" name="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" unsortedIndex="${fullCountryList.indexOf(sortedCountryList[i])}" value="${spaceToHyphen(sortedCountryList[i])}">\n<label for="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}"> ${displayName}</label><br>\n`
         }
         checkboxesString += "</td>"
     }
@@ -588,6 +588,7 @@ function saveStateToURL() {
 
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
+        console.log(countries[i].unsortedIndex)
         // let cIndex = fullCountryList.indexOf(countries[i].value)
 
         if (countries[i].checked == true) {
