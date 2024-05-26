@@ -130,7 +130,7 @@ function mapLoaded() {
     let checkboxesString = ""
     let i = 0
     let sortedCountryList = structuredClone(fullCountryList)
-    sortedCountryList.sort()
+    // sortedCountryList.sort() //remove sorting
     while (i < sortedCountryList.length) {
         checkboxesString += '<td valign="top" style="font-size:small;" min-width="200px" width="230px">'
         for (let count = 0, displayName; count < 28 && i < sortedCountryList.length; i++, count++) {
@@ -582,20 +582,20 @@ function loadState(data) {
 function saveStateToURL() {
     // constrainInputV2(document.getElementById("input-description"))
     let saveString = ""
-    for (let i = 0; i < fullCountryList.length; i++) {
-        saveString += "0"
-    }
+    // for (let i = 0; i < fullCountryList.length; i++) {
+        // saveString += "0"
+    // }
 
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
-        let cIndex = fullCountryList.indexOf(countries[i].value)
+        // let cIndex = fullCountryList.indexOf(countries[i].value)
 
         if (countries[i].checked == true) {
-            // saveString += "0"
-            saveString = saveString.replaceAt(cIndex, "0")
+            saveString += "0"
+            // saveString = saveString.replaceAt(cIndex, "0")
         } else {
-            // saveString += "1"
-            saveString = saveString.replaceAt(cIndex, "1")
+            saveString += "1"
+            // saveString = saveString.replaceAt(cIndex, "1")
         }
     }
 
