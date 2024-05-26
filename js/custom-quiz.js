@@ -230,6 +230,7 @@ function loadFromJSON(url) {
         loadedData = data
         questionList = loadedData.countryList
         fullCountryList = structuredClone(questionList)
+        fullCountryList.sort()
         if (loadedData.info.capitals == "true") {
             doCapitals = true
             capitalList = loadedData.capitalList
