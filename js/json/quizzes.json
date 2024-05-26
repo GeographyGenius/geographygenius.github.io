@@ -1,0 +1,16 @@
+{
+    "quizList": [
+        "africa-countries", 
+        "africa-capitals", 
+        "south-america-countries", 
+        "south-america-captials",
+        "north-america-countries",
+        "north-america-capitals",
+        "central-america-countries",
+        "central-america-capitals",
+        "europe-countries",
+        "europe-capitals",
+        "middle-east-countries",
+        "middle-east-capitals"
+    ]
+}

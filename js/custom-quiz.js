@@ -47,13 +47,15 @@ function setupData() {
                     "central-america-capitals",
                     "europe-countries",
                     "europe-capitals",
+                    "middle-east-countries",
+                    "middle-east-capitals"
                     ]
     searchParams = new URLSearchParams(window.location.search);
     quizName = searchParams.get("q")
     if (!searchParams.has("q")) { // if invalid url, redirect to home
         location.href = "/"
     }
-    const urlToLoad = "/js/json/" + quizName + ".json"
+    const urlToLoad = "/js/json/maps/" + quizName + ".json"
     loadFromJSON(urlToLoad)
     }
 
