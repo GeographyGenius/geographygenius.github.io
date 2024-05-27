@@ -94,6 +94,7 @@ function mapLoaded() {
     if (searchParams.has("c")) {
         isCustomQuiz = true
         excludeData = base64ToBinary(searchParams.get("c"), fullCountryList.length)
+        print(excludeData)
     // } else {
     //     isCustomQuiz = false
     // }
@@ -130,7 +131,7 @@ function mapLoaded() {
     let checkboxesString = ""
     let i = 0
     let sortedCountryList = structuredClone(fullCountryList)
-    sortedCountryList.sort() //remove sorting
+    sortedCountryList.sort() // sorting
     while (i < sortedCountryList.length) {
         checkboxesString += '<td valign="top" style="font-size:small;" min-width="200px" width="230px">'
         for (let count = 0, displayName; count < 28 && i < sortedCountryList.length; i++, count++) {
@@ -588,8 +589,8 @@ function saveStateToURL() {
 
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
-        console.log(countries[i])
         let cIndex = fullCountryList.indexOf(countries[i].value)
+        console.log(countries[i].value + " - " + cIndex)
 
         if (countries[i].checked == true) {
             saveString += "0"
