@@ -172,6 +172,7 @@ function mapLoaded() {
     document.getElementById("quiz-ui").hidden = false
     document.getElementById("quiz-footer").hidden = false // so footter isn't visible during loading
     document.getElementById("ui").hidden = false
+    document.getElementById("green-circle-click").hidden = false
     finishSetup()
 
     $(function(){
