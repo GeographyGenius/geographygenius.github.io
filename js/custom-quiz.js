@@ -94,7 +94,7 @@ function mapLoaded() {
     if (searchParams.has("c")) {
         isCustomQuiz = true
         excludeData = base64ToBinary(searchParams.get("c"), fullCountryList.length)
-        print(excludeData)
+        console.log(excludeData)
     // } else {
     //     isCustomQuiz = false
     // }
