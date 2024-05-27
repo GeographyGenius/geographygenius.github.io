@@ -566,6 +566,9 @@ function copyQuizURL() {
 
 function loadState(data) {
     // console.log(data)
+    let sortedList = structuredClone(fullCountryList)
+    sortedList.sort()
+
     let countries = document.getElementsByClassName("country-checkbox")
     let isChecked
     // console.log(countries)
@@ -576,7 +579,7 @@ function loadState(data) {
             isChecked = false
         }
         // console.log(data[i], isChecked)
-        countries[i].checked = isChecked
+        countries[sortedList.indexOf((countries[i].value).replaceAll("_", " "))].checked = isChecked
     }
 }
 
