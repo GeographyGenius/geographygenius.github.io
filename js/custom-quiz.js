@@ -589,7 +589,7 @@ function saveStateToURL() {
 
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
-        let cIndex = fullCountryList.indexOf((countries[i].value).replaceAll("_", ""))
+        let cIndex = fullCountryList.indexOf((countries[i].value).replaceAll("_", " "))
         console.log(countries[i].value + " - " + cIndex)
 
         if (countries[i].checked == true) {
