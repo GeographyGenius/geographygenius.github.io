@@ -659,7 +659,7 @@ function playQuiz() {
 function submitQuizToShare() {
     Sweetalert2.fire({
         title: 'Submit this quiz',
-        html: `<span>Submit this quiz to be added to be added to the <link rel="/geography/custom-quizzes"> custom quiz list.`,
+        html: `<span>Submit this quiz to be added to be added to the <a href="/geography/custom-quizzes">custom quiz list.</a>`,
         icon: "info",
         confirmButtonText: 'Submit',
         showCancelButton: true,
