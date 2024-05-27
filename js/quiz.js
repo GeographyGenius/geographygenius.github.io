@@ -447,8 +447,8 @@ async function shareThisQuiz() {
     finalString = window.location.href
     let backupString = structuredClone(finalString)
 
-    let response = await fetch(`https://tinyurl.com/api-create.php?url=${finalString}`)
-    response = response.text()
+    let response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(finalString)}`)
+    response = await response.text()
     response = response.slice(20)
     finalString = "https://" + window.location.hostname + "/q/" + response
 
