@@ -671,7 +671,7 @@ function submitQuizToShare() {
     })
 }
 
-function inverseSelection() {
+function invertSelection() {
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
         countries[i].checked = !true
