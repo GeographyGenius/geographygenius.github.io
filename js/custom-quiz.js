@@ -593,10 +593,10 @@ function saveStateToURL() {
         console.log(countries[i].value + " - " + cIndex)
 
         if (countries[i].checked == true) {
-            saveString += "0"
+            // saveString += "0"
             saveString = saveString.replaceAt(cIndex, "0")
         } else {
-            saveString += "1"
+            // saveString += "1"
             saveString = saveString.replaceAt(cIndex, "1")
         }
     }
