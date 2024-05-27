@@ -37,20 +37,22 @@ function setupData() {
 
     correctGuesses = 0
     incorrectGuesses = 0
-    possibleQuizzes = [  // possible quizzes
-                    "africa-countries", 
-                    "africa-capitals", 
-                    "south-america-countries", 
-                    "south-america-captials",
-                    "north-america-countries",
-                    "north-america-capitals",
-                    "central-america-countries",
-                    "central-america-capitals",
-                    "europe-countries",
-                    "europe-capitals",
-                    "middle-east-countries",
-                    "middle-east-capitals"
-                    ]
+
+    // loadPossibleQuizList()
+    // possibleQuizzes = [  // possible quizzes
+    //                 "africa-countries", 
+    //                 "africa-capitals", 
+    //                 "south-america-countries", 
+    //                 "south-america-captials",
+    //                 "north-america-countries",
+    //                 "north-america-capitals",
+    //                 "central-america-countries",
+    //                 "central-america-capitals",
+    //                 "europe-countries",
+    //                 "europe-capitals",
+    //                 "middle-east-countries",
+    //                 "middle-east-capitals"
+    //                 ]
     searchParams = new URLSearchParams(window.location.search);
     quizName = searchParams.get("q")
     if (!searchParams.has("q")) { // if invalid url, redirect to home
@@ -225,12 +227,12 @@ function loadFromJSON(url) {
     })
 
     .fail(function() {
-        console.log("JSON request failed - quiz failed to load.");
-        if (!possibleQuizzes.includes(quizName)) {
-            var failText = "404 - Quiz not found"
-        } else {
-            var failText = "Hm, it looks like the quiz failed to load. Reload the page, or try again later?"
-        }
+        console.error("JSON request failed - quiz failed to load.");
+        // if (!possibleQuizzes.includes(quizName)) {
+            // var failText = "404 - Quiz not found"
+        // } else {
+        var failText = "Hm, it looks like the quiz failed to load. It might not exist. Reload the page, or try again later."
+        // }
         document.getElementById("quiz-name").innerHTML = failText;
         // document.getElementsByClassName("map")[0].remove()
     })
