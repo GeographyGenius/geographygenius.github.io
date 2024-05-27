@@ -140,7 +140,7 @@ function mapLoaded() {
                 // displayName = calcCapitalFromCountry(displayName)
             // }
 
-            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" class="country-checkbox" name="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" unsortedIndex="${fullCountryList.indexOf(sortedCountryList[i])}" value="${spaceToHyphen(sortedCountryList[i])}">\n<label for="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}"> ${displayName}</label><br>\n`
+            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" class="country-checkbox" name="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(sortedCountryList[i])}">\n<label for="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}"> ${displayName}</label><br>\n`
         }
         checkboxesString += "</td>"
     }
@@ -582,21 +582,21 @@ function loadState(data) {
 function saveStateToURL() {
     // constrainInputV2(document.getElementById("input-description"))
     let saveString = ""
-    // for (let i = 0; i < fullCountryList.length; i++) {
-        // saveString += "0"
-    // }
+    for (let i = 0; i < fullCountryList.length; i++) {
+        saveString += "0"
+    }
 
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
-        console.log(countries[i].unsortedIndex)
-        // let cIndex = fullCountryList.indexOf(countries[i].value)
+        console.log(countries[i])
+        let cIndex = fullCountryList.indexOf(countries[i].value)
 
         if (countries[i].checked == true) {
             saveString += "0"
-            // saveString = saveString.replaceAt(cIndex, "0")
+            saveString = saveString.replaceAt(cIndex, "0")
         } else {
             saveString += "1"
-            // saveString = saveString.replaceAt(cIndex, "1")
+            saveString = saveString.replaceAt(cIndex, "1")
         }
     }
 
