@@ -581,7 +581,7 @@ function loadState(data) {
         // console.log(data[i], isChecked)
         let name = (countries[i].value).replaceAll("_", " ")
         let index = sortedList.indexOf(name)
-        print("name & index: " + name + ", " + index)
+        console.log("name & index: " + name + ", " + index)
         countries[index].checked = isChecked
     }
 }
