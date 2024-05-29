@@ -56,7 +56,17 @@ function setupData() {
     searchParams = new URLSearchParams(window.location.search);
     quizName = searchParams.get("q")
     if (!searchParams.has("q")) { // if invalid url, redirect to home
-        location.href = "/"
+        if (searchParams.has("quiz")) {
+            let tempQuiz = searchParams.get("quiz")
+            searchParams.delete("quiz")
+            searchParams.set("q", tempQuiz)
+
+            var newurl = window.location.protocol + "//" + window.location.host + "/geography/quiz?" + searchParams.toString();
+            window.history.pushState({path:newurl},'',newurl);
+            window.location.reload()
+        } else {
+            location.href = "/"
+        }
     }
     const urlToLoad = "/js/json/maps/" + quizName + ".json"
     loadFromJSON(urlToLoad)
