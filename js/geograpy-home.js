@@ -9,11 +9,13 @@ function getRandomQuiz() {
         $.getJSON("/js/json/maps/" + randomQuiz + ".json")
         .done(function(data) {
             let imgUrl = "/images/maps/" + data.info.imgUrl
-            let imgElement = document.createElement("img")
-            imgElement.src = imgUrl
+            // let imgElement = document.createElement("img")
+            // imgElement.src = imgUrl
+            let imgElement = `<img src=${imgUrl}>`
 
-            let infoElement = document.createElement("p")
-            infoElement.innerHTML = "Try out the " + randomQuizDisplay + " quiz!"
+            // let infoElement = document.createElement("p")
+            let infoElement = `<p>Try out the ${randomQuizDisplay} quiz!<p>`
+            // infoElement.innerHTML = "Try out the " + randomQuizDisplay + " quiz!"
 
             document.getElementById("random-quiz-container").innerHTML = infoElement + "<br>" + imgElement
 
