@@ -6,7 +6,7 @@ function getRandomQuiz() {
         let randomQuiz = data.quizList[Math.floor(Math.random()*data.quizList.length)]
         // console.log(randomQuiz)
         let randomQuizDisplay = toTitleCase(randomQuiz.replaceAll("-", " "))
-        $.getJSON("/js/json/maps/" + randomQuiz)
+        $.getJSON("/js/json/maps/" + randomQuiz + ".json")
         .done(function(data) {
             let imgUrl = "/images/maps/" + data.info.imgUrl
             let imgElement = document.createElement("img")
