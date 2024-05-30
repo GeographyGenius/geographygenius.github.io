@@ -3,7 +3,7 @@ window.onload = getRandomQuiz()
 function getRandomQuiz() {
     $.getJSON("/js/json/quizzes.json")
     .done(function(data) {
-        let randomQuiz = data.quizList[Math.floor(Math.random()*items.length)]
+        let randomQuiz = data.quizList[Math.floor(Math.random()*data.length)]
         let randomQuizDisplay = toTitleCase(randomQuiz.replaceAll("-", " "))
         $.getJSON("/js/json/maps/" + randomQuiz)
         .done(function(data) {
