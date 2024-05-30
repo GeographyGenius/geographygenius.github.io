@@ -252,19 +252,19 @@ function loadFromJSON(url) {
         let areaOfWorld = loadedData.info.area
         
         if(areaOfWorld == "Americas") {
-            headerLinks[1].classList = "h-a active"
-        }
-        if(areaOfWorld == "Africa") {
-            headerLinks[2].classList = "h-a active"
-        }
-        if(areaOfWorld == "Europe") {
             headerLinks[3].classList = "h-a active"
         }
-        if(areaOfWorld == "Asia") {
+        if(areaOfWorld == "Africa") {
             headerLinks[4].classList = "h-a active"
         }
-        if(areaOfWorld == "Oceania") {
+        if(areaOfWorld == "Europe") {
             headerLinks[5].classList = "h-a active"
+        }
+        if(areaOfWorld == "Asia") {
+            headerLinks[6].classList = "h-a active"
+        }
+        if(areaOfWorld == "Oceania") {
+            headerLinks[7].classList = "h-a active"
         }
 
         // let imageURL = "/images/maps/" + loadedData.info.imgUrl
