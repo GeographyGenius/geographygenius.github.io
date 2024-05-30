@@ -11,7 +11,7 @@ function getRandomQuiz() {
             let imgUrl = "/images/maps/" + data.info.imgUrl
             // let imgElement = document.createElement("img")
             // imgElement.src = imgUrl
-            let imgElement = `<img src=${imgUrl}>`
+            let imgElement = `<a href="${"/geography/quiz?q=" + randomQuiz}"><img width="350px" src=${imgUrl}></a>`
 
             // let infoElement = document.createElement("p")
             let infoElement = `<p>Try out the ${randomQuizDisplay} quiz!<p>`
