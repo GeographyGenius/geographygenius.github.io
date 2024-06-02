@@ -233,7 +233,9 @@ function loadFromJSON(url) {
 
         let imageURL = "/images/maps/" + loadedData.info.imgUrl
         // let imageURL = "/images/maps/" + quizName + ".png"
-        document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
+        setTimeout(function(){
+            document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
+        }, 300);
     })
 
     .fail(function() {
