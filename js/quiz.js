@@ -94,8 +94,8 @@ function finishSetup() {
 
 function mapLoaded() {
     console.log("map loaded")
-    document.getElementById("quiz-name").style.textAlign = "left"
-    document.getElementById("loading-spinner").hidden = true
+    // document.getElementById("quiz-name").style.textAlign = "left"
+    // document.getElementById("loading-spinner").hidden = true
 
     let displayQuizName = structuredClone(quizName)
     displayQuizName = displayQuizName.replaceAll("-",  " ")
