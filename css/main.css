@@ -141,12 +141,4 @@ footer {
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-  }
-
-.centered-spinner {
-    position: absolute;
-    left: 45%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }
