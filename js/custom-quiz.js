@@ -271,8 +271,10 @@ function loadFromJSON(url) {
         // // let imageURL = "/images/maps/" + quizName + ".png"
         // document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
 
+        setTimeout(function(){
         addTitleAndDescription()
         document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
+        }, 300);
         // mapLoaded() // img does it instead
     })
 
