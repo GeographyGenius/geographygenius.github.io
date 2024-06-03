@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 body {
-  font-family: Jost, Arial;
+  font-family: Plus Jakarta Sans, Arial;
   margin: 0;
   /* background-color:rgb(245, 252, 247); */
   background-image: linear-gradient(to top left, rgb(205, 243, 205), white);
@@ -98,7 +98,7 @@ body {
 body {
     /* font-family: "Raleway"; */
     /* font-family: "Jost", "Arial"; */
-    font-family: Roboto, Arial;
+    font-family: Plus Jakarta Sans, Arial;
     font-weight: 400;
 }
 
