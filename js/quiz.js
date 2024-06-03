@@ -246,6 +246,8 @@ function loadFromJSON(url) {
             // var failText = "404 - Quiz not found"
         // } else {
         var failText = "Hm, it looks like the quiz failed to load. It might not exist. Reload the page, or try again later."
+        document.getElementById("quiz-name").style.textAlign = "left"
+        document.getElementById("loading-spinner").hidden = true
         // }
         document.getElementById("quiz-name").innerHTML = failText;
         // document.getElementsByClassName("map")[0].remove()
