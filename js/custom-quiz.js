@@ -79,6 +79,9 @@ function setupData() {
 
 function mapLoaded() {
     console.log("map loaded")
+
+    document.getElementById("message-box").style.textAlign = "left"
+    document.getElementById("loading-spinner").hidden = true
     
     let displayQuizName = structuredClone(quizName)
     displayQuizName = displayQuizName.replaceAll("-",  " ")
