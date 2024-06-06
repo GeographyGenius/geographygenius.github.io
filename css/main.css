@@ -118,6 +118,14 @@ footer {
     margin: 3px;
 }
 
+.gg-button:hover {
+    border: 3px solid #5f988c;
+    color: black;
+    background-color: #abd28c;
+    padding: 5px;
+    margin: 3px;
+}
+
 .spinner {
     width: 64px;
     height: 64px;
