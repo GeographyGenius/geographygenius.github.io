@@ -8,9 +8,31 @@ if (window.location.pathname.includes("/q/")) {
         let redirectURL = "https://tinyurl.com/" + tinyurl_id
         location.href = redirectURL
     }
+    testURL()
+
+} else {
+    document.getElementById("actually-everything").hidden = false
+    document.getElementsByTagName("title")[0].innerHTML = "404 - Page Not Found - Geography Genius"
+}
+
+async function testURL() {
+    //get rid of this if it doesn't work
+    // try {
+    //     let response = httpGet(redirectURL)
+    //     if (response.includes("Geography Genius - Quiz") && response.includes("Loading quiz...")) {
+    //         window.location.href = redirectURL
+    //     } else {
+    //         window.location.href = "/404"
+    //     }
+    // }
+    // catch(err) {
+    //     console.log("Error - " + err)
+    //     window.location.href = "/404"
+    // }
     //get rid of this if it doesn't work
     try {
-        let response = httpGet(redirectURL)
+        let r = await fetch(redirectURL)
+        let response = r.text()
         if (response.includes("Geography Genius - Quiz") && response.includes("Loading quiz...")) {
             window.location.href = redirectURL
         } else {
@@ -21,8 +43,4 @@ if (window.location.pathname.includes("/q/")) {
         console.log("Error - " + err)
         window.location.href = "/404"
     }
-
-} else {
-    document.getElementById("actually-everything").hidden = false
-    document.getElementsByTagName("title")[0].innerHTML = "404 - Page Not Found - Geography Genius"
 }
