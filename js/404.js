@@ -32,7 +32,7 @@ async function testURL() {
     //get rid of this if it doesn't work
     try {
         let r = await fetch(redirectURL)
-        let response = r.text()
+        let response = await r.text()
         if (response.includes("Geography Genius - Quiz") && response.includes("Loading quiz...")) {
             window.location.href = redirectURL
         } else {
