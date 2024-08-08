@@ -6,9 +6,10 @@ if (window.location.pathname.includes("/q/")) {
         window.location.href = "/404"
     } else {
         let redirectURL = "https://tinyurl.com/" + tinyurl_id
-        location.href = redirectURL
+        testURL().then(function() {
+            location.href = redirectURL
+        })
     }
-    testURL()
 
 } else {
     document.getElementById("actually-everything").hidden = false
@@ -30,17 +31,17 @@ async function testURL() {
     //     window.location.href = "/404"
     // }
     //get rid of this if it doesn't work
-    try {
-        let r = await fetch(redirectURL)
-        let response = await r.text()
-        if (response.includes("Geography Genius - Quiz") && response.includes("Loading quiz...")) {
-            window.location.href = redirectURL
-        } else {
-            window.location.href = "/404"
-        }
-    }
-    catch(err) {
-        console.log("Error - " + err)
-        window.location.href = "/404"
-    }
+    // try {
+    //     let r = await fetch(redirectURL)
+    //     let response = await r.text()
+    //     if (response.includes("Geography Genius - Quiz") && response.includes("Loading quiz...")) {
+    //         window.location.href = redirectURL
+    //     } else {
+    //         window.location.href = "/404"
+    //     }
+    // }
+    // catch(err) {
+    //     console.log("Error - " + err)
+    //     window.location.href = "/404"
+    // }
 }
