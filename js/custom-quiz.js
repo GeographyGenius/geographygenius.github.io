@@ -277,7 +277,7 @@ function loadFromJSON(url) {
         setTimeout(function(){
         addTitleAndDescription()
         document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
-        }, 300);
+        }, 0);
         // mapLoaded() // img does it instead
     })
 

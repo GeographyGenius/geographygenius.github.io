@@ -237,7 +237,7 @@ function loadFromJSON(url) {
         // let imageURL = "/images/maps/" + quizName + ".png"
         setTimeout(function(){
             document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
-        }, 300);
+        }, 0);
     })
 
     .fail(function() {
