@@ -285,7 +285,7 @@ function isQuizOver() {
 }
 
 function removeOldCountryFromList(country) {
-    console.log("removing " + country)
+    // console.log("removing " + country)
     const index = gg.remainingQuestions.indexOf(country);
         if (index > -1) {
             gg.remainingQuestions.splice(index, 1);
