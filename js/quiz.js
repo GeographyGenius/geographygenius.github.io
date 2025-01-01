@@ -174,7 +174,7 @@ function mapLoaded() {
 
     // let sortedCountryList = structuredClone(fullCountryList)
     // sortedCountryList.sort()
-
+    console.log(gg.fullCountryList)
     let countryData = gg.loadedData.countryData
     for (let country of countryData) {
         if (gg.isCustomQuiz) {
@@ -313,7 +313,7 @@ function submitCountry(country) {
             if (gg.doCapitals) {
                 alert(calcCapitalFromCountry(country) + " is not part of this quiz.")
             } else {
-                alert(gg.country + " is not part of this quiz.")
+                alert(country + " is not part of this quiz.")
             }
             return
         }

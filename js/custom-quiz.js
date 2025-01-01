@@ -1,3 +1,5 @@
+// I haven't updated this code to be neater, so it's a bit... chaotic
+
 let questionList
 let capitalList
 let fullCountryList
@@ -20,6 +22,9 @@ let checkBoxes
 let binaryExcludeData
 let finalString
 let shortenedURL
+let actualCountryNames
+let areaNames
+let updateSave = true
 // const Swal = require('sweetalert2')
 
 window.onload = function() {
@@ -98,38 +103,47 @@ function mapLoaded() {
         isCustomQuiz = true
         excludeData = base64ToBinary(searchParams.get("c"), fullCountryList.length)
         console.log(excludeData)
-    // } else {
-    //     isCustomQuiz = false
-    // }
-    // for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
-    //     if (isCustomQuiz) {
-    //         if (excludeData.charAt(fullCountryList.indexOf(countryData[i].countryName)) == "1") {
-    //             dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.1,\"alwaysOn\":true}'";
-    //             extraStyles = 'style="cursor:default" '
-                
-    //             const index = questionList.indexOf(countryData[i].countryName);
-    //             if (index > -1) { // only splice array when item is found
-    //                 questionList.splice(index, 1); // 2nd parameter means remove one item only
-    //                 if (doCapitals) {
-    //                     capitalList.splice(index, 1);
-    //                 }
-    //             }
-    //         } else {
-    //             dataMaphilight = ""
-    //             extraStyles = ""
-    //         }
-    //     } else {
-    //         dataMaphilight = ""
-    //         extraStyles = ""
-    //     }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
-    //     let id
-    //     id = spaceToHyphen(countryData[i].countryName)
-    //     if (fancyInnerHTML.includes('"thing-' + id + '"')) {
-    //         id += "-2"
-    //     }
-    //     fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+
+
     } else {
+        isCustomQuiz = false
         excludeData = ""
+    }
+
+    console.log(fullCountryList)
+
+    for (let i = 0, countryData = loadedData.countryData; i < countryData.length; i++) {
+        if (isCustomQuiz) {
+            // console.log(excludeData, fullCountryList)
+            // if (excludeData.charAt(fullCountryList.indexOf(countryData[i].countryName)) == "1") {
+                dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"000000\",\"fillOpacity\":0.1,\"alwaysOn\":true}'";
+                extraStyles = 'style="cursor:default" '
+                
+                const index = questionList.indexOf(countryData[i].countryName);
+                if (index > -1) { // only splice array when item is found
+                    questionList.splice(index, 1); // 2nd parameter means remove one item only
+                    if (doCapitals) {
+                        capitalList.splice(index, 1);
+                    }
+                }
+            // } else {
+            //     dataMaphilight = ""
+            //     extraStyles = ""
+            // }
+        } else {
+            dataMaphilight = ""
+            extraStyles = ""
+        }//onclick="submitCountry(' + "'" + countryData[i].countryName + "'" + ')" no more onlick
+        let id
+        id = spaceToHyphen(countryData[i].countryName)
+        if (fancyInnerHTML.includes('"thing-' + id + '"')) {
+            id += "-2"
+        }
+        fancyInnerHTML = fancyInnerHTML + '<area shape="poly"' + ' id="thing-' + id + '" ' + dataMaphilight + ' ' + extraStyles + 'coords="' + countryData[i].countryCoords + '" />'
+    
+
+// } else {
+        // excludeData = ""
     }
     let checkboxesString = ""
     let i = 0
@@ -148,22 +162,29 @@ function mapLoaded() {
         }
         checkboxesString += "</td>"
     }
-    checkBoxes.innerHTML = checkboxesString
-    // document.getElementById("map-land").innerHTML = fancyInnerHTML
-    // generateHighlightJS() // add the highlighting
-    // setTimeout(() => {finishSetup()}, 200);
-    finishSetup()
-    // document.getElementById("main_map").hidden = false
-    
-    // finishSetup()
 
-    // $(function(){
-    // $('.map').maphilight({
-    //    fillColor: '000000',//'4ead45',//'fff4a1',
-    //    fillOpacity:0.1,
-    //    stroke:false,
-    // });
-    // })
+
+
+    // checkBoxes.innerHTML = checkboxesString
+
+
+
+    document.getElementById("map-land").innerHTML = fancyInnerHTML
+    generateHighlightJS() // add the highlighting
+    // setTimeout(() => {finishSetup()}, 200);
+    // finishSetup()
+    document.getElementById("main_map").hidden = false
+    
+    // console.log("exclude data: " + excludeData)
+    finishSetup()
+
+    $(function(){
+    $('.map').maphilight({
+       fillColor: '000000',//'4ead45',//'fff4a1',
+       fillOpacity:0.1,
+       stroke:false,
+    });
+    })
 
     // $('input-description').on('keyup', function(){
     //     $(this).val($(this).val().replace(/[\r\n\v]+/g, ''));
@@ -192,6 +213,7 @@ function constrainInputV2(el) {
 function finishSetup() {
     // console.log("running...")
     if (!(excludeData == "")) {
+        // console.log("loading state...")
         loadState(excludeData)
     } else {
         selectAllCountries()
@@ -206,8 +228,8 @@ function finishSetup() {
 }
 
 function generateHighlightJS() {
-    let areaNames = document.getElementsByTagName("area")
-    let actualCountryNames = []
+    areaNames = document.getElementsByTagName("area")
+    actualCountryNames = []
     for (let i = 0; i < areaNames.length; i++) {
         let id = areaNames[i].id
         actualCountryNames.push(id.slice(6))
@@ -227,7 +249,7 @@ function generateHighlightJS() {
     }
     code += "\n}"
     document.getElementById("country-scripts").innerHTML = code
-    // clickToggle()
+    clickToggle()
 }
 
 function loadFromJSON(url) {
@@ -236,6 +258,7 @@ function loadFromJSON(url) {
         loadedData = data
         questionList = loadedData.countryList
         fullCountryList = structuredClone(questionList)
+        console.log(fullCountryList)
         if (loadedData.info.capitals == "true") {
             doCapitals = true
             capitalList = loadedData.capitalList
@@ -270,13 +293,13 @@ function loadFromJSON(url) {
             headerLinks[7].classList = "h-a active"
         }
 
-        // let imageURL = "/images/maps/" + loadedData.info.imgUrl
-        // // let imageURL = "/images/maps/" + quizName + ".png"
-        // document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
+        let imageURL = "/images/maps/" + loadedData.info.imgUrl
+        // let imageURL = "/images/maps/" + quizName + ".png"
+        document.getElementById("cool-image").innerHTML = '<img id="main_map" hidden="true" src="' + imageURL + '" alt="" usemap="#map-area" class="map" onload="mapLoaded()"/>'
 
         setTimeout(function(){
         addTitleAndDescription()
-        document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
+        // document.getElementsByClassName("labeled-map")[0].innerHTML = `<img id="main_map" hidden="true" src="/images/maps/${imgUrlLabeled}.png" onload="mapLoaded()">`
         }, 0);
         // mapLoaded() // img does it instead
     })
@@ -450,15 +473,19 @@ function calcCapitalFromCountry(country) {
 }
 
 function setCountryVisible(countryNumber, value) {
-    let bit
-    if (value == true) {
-        bit = "1"
-    } else {
-        bit = "0"
+    if (updateSave) {
+        let bit
+        if (value == true) {
+            bit = "1"
+        } else {
+            bit = "0"
+        }
+        // console.log(value, bit, parseInt(countryNumber))
+        // binaryExcludeData = setCharAt(binaryExcludeData, fullCountryList[countryNumber], bit)
+        // console.log("changing " + )
+        binaryExcludeData = binaryExcludeData.replaceAt(fullCountryList.indexOf(actualCountryNames[countryNumber].replaceAll("_", " ")), bit)
+        // console.log(binaryExcludeData)
     }
-    console.log(value, bit, parseInt(countryNumber))
-    binaryExcludeData = setCharAt(binaryExcludeData, parseInt(countryNumber), bit)
-    console.log(binaryExcludeData)
 }
 
 function selectAllCountries() {
@@ -573,44 +600,69 @@ function copyQuizURL() {
 
 function loadState(data) {
     // console.log(data)
-    let sortedList = structuredClone(fullCountryList)
-    sortedList.sort()
+    // let sortedList = structuredClone(fullCountryList)
+    // sortedList.sort()
 
-    let countries = document.getElementsByClassName("country-checkbox")
-    let isChecked
-    // console.log(countries)
-    for (let i = 0; i < countries.length; i++) {
+    // let countries = document.getElementsByClassName("country-checkbox")
+    // let isChecked
+    // // console.log(countries)
+    // for (let i = 0; i < countries.length; i++) {
+    //     if (data[i] == "0") {
+    //         isChecked = true
+    //     } else {
+    //         isChecked = false
+    //     }
+    //     let index = sortedList.indexOf(fullCountryList[i])
+    //     // console.log("name & index: " + name + ", " + index)
+    //     countries[index].checked = isChecked
+    // }
+
+    binaryExcludeData = excludeData
+
+    // console.log("---")
+    // console.log(data, actualCountryNames)
+    // for (let i = 0; i < actualCountryNames.length; i++) {
+    //     if (data[i] == "0") {
+    //         document.getElementById("thing-" + actualCountryNames[i]).click()
+    //         console.log("including " + actualCountryNames[i])
+    //     }
+    // }
+
+    updateSave = false
+
+    for (let i = 0; i < fullCountryList.length; i++) {
         if (data[i] == "0") {
-            isChecked = true
-        } else {
-            isChecked = false
+            document.getElementById("thing-" + spaceToHyphen(fullCountryList[i])).click()
+            console.log("including " + fullCountryList[i])
         }
-        let index = sortedList.indexOf(fullCountryList[i])
-        // console.log("name & index: " + name + ", " + index)
-        countries[index].checked = isChecked
     }
+
+    updateSave = true
+
 }
 
 function saveStateToURL() {
     // constrainInputV2(document.getElementById("input-description"))
-    let saveString = ""
-    for (let i = 0; i < fullCountryList.length; i++) {
-        saveString += "0"
-    }
+    // let saveString = ""
+    // for (let i = 0; i < fullCountryList.length; i++) {
+    //     saveString += "0"
+    // }
 
-    let countries = document.getElementsByClassName("country-checkbox")
-    for (let i = 0; i < countries.length; i++) {
-        let cIndex = fullCountryList.indexOf((countries[i].value).replaceAll("_", " "))
-        console.log(countries[i].value + " - " + cIndex)
+    // let countries = document.getElementsByClassName("country-checkbox")
+    // for (let i = 0; i < countries.length; i++) {
+    //     let cIndex = fullCountryList.indexOf((countries[i].value).replaceAll("_", " "))
+    //     console.log(countries[i].value + " - " + cIndex)
 
-        if (countries[i].checked == true) {
-            // saveString += "0"
-            saveString = saveString.replaceAt(cIndex, "0")
-        } else {
-            // saveString += "1"
-            saveString = saveString.replaceAt(cIndex, "1")
-        }
-    }
+    //     if (countries[i].checked == true) {
+    //         // saveString += "0"
+    //         saveString = saveString.replaceAt(cIndex, "0")
+    //     } else {
+    //         // saveString += "1"
+    //         saveString = saveString.replaceAt(cIndex, "1")
+    //     }
+    // }
+
+    saveString = binaryExcludeData
 
     if (Math.round(parseInt(saveString)) == 0) {
         if (searchParams.has("c")) {
@@ -654,7 +706,7 @@ function saveStateToURL() {
 }
 
 function updateURLParams() {
-    var newurl = window.location.protocol + "//" + window.location.host + "/geography/customize-quiz?" + searchParams.toString();
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + searchParams.toString();
     window.history.pushState({path:newurl},'',newurl);
 }
 

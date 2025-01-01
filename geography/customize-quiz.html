@@ -35,20 +35,23 @@
 <div class="everything" id="everything">
 <p id="message-box" style="font-size: large;text-align: center;">Loading...</p>
 <div id="ui-section" hidden="true">
+
 <!-- <div class="fade-in-everything">
 <div id="cool-image"></div>
 </div>
 <map name="map-area" id="map-land">Loading quiz...
 </map> -->
-<p id="text_box">Welcome to customizing a quiz on Geography Genius! Customizing a quiz means that you can remove places you don't want and only keep the ones you want. To start, click on checkboxes to include/exclude places from the quiz.</p>
+
+<!-- <p id="text_box">Welcome to customizing a quiz on Geography Genius! Customizing a quiz means that you can remove places you don't want and only keep the ones you want. To start, click on checkboxes to include/exclude places from the quiz.</p> -->
+<p id="text_box">Welcome to customizing a quiz on Geography Genius! Customizing a quiz means that you can remove places you don't want and only keep the ones you want. Click on the places you want or don't want to add or remove them from the quiz.<br><br>Pro tip: Places that are grayed out are not included in the quiz</p>
 <div class="buttons">
-<button type="button" class="gg-button" onclick="selectAllCountries()" alt="select all countries">Select All</button>
+<!-- <button type="button" class="gg-button" onclick="selectAllCountries()" alt="select all countries">Select All</button>
 <button type="button" class="gg-button" onclick="deselectAllCountries()" alt="deselect all countries">Deselect All</button>
-<button type="button" class="gg-button" onclick="invertSelection()">Invert Selection</button>
-<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+<button type="button" class="gg-button" onclick="invertSelection()">Invert Selection</button> -->
 <button type="button" class="gg-button" onclick="saveCustom()" id="save-custom-quiz" alt="save and share this quiz">Save & Share</button>
 <button type="button" class="gg-button" onclick="submitQuizToShare()" id="submit-custom-quiz" alt="submit this quiz">Submit quiz to list</button>
-<br>
+<!-- <br> -->
+<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
 <button type="button" class="gg-button" onclick="playQuiz()" alt="switch to learning mode">Learning Mode</button>
 </div>
 
@@ -69,7 +72,16 @@
 </table>
 <div class="labeled-map"></div>
 </div>
+
+<div class="fade-in-everything">
+    <div id="cool-image"></div>
+    </div>
+    <map name="map-area" id="map-land">Loading quiz...
+    </map>
+
 </div>
+
+
 
 <div class="spinner centered-spinner-div" id="loading-spinner"></div>
 </div>
@@ -80,7 +92,7 @@
 <script src="/js/sweetalert2.min.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/custom-quiz.js"></script>
-<!-- <script id="country-scripts"></script> -->
+<script id="country-scripts"></script>
 
 <footer id="quiz-footer" hidden="true">
     <hr>
