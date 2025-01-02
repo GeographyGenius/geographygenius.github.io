@@ -158,14 +158,14 @@ function mapLoaded() {
                 // displayName = calcCapitalFromCountry(displayName)
             // }
 
-            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" class="country-checkbox" name="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(sortedCountryList[i])}">\n<label for="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}"> ${displayName}</label><br>\n`
+            checkboxesString += `<input type="checkbox" id="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" class="country-checkbox" name="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}" value="${spaceToHyphen(sortedCountryList[i])}" onchange="setCountryState('${spaceToHyphen(sortedCountryList[i])}', !this.checked)">\n<label for="${spaceToHyphen(sortedCountryList[i]) + "-checkbox"}"> ${displayName}</label><br>\n`
         }
         checkboxesString += "</td>"
     }
 
 
 
-    // checkBoxes.innerHTML = checkboxesString
+    checkBoxes.innerHTML = checkboxesString
 
 
 
@@ -234,22 +234,46 @@ function generateHighlightJS() {
         let id = areaNames[i].id
         actualCountryNames.push(id.slice(6))
     }
-    console.log(actualCountryNames)
-    let jsString
-    let code = "function clickToggle() {\n"
-    // for (let i = 0; i < fullCountryList.length; i++) { // old code
-    //     jsString = '$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,setCountryVisible("' + i + '", a.alwaysOn),$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
+    // console.log(actualCountryNames)
+    // let jsString
+    // let code = "function clickToggle() {\n"
+    // // for (let i = 0; i < fullCountryList.length; i++) { // old code
+    // //     jsString = '$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,setCountryVisible("' + i + '", a.alwaysOn),$("#thing-' + spaceToHyphen(fullCountryList[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
+    // //     // console.log(jsString)
+    // //     code += jsString
+    // // }
+    // for (let i = 0; i < actualCountryNames.length; i++) {
+    //     jsString = '$("#thing-' + spaceToHyphen(actualCountryNames[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(actualCountryNames[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,setCountryVisible("' + i + '", a.alwaysOn),$("#thing-' + spaceToHyphen(actualCountryNames[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
     //     // console.log(jsString)
     //     code += jsString
     // }
-    for (let i = 0; i < actualCountryNames.length; i++) {
-        jsString = '$("#thing-' + spaceToHyphen(actualCountryNames[i]) + '").click(function(a){a.preventDefault();a=$("#thing-' + spaceToHyphen(actualCountryNames[i]) + '").mouseout().data("maphilight")||{};a.alwaysOn=!a.alwaysOn,setCountryVisible("' + i + '", a.alwaysOn),$("#thing-' + spaceToHyphen(actualCountryNames[i]) + '").data("maphilight",a).trigger("alwaysOn.maphilight")});'
-        // console.log(jsString)
-        code += jsString
+    // code += "\n}"
+    // document.getElementById("country-scripts").innerHTML = code
+    // clickToggle()
+    for ([i, n] of actualCountryNames.entries()) {
+        // console.log(n)
+        let el = document.getElementById("thing-" + spaceToHyphen(n))
+        el.addEventListener("click", handleClick)
+        el.setAttribute("data-i", i)
+        // el.setAttribute("data-name", n)
     }
-    code += "\n}"
-    document.getElementById("country-scripts").innerHTML = code
-    clickToggle()
+}
+
+function handleClick() {
+    // console.log(this)
+    // e.preventDefault()
+    let a = $("#" + this.id).mouseout().data("maphilight")||{}
+    a.alwaysOn =! a.alwaysOn
+    setCountryVisible(this.dataset.i, a.alwaysOn)
+    $("#" + this.id).data("maphilight", a).trigger("alwaysOn.maphilight")
+}
+
+function setCountryState(country, state) {
+    let el = document.getElementById("thing-" + country)
+    let a = $("#thing-" + country).data("maphilight")||{}
+    a.alwaysOn = state
+    setCountryVisible(el.dataset.i, a.alwaysOn, false)
+    $("#thing-" + country).data("maphilight", a).trigger("alwaysOn.maphilight")
 }
 
 function loadFromJSON(url) {
@@ -322,7 +346,7 @@ function loadFromJSON(url) {
 function addTitleAndDescription() {
     if (searchParams.has("t")) {
         try {
-            document.getElementById("input-title").value = atob(searchParams.get("t"))
+            document.getElementById("input-title").value = base64ToBytes(searchParams.get("t"))
         }
         catch {
             console.log("Error - failed to decode quiz title with atob")
@@ -331,7 +355,7 @@ function addTitleAndDescription() {
     }
     if (searchParams.has("d")) {
         try {
-            document.getElementById("input-description").value = atob(searchParams.get("d"))
+            document.getElementById("input-description").value = base64ToBytes(searchParams.get("d"))
         }
         catch {
             console.log("Error - failed to decode quiz description with atob")
@@ -472,7 +496,7 @@ function calcCapitalFromCountry(country) {
     return(capitalList[questionList.indexOf(country)])
 }
 
-function setCountryVisible(countryNumber, value) {
+function setCountryVisible(countryNumber, value, updateCheckbox = true) {
     if (updateSave) {
         let bit
         if (value == true) {
@@ -480,11 +504,18 @@ function setCountryVisible(countryNumber, value) {
         } else {
             bit = "0"
         }
+        let index = fullCountryList.indexOf(actualCountryNames[countryNumber].replaceAll("_", " "))
+        if (updateCheckbox) {
+            let countries = document.getElementsByClassName("country-checkbox")
+            document.getElementById(spaceToHyphen(fullCountryList[index]) + "-checkbox").checked = (bit == 0) ? true : false
+        }
         // console.log(value, bit, parseInt(countryNumber))
         // binaryExcludeData = setCharAt(binaryExcludeData, fullCountryList[countryNumber], bit)
         // console.log("changing " + )
-        binaryExcludeData = binaryExcludeData.replaceAt(fullCountryList.indexOf(actualCountryNames[countryNumber].replaceAll("_", " ")), bit)
+        binaryExcludeData = binaryExcludeData.replaceAt(index, bit)
         // console.log(binaryExcludeData)
+
+        // saveStateToURL()
     }
 }
 
@@ -492,14 +523,18 @@ function selectAllCountries() {
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
         countries[i].checked = true
+        setCountryState(countries[i].id.replace("-checkbox", ""), false)
     }
+    saveStateToURL()
 }
 
 function deselectAllCountries() {
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
         countries[i].checked = false
+        setCountryState(countries[i].id.replace("-checkbox", ""), true)
     }
+    saveStateToURL()
 }
 
 function saveCustom() {
@@ -600,22 +635,22 @@ function copyQuizURL() {
 
 function loadState(data) {
     // console.log(data)
-    // let sortedList = structuredClone(fullCountryList)
-    // sortedList.sort()
+    let sortedList = structuredClone(fullCountryList)
+    sortedList.sort()
 
-    // let countries = document.getElementsByClassName("country-checkbox")
-    // let isChecked
-    // // console.log(countries)
-    // for (let i = 0; i < countries.length; i++) {
-    //     if (data[i] == "0") {
-    //         isChecked = true
-    //     } else {
-    //         isChecked = false
-    //     }
-    //     let index = sortedList.indexOf(fullCountryList[i])
-    //     // console.log("name & index: " + name + ", " + index)
-    //     countries[index].checked = isChecked
-    // }
+    let countries = document.getElementsByClassName("country-checkbox")
+    let isChecked
+    // console.log(countries)
+    for (let i = 0; i < countries.length; i++) {
+        if (data[i] == "0") {
+            isChecked = true
+        } else {
+            isChecked = false
+        }
+        let index = sortedList.indexOf(fullCountryList[i])
+        // console.log("name & index: " + name + ", " + index)
+        countries[index].checked = isChecked
+    }
 
     binaryExcludeData = excludeData
 
@@ -682,10 +717,10 @@ function saveStateToURL() {
         }
     }
     if (searchParams.has("t")) {
-        searchParams.set("t", btoa(document.getElementById("input-title").value))
+        searchParams.set("t", bytesToBase64(document.getElementById("input-title").value))
     } else {
         if (!(document.getElementById("input-title").value) == "") {
-            searchParams.append("t", btoa(document.getElementById("input-title").value))
+            searchParams.append("t", bytesToBase64(document.getElementById("input-title").value))
         }
     }
 
@@ -695,10 +730,10 @@ function saveStateToURL() {
         }
     }
     if (searchParams.has("d")) {
-        searchParams.set("d", btoa(document.getElementById("input-description").value))
+        searchParams.set("d", bytesToBase64(document.getElementById("input-description").value))
     } else {
         if (!(document.getElementById("input-description").value) == "") {
-            searchParams.append("d", btoa(document.getElementById("input-description").value))
+            searchParams.append("d", bytesToBase64(document.getElementById("input-description").value))
         }
     }
 
@@ -733,6 +768,8 @@ function submitQuizToShare() {
 function invertSelection() {
     let countries = document.getElementsByClassName("country-checkbox")
     for (let i = 0; i < countries.length; i++) {
-        countries[i].checked = !countries[i].checked
+        // countries[i].checked = !countries[i].checked
+        countries[i].click()
     }
+    saveStateToURL()
 }

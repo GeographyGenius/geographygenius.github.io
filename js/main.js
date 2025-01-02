@@ -176,3 +176,24 @@ var stringRegex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=)
 function openInNewTab(url) {
 	window.open(url, '_blank').focus();
 }
+
+// function b64encode(str) {
+//     return btoa(encodeURIComponent(str));
+// }
+// // Decode
+// function b64decode(str) {
+//     return decodeURIComponent(atob(str));
+// }
+
+function base64ToBytes(base64) {
+	const binString = atob(base64);
+	return new TextDecoder().decode(Uint8Array.from(binString, (m) => m.codePointAt(0)));
+}
+  
+function bytesToBase64(input) {
+	let bytes = new TextEncoder().encode(input)
+	const binString = Array.from(bytes, (byte) =>
+	  String.fromCodePoint(byte),
+	).join("");
+	return btoa(binString);
+}

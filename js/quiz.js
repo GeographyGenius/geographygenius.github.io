@@ -128,7 +128,7 @@ function mapLoaded() {
             customQuizName = "[Invalid Quiz Title]"
         } else {
             try {
-                customQuizName = atob(gg.searchParams.get("t"))
+                customQuizName = base64ToBytes(gg.searchParams.get("t"))
             }
             catch {
                 console.log("Error - failed to decode quiz title with atob")
@@ -146,7 +146,7 @@ function mapLoaded() {
     let customQuizDesc = ""
     if (gg.searchParams.has("d")) {
         try {
-            customQuizDesc = atob(gg.searchParams.get("d"))
+            customQuizDesc = base64ToBytes(gg.searchParams.get("d"))
         }
         catch {
             console.log("Error - failed to decode quiz description with atob")
