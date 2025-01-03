@@ -6,9 +6,7 @@ if (window.location.pathname.includes("/q/")) {
         window.location.href = "/404"
     } else {
         let redirectURL = "https://tinyurl.com/" + tinyurl_id
-        testURL(redirectURL).then(function() {
-            location.href = redirectURL
-        })
+        testURL(redirectURL)
     }
 
 } else {
