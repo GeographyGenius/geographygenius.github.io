@@ -6,7 +6,7 @@ if (window.location.pathname.includes("/q/")) {
         window.location.href = "/404"
     } else {
         let redirectURL = "https://tinyurl.com/" + tinyurl_id
-        testURL().then(function() {
+        testURL(redirectURL).then(function() {
             location.href = redirectURL
         })
     }
@@ -16,7 +16,7 @@ if (window.location.pathname.includes("/q/")) {
     document.getElementsByTagName("title")[0].innerHTML = "404 - Page Not Found - Geography Genius"
 }
 
-async function testURL() {
+async function testURL(redirectURL) {
     // get rid of this if it doesn't work
     // try {
     //     let response = httpGet(redirectURL)
