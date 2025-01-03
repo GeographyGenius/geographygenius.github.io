@@ -1,5 +1,6 @@
 let gg = {}
 gg.pointsPerQuestion = 4
+gg.vibrantMode = false
 
 window.onload = setupData
 
@@ -190,11 +191,21 @@ function mapLoaded() {
                     }
                 }
             } else {
-                dataMaphilight = ""
+                if (gg.vibrantMode) {
+                    let color = getRandomColor()
+                    dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"" + color + "\",\"fillOpacity\":0.2,\"alwaysOn\":true}'"
+                } else {
+                    dataMaphilight = ""
+                }
                 extraStyles = ""
             }
         } else {
-            dataMaphilight = ""
+            if (gg.vibrantMode) {
+                let color = getRandomColor()
+                dataMaphilight = "data-maphilight='{\"stroke\":false,\"fillColor\":\"" + color + "\",\"fillOpacity\":0.2,\"alwaysOn\":true}'"
+            } else {
+                dataMaphilight = ""
+            }
             extraStyles = ""
         }
         fancyInnerHTML += '<area onclick="submitCountry(' + "'" + country.countryName + "'" + ')" shape="poly"' + dataMaphilight + ' ' + extraStyles + 'coords="' + country.countryCoords + '" />'
