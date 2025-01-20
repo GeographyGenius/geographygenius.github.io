@@ -34,7 +34,7 @@ async function testURL(redirectURL) {
         if (new URL(r.url).host.includes("geographygenius")) {
         // let response = await r.text()
         // if (response.includes("Geography Genius - Quiz") && response.includes("Loading quiz...")) {
-            window.location.href = redirectURL
+            window.location.href = r.url
         } else {
             window.location.href = "/404"
         }
